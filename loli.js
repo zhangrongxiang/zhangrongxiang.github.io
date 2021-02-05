@@ -14,8 +14,8 @@ try {
                 dataType:"script",
                 cache:!0,
                 success:function() {
-                    live2d_settings.hitokotoAPI = "hitokoto.cn", live2d_settings.modelId = 1, live2d_settings.modelTexturesId = 81, live2d_settings.waifuEdgeSide = 'left:50',
-                    live2d_settings.modelStorage = !1, initModel("https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/live2d/assets/waifu-tips.json");
+                     live2d_settings.modelId = 1, live2d_settings.modelTexturesId = 81,
+                     initModel("https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/live2d/assets/waifu-tips.json");
                 }
             });
         }
