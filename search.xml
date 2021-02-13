@@ -220,22 +220,6 @@ w.to_file(&quot;pic.png&quot;)
       </tags>
   </entry>
   <entry>
-    <title>欧姆定律的理解</title>
-    <url>/2019/10/19/%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$I=\frac{U}{R}$$  </p>
-<a id="more"></a>
-<h1 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h1><p>$$U=IR$$<br>$$R=\frac{U}{I}$$  </p>
-<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>由(R=\frac{U}{I})得，导体的阻值在数值上等于导体两端电压与电流的比值。但是因为<strong>电阻是导体本身的一种性质</strong>。它的大小与导体本身材料、长度、横截面积与温度等因素决定。与电压和电流无关。因此<strong>它既不与<em>U</em>成正比，也不与<em>I</em>成反比</strong>。<br>单位必须使用国际单位。<em>U</em>的国际单位是V，<em>I</em>的国际单位是A，<em>R</em>的国际单位是Ω。</p>
-]]></content>
-      <categories>
-        <category>物理</category>
-      </categories>
-      <tags>
-        <tag>物理</tag>
-        <tag>电学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>柯西不等式及其应用</title>
     <url>/2020/12/13/%E6%9F%AF%E8%A5%BF%E4%B8%8D%E7%AD%89%E5%BC%8F%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>数学上，柯西-施瓦茨不等式，又称施瓦茨不等式或柯西-布尼亚科夫斯基-施瓦茨不等式，是一条很多场合都用得上的不等式.    </p>
@@ -252,6 +236,22 @@ w.to_file(&quot;pic.png&quot;)
         <tag>math</tag>
         <tag>不等式</tag>
         <tag>吹牛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欧姆定律的理解</title>
+    <url>/2019/10/19/%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$I=\frac{U}{R}$$  </p>
+<a id="more"></a>
+<h1 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h1><p>$$U=IR$$<br>$$R=\frac{U}{I}$$  </p>
+<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>由(R=\frac{U}{I})得，导体的阻值在数值上等于导体两端电压与电流的比值。但是因为<strong>电阻是导体本身的一种性质</strong>。它的大小与导体本身材料、长度、横截面积与温度等因素决定。与电压和电流无关。因此<strong>它既不与<em>U</em>成正比，也不与<em>I</em>成反比</strong>。<br>单位必须使用国际单位。<em>U</em>的国际单位是V，<em>I</em>的国际单位是A，<em>R</em>的国际单位是Ω。</p>
+]]></content>
+      <categories>
+        <category>物理</category>
+      </categories>
+      <tags>
+        <tag>物理</tag>
+        <tag>电学</tag>
       </tags>
   </entry>
   <entry>
