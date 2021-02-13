@@ -56,6 +56,30 @@ w.to_file(&quot;pic.png&quot;)
       </tags>
   </entry>
   <entry>
+    <title>【物理】电功与电功率（2）——方法与例题</title>
+    <url>/2019/12/12/%E3%80%90%E7%89%A9%E7%90%86%E3%80%91%E7%94%B5%E5%8A%9F%E4%B8%8E%E7%94%B5%E5%8A%9F%E7%8E%87%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E6%96%B9%E6%B3%95%E4%B8%8E%E4%BE%8B%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="到底几比几？！"><a href="#到底几比几？！" class="headerlink" title="到底几比几？！"></a>到底几比几？！</h1><p>电功这一章，比例题较为常见，也较为基础。<br>这类题的做法，是直接将比例化为分数，直接代入原公式。</p>
+<a id="more"></a>
+<p><strong>例</strong> 电阻之比为1:2的两个灯泡$L_1$、$L_2$串联接入电路，$P_1:P_2=?$。若并联，$P_1:P_2=?$  </p>
+<p><strong>解</strong> 串联时，电流相等。**已知电流和电阻，用$P=I^2R$**。<br>$$P=I^2R=1\times\frac{1}{2}=\frac{1}{2}。$$<br>即串联时，$P_1:P_2=1:2$。<br>并联时，电压相等。已知电压和电阻，用$P=\frac{U^2}{R}$。<br>$$P=\frac{U^2}{R}=\frac{1}{\frac{1}{2}}=2。$$<br>$∴并联时，P_1:P_2=2:1$。</p>
+<h2 id="偷懒公式"><a href="#偷懒公式" class="headerlink" title="偷懒公式"></a>偷懒公式</h2><p>事实上，关于比例题，有一些快捷方法，可以不必像上面那样麻烦。<br>对于电阻与电功率，有(比例均用分数表示):<br>串联中，<br>$$\frac{P_1}{P_2}=\frac{R_1}{R_2}$$<br>并联中，<br>$$\frac{P_1}{P_2}=\frac{R_2}{R_1}$$</p>
+<h1 id="电动机？电热器？"><a href="#电动机？电热器？" class="headerlink" title="电动机？电热器？"></a>电动机？电热器？</h1><p>对于电热器（包括定值电阻），电流做的功全部用来发热，所以热量$Q=W$。<br>但对于电动机来说，<strong>电流做功有的转化为机械能（转动），而线圈会发热，有的则成了线圈的内能。即$E_总=E_1+E_2$</strong><br>所以，电热器可用焦耳定律$\mathrm{Q}=\mathrm{I}^{2} \mathrm{Rt}$，而电动机则较为复杂。</p>
+<p><strong>例</strong>  一台电动机，线圈的电阻是0.4Ω,当它两端电压为220V时，通过的电流是5A。这台电动机发热的功率与对外做功的功率各是多少?  </p>
+<p><strong>解</strong>  由焦耳定律可知，电动机发热的功率为<br>$$P_{\mathrm{热}}=I^{2} R=5^{2} \times 0.4 \mathrm{W}=10 \mathrm{W}$$<br>电动机消耗的电功率为<br>$$P_{\mathrm{电}}=U I=220 \times 5 \mathrm{W}=1100 \mathrm{W}$$<br>电动机对外做功的功率为<br>$$P_机=P_电-P_热=1100 \mathrm{W}-10 \mathrm{W}=1090 \mathrm{W}$$<br>$\therefore$ 这台电动机发热的功率为10W,对外做功的功率为1 090W。</p>
+<h1 id="公式怎么用"><a href="#公式怎么用" class="headerlink" title="公式怎么用"></a>公式怎么用</h1><p>已知什么用什么。串联电路中，首选$P=I^2R$；并联电路中，首选$P=\frac{U^2}{R}$；求整个电路，用$P=\frac{U^2}{R}$或$P=UI$。</p>
+<h1 id="综合例题"><a href="#综合例题" class="headerlink" title="综合例题"></a>综合例题</h1><p><strong>例</strong>图甲为小明家的电饼铛，主要用于食品的烤烙和烹制.它采用双控电路，额定电压为220 V，上、下盘同时加热时额定功率为1 000 W，工作的简化电路如图乙，S为总开关，S1和S2为两个温控开关，R1和R2为上、下两盘的加热电阻，R1=R2.<br><img src="https://i.loli.net/2019/12/14/JeEH4QuONB2wf5W.png" alt="甲"><br>(1)闭合S和S1时，电饼铛的功率是______W.<br>(2)小明的妈妈总感觉做晚饭时烙熟一个饼所用时间比在其他时段要长.小明决定用家中的电能表和手表测量做晚饭时电饼铛的实际功率，于是，他关闭家中其他用电器，让电饼铛单独工作5 min，电能表转盘转过了225 r.(注：该电能表标有“3 000 r/kW·h”，表示电路中每消耗1 kW·<br>h的电能，电能表的转盘转3 000 r).电饼铛的实际功率是____________W。此时电压为____________V。  </p>
+<p><strong>解</strong>（1）由$P=\frac{U^2}{R}$得<br>$$R=\frac{U^2}{P}=\frac{(220\mathrm{V})^2}{1000\mathrm{W}}=48.4\Omega$$<br>由$R=\frac{1}{R_1}+\frac{1}{R_2}=\frac{1}{2R_1}$得<br>$$R_1=2R=96.8\Omega$$<br>(2)由题意知:$W=0.075\mathrm{KW·h}=2.7 \times 10^5\mathrm{J}$。<br>$$P_实=\frac{W}{t}=\frac{2.7 \times 10^5 \mathrm{J}}{300 \mathrm{s}}=900 \mathrm{W}$$<br>由$P=\frac{U^2}{R}$得<br>$$U =\sqrt{PR}=\sqrt{900 \mathrm{W}\times 48.4\Omega}=66\sqrt{10}\mathrm{V}$$</p>
+]]></content>
+      <categories>
+        <category>物理</category>
+      </categories>
+      <tags>
+        <tag>电学</tag>
+        <tag>电功</tag>
+        <tag>绝对有用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【物理】电功与电功率（1）</title>
     <url>/2019/12/01/%E3%80%90%E7%89%A9%E7%90%86%E3%80%91%E7%94%B5%E5%8A%9F%E4%B8%8E%E7%94%B5%E5%8A%9F%E7%8E%87(1)/</url>
     <content><![CDATA[<p>最近物理刚学完的电功与电功率，让很多人大为伤脑。和我一样感觉人生格外凄凉。<a id="more"></a>因此写下这篇文章，简单写下自己的见解。这篇文章打算分两期写完。这一期主要是介绍一些知识点，下一期咱们再说例题。  </p>
@@ -77,35 +101,11 @@ w.to_file(&quot;pic.png&quot;)
         <category>物理</category>
       </categories>
       <tags>
+        <tag>电学</tag>
+        <tag>电功</tag>
         <tag>物理</tag>
         <tag>太难了</tag>
-        <tag>电功</tag>
-        <tag>电学</tag>
         <tag>重点</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【物理】电功与电功率（2）——方法与例题</title>
-    <url>/2019/12/12/%E3%80%90%E7%89%A9%E7%90%86%E3%80%91%E7%94%B5%E5%8A%9F%E4%B8%8E%E7%94%B5%E5%8A%9F%E7%8E%87%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E6%96%B9%E6%B3%95%E4%B8%8E%E4%BE%8B%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="到底几比几？！"><a href="#到底几比几？！" class="headerlink" title="到底几比几？！"></a>到底几比几？！</h1><p>电功这一章，比例题较为常见，也较为基础。<br>这类题的做法，是直接将比例化为分数，直接代入原公式。</p>
-<a id="more"></a>
-<p><strong>例</strong> 电阻之比为1:2的两个灯泡$L_1$、$L_2$串联接入电路，$P_1:P_2=?$。若并联，$P_1:P_2=?$  </p>
-<p><strong>解</strong> 串联时，电流相等。**已知电流和电阻，用$P=I^2R$**。<br>$$P=I^2R=1\times\frac{1}{2}=\frac{1}{2}。$$<br>即串联时，$P_1:P_2=1:2$。<br>并联时，电压相等。已知电压和电阻，用$P=\frac{U^2}{R}$。<br>$$P=\frac{U^2}{R}=\frac{1}{\frac{1}{2}}=2。$$<br>$∴并联时，P_1:P_2=2:1$。</p>
-<h2 id="偷懒公式"><a href="#偷懒公式" class="headerlink" title="偷懒公式"></a>偷懒公式</h2><p>事实上，关于比例题，有一些快捷方法，可以不必像上面那样麻烦。<br>对于电阻与电功率，有(比例均用分数表示):<br>串联中，<br>$$\frac{P_1}{P_2}=\frac{R_1}{R_2}$$<br>并联中，<br>$$\frac{P_1}{P_2}=\frac{R_2}{R_1}$$</p>
-<h1 id="电动机？电热器？"><a href="#电动机？电热器？" class="headerlink" title="电动机？电热器？"></a>电动机？电热器？</h1><p>对于电热器（包括定值电阻），电流做的功全部用来发热，所以热量$Q=W$。<br>但对于电动机来说，<strong>电流做功有的转化为机械能（转动），而线圈会发热，有的则成了线圈的内能。即$E_总=E_1+E_2$</strong><br>所以，电热器可用焦耳定律$\mathrm{Q}=\mathrm{I}^{2} \mathrm{Rt}$，而电动机则较为复杂。</p>
-<p><strong>例</strong>  一台电动机，线圈的电阻是0.4Ω,当它两端电压为220V时，通过的电流是5A。这台电动机发热的功率与对外做功的功率各是多少?  </p>
-<p><strong>解</strong>  由焦耳定律可知，电动机发热的功率为<br>$$P_{\mathrm{热}}=I^{2} R=5^{2} \times 0.4 \mathrm{W}=10 \mathrm{W}$$<br>电动机消耗的电功率为<br>$$P_{\mathrm{电}}=U I=220 \times 5 \mathrm{W}=1100 \mathrm{W}$$<br>电动机对外做功的功率为<br>$$P_机=P_电-P_热=1100 \mathrm{W}-10 \mathrm{W}=1090 \mathrm{W}$$<br>$\therefore$ 这台电动机发热的功率为10W,对外做功的功率为1 090W。</p>
-<h1 id="公式怎么用"><a href="#公式怎么用" class="headerlink" title="公式怎么用"></a>公式怎么用</h1><p>已知什么用什么。串联电路中，首选$P=I^2R$；并联电路中，首选$P=\frac{U^2}{R}$；求整个电路，用$P=\frac{U^2}{R}$或$P=UI$。</p>
-<h1 id="综合例题"><a href="#综合例题" class="headerlink" title="综合例题"></a>综合例题</h1><p><strong>例</strong>图甲为小明家的电饼铛，主要用于食品的烤烙和烹制.它采用双控电路，额定电压为220 V，上、下盘同时加热时额定功率为1 000 W，工作的简化电路如图乙，S为总开关，S1和S2为两个温控开关，R1和R2为上、下两盘的加热电阻，R1=R2.<br><img src="https://i.loli.net/2019/12/14/JeEH4QuONB2wf5W.png" alt="甲"><br>(1)闭合S和S1时，电饼铛的功率是______W.<br>(2)小明的妈妈总感觉做晚饭时烙熟一个饼所用时间比在其他时段要长.小明决定用家中的电能表和手表测量做晚饭时电饼铛的实际功率，于是，他关闭家中其他用电器，让电饼铛单独工作5 min，电能表转盘转过了225 r.(注：该电能表标有“3 000 r/kW·h”，表示电路中每消耗1 kW·<br>h的电能，电能表的转盘转3 000 r).电饼铛的实际功率是____________W。此时电压为____________V。  </p>
-<p><strong>解</strong>（1）由$P=\frac{U^2}{R}$得<br>$$R=\frac{U^2}{P}=\frac{(220\mathrm{V})^2}{1000\mathrm{W}}=48.4\Omega$$<br>由$R=\frac{1}{R_1}+\frac{1}{R_2}=\frac{1}{2R_1}$得<br>$$R_1=2R=96.8\Omega$$<br>(2)由题意知:$W=0.075\mathrm{KW·h}=2.7 \times 10^5\mathrm{J}$。<br>$$P_实=\frac{W}{t}=\frac{2.7 \times 10^5 \mathrm{J}}{300 \mathrm{s}}=900 \mathrm{W}$$<br>由$P=\frac{U^2}{R}$得<br>$$U =\sqrt{PR}=\sqrt{900 \mathrm{W}\times 48.4\Omega}=66\sqrt{10}\mathrm{V}$$</p>
-]]></content>
-      <categories>
-        <category>物理</category>
-      </categories>
-      <tags>
-        <tag>电功</tag>
-        <tag>电学</tag>
-        <tag>绝对有用</tag>
       </tags>
   </entry>
   <entry>
@@ -193,6 +193,15 @@ w.to_file(&quot;pic.png&quot;)
 <p>最后在部署卡片中就可以看到 zeit 生成的 URL<br><img src="https://pic3.zhimg.com/v2-4394000e68ae9ad10f3663590cfd578a_r.jpg"></p>
 <h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>进入项目后选择<code>settings</code>选项，再选择<code>Domains</code>，进去后添加你拥有的域名即可<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/store/photos2021-2-13%2010-1-9.png"></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>博客</tag>
+        <tag>zeit.co</tag>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>挑山工</title>
@@ -241,8 +250,8 @@ w.to_file(&quot;pic.png&quot;)
         <category>物理</category>
       </categories>
       <tags>
-        <tag>物理</tag>
         <tag>电学</tag>
+        <tag>物理</tag>
       </tags>
   </entry>
   <entry>
