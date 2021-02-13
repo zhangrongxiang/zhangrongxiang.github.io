@@ -239,22 +239,6 @@ w.to_file(&quot;pic.png&quot;)
       </tags>
   </entry>
   <entry>
-    <title>欧姆定律的理解</title>
-    <url>/2019/10/19/%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$I=\frac{U}{R}$$  </p>
-<a id="more"></a>
-<h1 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h1><p>$$U=IR$$<br>$$R=\frac{U}{I}$$  </p>
-<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>由(R=\frac{U}{I})得，导体的阻值在数值上等于导体两端电压与电流的比值。但是因为<strong>电阻是导体本身的一种性质</strong>。它的大小与导体本身材料、长度、横截面积与温度等因素决定。与电压和电流无关。因此<strong>它既不与<em>U</em>成正比，也不与<em>I</em>成反比</strong>。<br>单位必须使用国际单位。<em>U</em>的国际单位是V，<em>I</em>的国际单位是A，<em>R</em>的国际单位是Ω。</p>
-]]></content>
-      <categories>
-        <category>物理</category>
-      </categories>
-      <tags>
-        <tag>物理</tag>
-        <tag>电学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>百毒度盘自己出的限速破解？</title>
     <url>/2020/02/16/%E7%99%BE%E6%AF%92%E5%BA%A6%E7%9B%98%E8%87%AA%E5%B7%B1%E5%87%BA%E7%9A%84%E9%99%90%E9%80%9F%E7%A0%B4%E8%A7%A3%EF%BC%9F/</url>
     <content><![CDATA[<p>分享一张好看的手机（全面屏）壁纸，<a id="more"></a>下图为预览，<a href="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/2.14%E9%85%B7%E5%9B%BE.jpg">点我下载原图</a><br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/kutu.jpg"></p>
@@ -273,6 +257,22 @@ w.to_file(&quot;pic.png&quot;)
         <tag>秘藏</tag>
         <tag>干货</tag>
         <tag>福利</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欧姆定律的理解</title>
+    <url>/2019/10/19/%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$I=\frac{U}{R}$$  </p>
+<a id="more"></a>
+<h1 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h1><p>$$U=IR$$<br>$$R=\frac{U}{I}$$  </p>
+<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>由(R=\frac{U}{I})得，导体的阻值在数值上等于导体两端电压与电流的比值。但是因为<strong>电阻是导体本身的一种性质</strong>。它的大小与导体本身材料、长度、横截面积与温度等因素决定。与电压和电流无关。因此<strong>它既不与<em>U</em>成正比，也不与<em>I</em>成反比</strong>。<br>单位必须使用国际单位。<em>U</em>的国际单位是V，<em>I</em>的国际单位是A，<em>R</em>的国际单位是Ω。</p>
+]]></content>
+      <categories>
+        <category>物理</category>
+      </categories>
+      <tags>
+        <tag>物理</tag>
+        <tag>电学</tag>
       </tags>
   </entry>
   <entry>
