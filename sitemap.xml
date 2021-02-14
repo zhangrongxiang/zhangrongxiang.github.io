@@ -179,20 +179,6 @@
   </url>
   
   <url>
-    <loc>https://www.jkzhang.tk/tags/%E4%BD%9C%E6%96%87%E7%B4%A0%E6%9D%90/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jkzhang.tk/tags/%E5%A5%BD%E5%8F%A5/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jkzhang.tk/tags/%E6%95%A3%E6%96%87/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
@@ -215,6 +201,20 @@
   
   <url>
     <loc>https://www.jkzhang.tk/tags/%E5%93%B2%E7%90%86/</loc>
+    <lastmod>2021-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jkzhang.tk/tags/%E4%BD%9C%E6%96%87%E7%B4%A0%E6%9D%90/</loc>
+    <lastmod>2021-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jkzhang.tk/tags/%E5%A5%BD%E5%8F%A5/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -384,14 +384,14 @@
   </url>
   
   <url>
-    <loc>https://www.jkzhang.tk/categories/%E4%BD%9C%E6%96%87/</loc>
+    <loc>https://www.jkzhang.tk/categories/%E6%95%A3%E6%96%87/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.jkzhang.tk/categories/%E6%95%A3%E6%96%87/</loc>
+    <loc>https://www.jkzhang.tk/categories/%E4%BD%9C%E6%96%87/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
