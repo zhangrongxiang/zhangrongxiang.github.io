@@ -148,7 +148,9 @@ w.to_file(&quot;pic.png&quot;)
   <entry>
     <title>一键批量删除QQ动态</title>
     <url>/2021/02/14/%E4%B8%80%E9%94%AE%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4QQ%E5%8A%A8%E6%80%81/</url>
-    <content><![CDATA[<p>当你看到你以前的QQ动态（说说）时，有何感觉？<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/store/photosphotos%E8%B6%A3%E5%9B%BE%EF%BC%9A%E5%81%B6%E7%84%B6%E9%97%B4%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E5%A4%9A%E5%B9%B4%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81_java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95-CSDN%E5%8D%9A%E5%AE%A2_2.gif"><br>简直就是自己的一场黑历史。那么我们就来看一个能一键删除QQ动态的脚本。</p>
+    <content><![CDATA[<p>当你看到你以前的QQ动态（说说）时，有何感觉？</p>
+<a id="more"></a>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/store/photosphotos%E8%B6%A3%E5%9B%BE%EF%BC%9A%E5%81%B6%E7%84%B6%E9%97%B4%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E5%A4%9A%E5%B9%B4%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81_java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95-CSDN%E5%8D%9A%E5%AE%A2_2.gif"><br>简直就是自己的一场黑历史。那么我们就来看一个能一键删除QQ动态的脚本。</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="进入DevTools"><a href="#进入DevTools" class="headerlink" title="进入DevTools"></a>进入DevTools</h2><p>浏览器打开QQ空间<a href="https://user.qzone.qq.com/">链接</a>，进入后按<code>F12</code>,浏览器弹出<code>DevTools</code>，或者右键选择“检查”。 </p>
 <h2 id="调出控制台"><a href="#调出控制台" class="headerlink" title="调出控制台"></a>调出控制台</h2><p>选择<code>console</code><br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/store/photosconsole.webp"> </p>
 <h2 id="复制代码"><a href="#复制代码" class="headerlink" title="复制代码"></a>复制代码</h2><p>复制下面代码到控制台，回车即可。</p>
@@ -204,6 +206,26 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
       </tags>
   </entry>
   <entry>
+    <title>免付费专业版，这可能是同类里最好用的了</title>
+    <url>/2020/02/19/%E5%85%8D%E4%BB%98%E8%B4%B9%E4%B8%93%E4%B8%9A%E7%89%88%EF%BC%8C%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E5%90%8C%E7%B1%BB%E9%87%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BA%86/</url>
+    <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
+<p>Wise Care 365 ，这是一款Windows 系统上的清理和加速工具。在功能上更加强大，并且优化速度非常快。<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/62.jpg"><br><strong>正常永久版的软件是129RMB，而我分享的这个无需付费，打开即是专业版。并且软件是绿色单文件，</strong>不用安装，下载下来打开就能用。<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/43.jpg"><br>具体软件怎么用我觉得没必要说了，简单的概括一下它的主要功能：实时保护、多功能清理、系统优化、隐私保护、系统和硬件监控。尤其是硬件监控，以前还要下载个鲁大师（娱乐大师）来看电脑硬件详情。用一次就卸载，很麻烦。     </p>
+<p><strong>软件虽然颜值没有火绒，dism++这些软件颜值高，但实力上，绝对是数一数二的，感兴趣的小伙伴就自行下载体验吧。</strong></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/software/[0216]Wise_Care_365_Pro_%E7%A0%B4%E8%A7%A3%E6%B0%B8%E4%B9%85%E4%B8%93%E4%B8%9A%E7%89%88%E5%8D%95%E6%96%87%E4%BB%B6.zip">点我下载</a></p>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>破解</tag>
+        <tag>秘藏</tag>
+        <tag>干货</tag>
+        <tag>杀毒</tag>
+        <tag>免收费</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>将hexo部署迁移至zeit</title>
     <url>/2021/02/13/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E8%BF%81%E7%A7%BB%E8%87%B3zeit/</url>
     <content><![CDATA[<p>Github Page在国内访问较慢，可以将服务部署到静态站zeit.io, 每月20G免费流量，并且能同步github项目。</p>
@@ -224,26 +246,6 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
         <tag>博客</tag>
         <tag>zeit.co</tag>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>免付费专业版，这可能是同类里最好用的了</title>
-    <url>/2020/02/19/%E5%85%8D%E4%BB%98%E8%B4%B9%E4%B8%93%E4%B8%9A%E7%89%88%EF%BC%8C%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E5%90%8C%E7%B1%BB%E9%87%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BA%86/</url>
-    <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
-<p>Wise Care 365 ，这是一款Windows 系统上的清理和加速工具。在功能上更加强大，并且优化速度非常快。<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/62.jpg"><br><strong>正常永久版的软件是129RMB，而我分享的这个无需付费，打开即是专业版。并且软件是绿色单文件，</strong>不用安装，下载下来打开就能用。<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/43.jpg"><br>具体软件怎么用我觉得没必要说了，简单的概括一下它的主要功能：实时保护、多功能清理、系统优化、隐私保护、系统和硬件监控。尤其是硬件监控，以前还要下载个鲁大师（娱乐大师）来看电脑硬件详情。用一次就卸载，很麻烦。     </p>
-<p><strong>软件虽然颜值没有火绒，dism++这些软件颜值高，但实力上，绝对是数一数二的，感兴趣的小伙伴就自行下载体验吧。</strong></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/software/[0216]Wise_Care_365_Pro_%E7%A0%B4%E8%A7%A3%E6%B0%B8%E4%B9%85%E4%B8%93%E4%B8%9A%E7%89%88%E5%8D%95%E6%96%87%E4%BB%B6.zip">点我下载</a></p>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>破解</tag>
-        <tag>秘藏</tag>
-        <tag>干货</tag>
-        <tag>杀毒</tag>
-        <tag>免收费</tag>
       </tags>
   </entry>
   <entry>
