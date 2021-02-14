@@ -193,34 +193,6 @@
   </url>
   
   <url>
-    <loc>https://www.jkzhang.tk/tags/%E6%95%A3%E6%96%87/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jkzhang.tk/tags/%E5%8A%B1%E5%BF%97/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jkzhang.tk/tags/%E9%9C%87%E6%92%BC/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jkzhang.tk/tags/%E5%93%B2%E7%90%86/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jkzhang.tk/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
@@ -257,6 +229,34 @@
   
   <url>
     <loc>https://www.jkzhang.tk/tags/%E5%85%8D%E6%94%B6%E8%B4%B9/</loc>
+    <lastmod>2021-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jkzhang.tk/tags/%E6%95%A3%E6%96%87/</loc>
+    <lastmod>2021-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jkzhang.tk/tags/%E5%8A%B1%E5%BF%97/</loc>
+    <lastmod>2021-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jkzhang.tk/tags/%E9%9C%87%E6%92%BC/</loc>
+    <lastmod>2021-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jkzhang.tk/tags/%E5%93%B2%E7%90%86/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -391,14 +391,14 @@
   </url>
   
   <url>
-    <loc>https://www.jkzhang.tk/categories/%E6%95%A3%E6%96%87/</loc>
+    <loc>https://www.jkzhang.tk/categories/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.jkzhang.tk/categories/%E8%BD%AF%E4%BB%B6/</loc>
+    <loc>https://www.jkzhang.tk/categories/%E6%95%A3%E6%96%87/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
