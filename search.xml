@@ -56,6 +56,30 @@ w.to_file(&quot;pic.png&quot;)
       </tags>
   </entry>
   <entry>
+    <title>【物理】电功与电功率（2）——方法与例题</title>
+    <url>/2019/12/12/%E3%80%90%E7%89%A9%E7%90%86%E3%80%91%E7%94%B5%E5%8A%9F%E4%B8%8E%E7%94%B5%E5%8A%9F%E7%8E%87%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E6%96%B9%E6%B3%95%E4%B8%8E%E4%BE%8B%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="到底几比几？！"><a href="#到底几比几？！" class="headerlink" title="到底几比几？！"></a>到底几比几？！</h1><p>电功这一章，比例题较为常见，也较为基础。<br>这类题的做法，是直接将比例化为分数，直接代入原公式。</p>
+<a id="more"></a>
+<p><strong>例</strong> 电阻之比为1:2的两个灯泡$L_1$、$L_2$串联接入电路，$P_1:P_2=?$。若并联，$P_1:P_2=?$  </p>
+<p><strong>解</strong> 串联时，电流相等。**已知电流和电阻，用$P=I^2R$**。<br>$$P=I^2R=1\times\frac{1}{2}=\frac{1}{2}。$$<br>即串联时，$P_1:P_2=1:2$。<br>并联时，电压相等。已知电压和电阻，用$P=\frac{U^2}{R}$。<br>$$P=\frac{U^2}{R}=\frac{1}{\frac{1}{2}}=2。$$<br>$∴并联时，P_1:P_2=2:1$。</p>
+<h2 id="偷懒公式"><a href="#偷懒公式" class="headerlink" title="偷懒公式"></a>偷懒公式</h2><p>事实上，关于比例题，有一些快捷方法，可以不必像上面那样麻烦。<br>对于电阻与电功率，有(比例均用分数表示):<br>串联中，<br>$$\frac{P_1}{P_2}=\frac{R_1}{R_2}$$<br>并联中，<br>$$\frac{P_1}{P_2}=\frac{R_2}{R_1}$$</p>
+<h1 id="电动机？电热器？"><a href="#电动机？电热器？" class="headerlink" title="电动机？电热器？"></a>电动机？电热器？</h1><p>对于电热器（包括定值电阻），电流做的功全部用来发热，所以热量$Q=W$。<br>但对于电动机来说，<strong>电流做功有的转化为机械能（转动），而线圈会发热，有的则成了线圈的内能。即$E_总=E_1+E_2$</strong><br>所以，电热器可用焦耳定律$\mathrm{Q}=\mathrm{I}^{2} \mathrm{Rt}$，而电动机则较为复杂。</p>
+<p><strong>例</strong>  一台电动机，线圈的电阻是0.4Ω,当它两端电压为220V时，通过的电流是5A。这台电动机发热的功率与对外做功的功率各是多少?  </p>
+<p><strong>解</strong>  由焦耳定律可知，电动机发热的功率为<br>$$P_{\mathrm{热}}=I^{2} R=5^{2} \times 0.4 \mathrm{W}=10 \mathrm{W}$$<br>电动机消耗的电功率为<br>$$P_{\mathrm{电}}=U I=220 \times 5 \mathrm{W}=1100 \mathrm{W}$$<br>电动机对外做功的功率为<br>$$P_机=P_电-P_热=1100 \mathrm{W}-10 \mathrm{W}=1090 \mathrm{W}$$<br>$\therefore$ 这台电动机发热的功率为10W,对外做功的功率为1 090W。</p>
+<h1 id="公式怎么用"><a href="#公式怎么用" class="headerlink" title="公式怎么用"></a>公式怎么用</h1><p>已知什么用什么。串联电路中，首选$P=I^2R$；并联电路中，首选$P=\frac{U^2}{R}$；求整个电路，用$P=\frac{U^2}{R}$或$P=UI$。</p>
+<h1 id="综合例题"><a href="#综合例题" class="headerlink" title="综合例题"></a>综合例题</h1><p><strong>例</strong>图甲为小明家的电饼铛，主要用于食品的烤烙和烹制.它采用双控电路，额定电压为220 V，上、下盘同时加热时额定功率为1 000 W，工作的简化电路如图乙，S为总开关，S1和S2为两个温控开关，R1和R2为上、下两盘的加热电阻，R1=R2.<br><img src="https://i.loli.net/2019/12/14/JeEH4QuONB2wf5W.png" alt="甲"><br>(1)闭合S和S1时，电饼铛的功率是______W.<br>(2)小明的妈妈总感觉做晚饭时烙熟一个饼所用时间比在其他时段要长.小明决定用家中的电能表和手表测量做晚饭时电饼铛的实际功率，于是，他关闭家中其他用电器，让电饼铛单独工作5 min，电能表转盘转过了225 r.(注：该电能表标有“3 000 r/kW·h”，表示电路中每消耗1 kW·<br>h的电能，电能表的转盘转3 000 r).电饼铛的实际功率是____________W。此时电压为____________V。  </p>
+<p><strong>解</strong>（1）由$P=\frac{U^2}{R}$得<br>$$R=\frac{U^2}{P}=\frac{(220\mathrm{V})^2}{1000\mathrm{W}}=48.4\Omega$$<br>由$R=\frac{1}{R_1}+\frac{1}{R_2}=\frac{1}{2R_1}$得<br>$$R_1=2R=96.8\Omega$$<br>(2)由题意知:$W=0.075\mathrm{KW·h}=2.7 \times 10^5\mathrm{J}$。<br>$$P_实=\frac{W}{t}=\frac{2.7 \times 10^5 \mathrm{J}}{300 \mathrm{s}}=900 \mathrm{W}$$<br>由$P=\frac{U^2}{R}$得<br>$$U =\sqrt{PR}=\sqrt{900 \mathrm{W}\times 48.4\Omega}=66\sqrt{10}\mathrm{V}$$</p>
+]]></content>
+      <categories>
+        <category>物理</category>
+      </categories>
+      <tags>
+        <tag>电学</tag>
+        <tag>电功</tag>
+        <tag>绝对有用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【物理】电功与电功率（1）</title>
     <url>/2019/12/01/%E3%80%90%E7%89%A9%E7%90%86%E3%80%91%E7%94%B5%E5%8A%9F%E4%B8%8E%E7%94%B5%E5%8A%9F%E7%8E%87(1)/</url>
     <content><![CDATA[<p>最近物理刚学完的电功与电功率，让很多人大为伤脑。和我一样感觉人生格外凄凉。<a id="more"></a>因此写下这篇文章，简单写下自己的见解。这篇文章打算分两期写完。这一期主要是介绍一些知识点，下一期咱们再说例题。  </p>
@@ -77,35 +101,11 @@ w.to_file(&quot;pic.png&quot;)
         <category>物理</category>
       </categories>
       <tags>
+        <tag>电学</tag>
+        <tag>电功</tag>
         <tag>物理</tag>
         <tag>太难了</tag>
-        <tag>电功</tag>
-        <tag>电学</tag>
         <tag>重点</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【物理】电功与电功率（2）——方法与例题</title>
-    <url>/2019/12/12/%E3%80%90%E7%89%A9%E7%90%86%E3%80%91%E7%94%B5%E5%8A%9F%E4%B8%8E%E7%94%B5%E5%8A%9F%E7%8E%87%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E6%96%B9%E6%B3%95%E4%B8%8E%E4%BE%8B%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="到底几比几？！"><a href="#到底几比几？！" class="headerlink" title="到底几比几？！"></a>到底几比几？！</h1><p>电功这一章，比例题较为常见，也较为基础。<br>这类题的做法，是直接将比例化为分数，直接代入原公式。</p>
-<a id="more"></a>
-<p><strong>例</strong> 电阻之比为1:2的两个灯泡$L_1$、$L_2$串联接入电路，$P_1:P_2=?$。若并联，$P_1:P_2=?$  </p>
-<p><strong>解</strong> 串联时，电流相等。**已知电流和电阻，用$P=I^2R$**。<br>$$P=I^2R=1\times\frac{1}{2}=\frac{1}{2}。$$<br>即串联时，$P_1:P_2=1:2$。<br>并联时，电压相等。已知电压和电阻，用$P=\frac{U^2}{R}$。<br>$$P=\frac{U^2}{R}=\frac{1}{\frac{1}{2}}=2。$$<br>$∴并联时，P_1:P_2=2:1$。</p>
-<h2 id="偷懒公式"><a href="#偷懒公式" class="headerlink" title="偷懒公式"></a>偷懒公式</h2><p>事实上，关于比例题，有一些快捷方法，可以不必像上面那样麻烦。<br>对于电阻与电功率，有(比例均用分数表示):<br>串联中，<br>$$\frac{P_1}{P_2}=\frac{R_1}{R_2}$$<br>并联中，<br>$$\frac{P_1}{P_2}=\frac{R_2}{R_1}$$</p>
-<h1 id="电动机？电热器？"><a href="#电动机？电热器？" class="headerlink" title="电动机？电热器？"></a>电动机？电热器？</h1><p>对于电热器（包括定值电阻），电流做的功全部用来发热，所以热量$Q=W$。<br>但对于电动机来说，<strong>电流做功有的转化为机械能（转动），而线圈会发热，有的则成了线圈的内能。即$E_总=E_1+E_2$</strong><br>所以，电热器可用焦耳定律$\mathrm{Q}=\mathrm{I}^{2} \mathrm{Rt}$，而电动机则较为复杂。</p>
-<p><strong>例</strong>  一台电动机，线圈的电阻是0.4Ω,当它两端电压为220V时，通过的电流是5A。这台电动机发热的功率与对外做功的功率各是多少?  </p>
-<p><strong>解</strong>  由焦耳定律可知，电动机发热的功率为<br>$$P_{\mathrm{热}}=I^{2} R=5^{2} \times 0.4 \mathrm{W}=10 \mathrm{W}$$<br>电动机消耗的电功率为<br>$$P_{\mathrm{电}}=U I=220 \times 5 \mathrm{W}=1100 \mathrm{W}$$<br>电动机对外做功的功率为<br>$$P_机=P_电-P_热=1100 \mathrm{W}-10 \mathrm{W}=1090 \mathrm{W}$$<br>$\therefore$ 这台电动机发热的功率为10W,对外做功的功率为1 090W。</p>
-<h1 id="公式怎么用"><a href="#公式怎么用" class="headerlink" title="公式怎么用"></a>公式怎么用</h1><p>已知什么用什么。串联电路中，首选$P=I^2R$；并联电路中，首选$P=\frac{U^2}{R}$；求整个电路，用$P=\frac{U^2}{R}$或$P=UI$。</p>
-<h1 id="综合例题"><a href="#综合例题" class="headerlink" title="综合例题"></a>综合例题</h1><p><strong>例</strong>图甲为小明家的电饼铛，主要用于食品的烤烙和烹制.它采用双控电路，额定电压为220 V，上、下盘同时加热时额定功率为1 000 W，工作的简化电路如图乙，S为总开关，S1和S2为两个温控开关，R1和R2为上、下两盘的加热电阻，R1=R2.<br><img src="https://i.loli.net/2019/12/14/JeEH4QuONB2wf5W.png" alt="甲"><br>(1)闭合S和S1时，电饼铛的功率是______W.<br>(2)小明的妈妈总感觉做晚饭时烙熟一个饼所用时间比在其他时段要长.小明决定用家中的电能表和手表测量做晚饭时电饼铛的实际功率，于是，他关闭家中其他用电器，让电饼铛单独工作5 min，电能表转盘转过了225 r.(注：该电能表标有“3 000 r/kW·h”，表示电路中每消耗1 kW·<br>h的电能，电能表的转盘转3 000 r).电饼铛的实际功率是____________W。此时电压为____________V。  </p>
-<p><strong>解</strong>（1）由$P=\frac{U^2}{R}$得<br>$$R=\frac{U^2}{P}=\frac{(220\mathrm{V})^2}{1000\mathrm{W}}=48.4\Omega$$<br>由$R=\frac{1}{R_1}+\frac{1}{R_2}=\frac{1}{2R_1}$得<br>$$R_1=2R=96.8\Omega$$<br>(2)由题意知:$W=0.075\mathrm{KW·h}=2.7 \times 10^5\mathrm{J}$。<br>$$P_实=\frac{W}{t}=\frac{2.7 \times 10^5 \mathrm{J}}{300 \mathrm{s}}=900 \mathrm{W}$$<br>由$P=\frac{U^2}{R}$得<br>$$U =\sqrt{PR}=\sqrt{900 \mathrm{W}\times 48.4\Omega}=66\sqrt{10}\mathrm{V}$$</p>
-]]></content>
-      <categories>
-        <category>物理</category>
-      </categories>
-      <tags>
-        <tag>电功</tag>
-        <tag>电学</tag>
-        <tag>绝对有用</tag>
       </tags>
   </entry>
   <entry>
@@ -191,21 +191,6 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
       </tags>
   </entry>
   <entry>
-    <title>人生</title>
-    <url>/2020/02/13/%E4%BA%BA%E7%94%9F/</url>
-    <content><![CDATA[<p>在一隅孤独时，有一种静汹涌成潮，拍击我；有一种静凝结成无，茫然我；悲从中来，又有一种泪，撕扯我；在一种苦中不能自拔，就为寻找生的理由而头痛。<a id="more"></a>我在梦醒的一大片虚无中，自嘲、自恃，当然也有自救。人生得意也好，失意也罢，照常人的思维，活着便是生命。我不敢放弃生命，因为我怕活着的人，哪怕为我有一点伤悲。<br>人生，何谓人生？扪心自问，在我看来，人生是一盘危机四伏、险象环生的棋，杀得痛快淋漓、起伏跌宕。最终有人以轰轰烈烈的勇士之笑，笑傲世事；抑或被杀的丢盔弃甲、狼狈不堪，以残兵败将之态，隐遁名利，潜归山林以逃避现实。没有比苏轼的“人生如梦”更具权威了。其中，淡泊名利者大概会虚怀若谷，以自己的生命之光照亮别人，至油枯灯灭时，还意犹未尽而眷恋。宁为玉碎、不为瓦全者的撼山震荡气回肠的豪言壮语；奴颜婢膝苟且偷生者的惹人唾骂、令人发指的丑脸劣行都成过眼烟云……<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/pocket-watch-3156771_640.jpg"><br>“大江东去，浪淘尽，千古风流人物。”是的，大浪淘沙，淘出的是真金，一种跨越时间和空间，亘古不变的灵魂。而那些金玉其中的小人，心怀鬼胎却又貌似斯文的伪君子则被洗涤一空。如果硬说他们留下了什么，那只能是为非作歹、欺压黎民的斑斑劣迹，“尔曹身与名俱灭，不废江河万古流”！<br>我们都是平凡的人，人生虽较长河微不足道，对具体的每个人，又至关重要。拥有时不懂得珍惜，失去时方显得宝贵。时间，总是无声无息的在你我身边流过，难怪古人有“时光容易把人抛，红了樱桃，绿了芭蕉”之说。由此看来，我们今日的“未觉池塘春草梦，阶前梧桐已秋声”的喟叹也就不足为奇了。<br>蜘蛛结网可能逮不到昆虫，但蜘蛛不结网，永远逮不到昆虫。不必说“书生意气”也不必再说“风华正茂”，我们和你们一样把握人生的长度，开拓人生的宽度。<br>纵观历史沧桑变幻，我唯有从中吸取教训和经验，以不变应万变。<br>漫读人生真谛，我只能抛弃舒适和安逸，否则，人生将是一段空白的轨迹。<br>我与大众同在，人何在？只恨一万年都太短！<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/hot-air-balloons-4385384_1280.jpg"></p>
-]]></content>
-      <categories>
-        <category>散文</category>
-      </categories>
-      <tags>
-        <tag>散文</tag>
-        <tag>励志</tag>
-        <tag>震撼</tag>
-        <tag>哲理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>免付费专业版，这可能是同类里最好用的了</title>
     <url>/2020/02/19/%E5%85%8D%E4%BB%98%E8%B4%B9%E4%B8%93%E4%B8%9A%E7%89%88%EF%BC%8C%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E5%90%8C%E7%B1%BB%E9%87%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BA%86/</url>
     <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
@@ -223,6 +208,21 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
         <tag>干货</tag>
         <tag>杀毒</tag>
         <tag>免收费</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人生</title>
+    <url>/2020/02/13/%E4%BA%BA%E7%94%9F/</url>
+    <content><![CDATA[<p>在一隅孤独时，有一种静汹涌成潮，拍击我；有一种静凝结成无，茫然我；悲从中来，又有一种泪，撕扯我；在一种苦中不能自拔，就为寻找生的理由而头痛。<a id="more"></a>我在梦醒的一大片虚无中，自嘲、自恃，当然也有自救。人生得意也好，失意也罢，照常人的思维，活着便是生命。我不敢放弃生命，因为我怕活着的人，哪怕为我有一点伤悲。<br>人生，何谓人生？扪心自问，在我看来，人生是一盘危机四伏、险象环生的棋，杀得痛快淋漓、起伏跌宕。最终有人以轰轰烈烈的勇士之笑，笑傲世事；抑或被杀的丢盔弃甲、狼狈不堪，以残兵败将之态，隐遁名利，潜归山林以逃避现实。没有比苏轼的“人生如梦”更具权威了。其中，淡泊名利者大概会虚怀若谷，以自己的生命之光照亮别人，至油枯灯灭时，还意犹未尽而眷恋。宁为玉碎、不为瓦全者的撼山震荡气回肠的豪言壮语；奴颜婢膝苟且偷生者的惹人唾骂、令人发指的丑脸劣行都成过眼烟云……<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/pocket-watch-3156771_640.jpg"><br>“大江东去，浪淘尽，千古风流人物。”是的，大浪淘沙，淘出的是真金，一种跨越时间和空间，亘古不变的灵魂。而那些金玉其中的小人，心怀鬼胎却又貌似斯文的伪君子则被洗涤一空。如果硬说他们留下了什么，那只能是为非作歹、欺压黎民的斑斑劣迹，“尔曹身与名俱灭，不废江河万古流”！<br>我们都是平凡的人，人生虽较长河微不足道，对具体的每个人，又至关重要。拥有时不懂得珍惜，失去时方显得宝贵。时间，总是无声无息的在你我身边流过，难怪古人有“时光容易把人抛，红了樱桃，绿了芭蕉”之说。由此看来，我们今日的“未觉池塘春草梦，阶前梧桐已秋声”的喟叹也就不足为奇了。<br>蜘蛛结网可能逮不到昆虫，但蜘蛛不结网，永远逮不到昆虫。不必说“书生意气”也不必再说“风华正茂”，我们和你们一样把握人生的长度，开拓人生的宽度。<br>纵观历史沧桑变幻，我唯有从中吸取教训和经验，以不变应万变。<br>漫读人生真谛，我只能抛弃舒适和安逸，否则，人生将是一段空白的轨迹。<br>我与大众同在，人何在？只恨一万年都太短！<br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/hot-air-balloons-4385384_1280.jpg"></p>
+]]></content>
+      <categories>
+        <category>散文</category>
+      </categories>
+      <tags>
+        <tag>散文</tag>
+        <tag>励志</tag>
+        <tag>震撼</tag>
+        <tag>哲理</tag>
       </tags>
   </entry>
   <entry>
@@ -284,22 +284,6 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
       </tags>
   </entry>
   <entry>
-    <title>欧姆定律的理解</title>
-    <url>/2019/10/19/%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$I=\frac{U}{R}$$  </p>
-<a id="more"></a>
-<h1 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h1><p>$$U=IR$$<br>$$R=\frac{U}{I}$$  </p>
-<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>由(R=\frac{U}{I})得，导体的阻值在数值上等于导体两端电压与电流的比值。但是因为<strong>电阻是导体本身的一种性质</strong>。它的大小与导体本身材料、长度、横截面积与温度等因素决定。与电压和电流无关。因此<strong>它既不与<em>U</em>成正比，也不与<em>I</em>成反比</strong>。<br>单位必须使用国际单位。<em>U</em>的国际单位是V，<em>I</em>的国际单位是A，<em>R</em>的国际单位是Ω。</p>
-]]></content>
-      <categories>
-        <category>物理</category>
-      </categories>
-      <tags>
-        <tag>物理</tag>
-        <tag>电学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>百毒度盘自己出的限速破解？</title>
     <url>/2020/02/16/%E7%99%BE%E6%AF%92%E5%BA%A6%E7%9B%98%E8%87%AA%E5%B7%B1%E5%87%BA%E7%9A%84%E9%99%90%E9%80%9F%E7%A0%B4%E8%A7%A3%EF%BC%9F/</url>
     <content><![CDATA[<p>分享一张好看的手机（全面屏）壁纸，<a id="more"></a>下图为预览，<a href="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/2.14%E9%85%B7%E5%9B%BE.jpg">点我下载原图</a><br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io@latest/imgs/kutu.jpg"></p>
@@ -318,6 +302,22 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
         <tag>秘藏</tag>
         <tag>干货</tag>
         <tag>福利</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欧姆定律的理解</title>
+    <url>/2019/10/19/%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$I=\frac{U}{R}$$  </p>
+<a id="more"></a>
+<h1 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h1><p>$$U=IR$$<br>$$R=\frac{U}{I}$$  </p>
+<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>由(R=\frac{U}{I})得，导体的阻值在数值上等于导体两端电压与电流的比值。但是因为<strong>电阻是导体本身的一种性质</strong>。它的大小与导体本身材料、长度、横截面积与温度等因素决定。与电压和电流无关。因此<strong>它既不与<em>U</em>成正比，也不与<em>I</em>成反比</strong>。<br>单位必须使用国际单位。<em>U</em>的国际单位是V，<em>I</em>的国际单位是A，<em>R</em>的国际单位是Ω。</p>
+]]></content>
+      <categories>
+        <category>物理</category>
+      </categories>
+      <tags>
+        <tag>电学</tag>
+        <tag>物理</tag>
       </tags>
   </entry>
   <entry>
@@ -422,7 +422,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
   <entry>
     <title>苏联政治笑话浅谈</title>
     <url>/2021/02/15/%E8%8B%8F%E8%81%94%E6%94%BF%E6%B2%BB%E7%AC%91%E8%AF%9D%E9%80%89%E8%B0%88/</url>
-    <content><![CDATA[<p>苏联政治笑话（或称苏东政治笑话），即流行于前苏联和前东欧社会主义国家的政治笑话。这种笑话的来源很多，除了来自于在这些国家生活的人之手外，也有一些来自美国、西德及其他国家的报社杂志，此类笑话以讽刺苏联-东欧诸国的领导人、政治、经济和生活状态为主，数量极大，讽刺辛辣，广为流传，前美国总统罗纳德·里根还在公众集会上讲过几个这样的笑话，据他所说他还“讲给了戈尔巴乔夫听，然后他笑了”。[1]近年美国政府解密档案揭露，当年美国驻莫斯科大使馆一直持续收集并整理流传的苏联政治笑话，再用密电传回华盛顿给中情局分析，因“这些笑话非常准确的反映苏联社会公众的情绪”。   </p>
+    <content><![CDATA[<p>苏联政治笑话（或称苏东政治笑话），即流行于前苏联和前东欧社会主义国家的政治笑话。<a id="more"></a>这种笑话的来源很多，除了来自于在这些国家生活的人之手外，也有一些来自美国、西德及其他国家的报社杂志，此类笑话以讽刺苏联-东欧诸国的领导人、政治、经济和生活状态为主，数量极大，讽刺辛辣，广为流传，前美国总统罗纳德·里根还在公众集会上讲过几个这样的笑话，据他所说他还“讲给了戈尔巴乔夫听，然后他笑了”。[1]近年美国政府解密档案揭露，当年美国驻莫斯科大使馆一直持续收集并整理流传的苏联政治笑话，再用密电传回华盛顿给中情局分析，因“这些笑话非常准确的反映苏联社会公众的情绪”。   </p>
 <p>在苏联的这种政治笑话的起源时间不详，但在50年代斯大林执政末期就已经广泛出现了。这些笑话最初来自于沙俄时期的政治笑话。在苏联和东欧，政治笑话的泛滥是在60-80年代（尤其是在勃列日涅夫执政后期），和地下出版物一起成为了社会主义阵营中政治异见的一种象征。在“公开化”之前当局一直试图限制政治笑话的传播流动，但效果不佳。   </p>
 <p>从体裁上，政治笑话一般是段子式或者问答式，问答式也会非常简单，适合一个人为别人讲。著名的“亚美尼亚广播电台”系列就是典型的问答式政治笑话。<br><a href="http://www.talkreason.org/marperak/jokes/armenrad.htm">亚美尼亚广播电台笑话链接</a></p>
 <h1 id="1-嘲笑领导人的笑话"><a href="#1-嘲笑领导人的笑话" class="headerlink" title="1.嘲笑领导人的笑话"></a>1.嘲笑领导人的笑话</h1><p>苏联、东欧的重要领导人基本都进入了笑话：斯大林、赫鲁晓夫、勃列日涅夫、安德罗波夫、戈尔巴乔夫、昂纳克、齐奥塞斯库等人都是很经常出现的角色。列宁被讽刺的几率倒很低，因为他的历史形象一直比较好。不过，在1970年列宁诞辰100周年之际，由于官方铺天盖地的政治宣传，相应也出现了不少关于列宁和列宁纪念活动的笑话。   </p>
