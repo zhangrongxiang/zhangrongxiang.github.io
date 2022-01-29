@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.jkzhang.tk/2022/01/29/The-Ends-Of-Life/</loc>
+    
+    <lastmod>2022-01-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.jkzhang.tk/2021/08/15/%E5%9B%BE%E8%A1%A8%E5%86%99%E4%BD%9C%E8%AF%8D%E5%8F%A5/</loc>
     
     <lastmod>2021-08-17</lastmod>
@@ -114,6 +121,20 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://www.jkzhang.tk/tags/essay/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jkzhang.tk/tags/Lin-Yutang/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
   <url>
     <loc>https://www.jkzhang.tk/tags/python/</loc>
@@ -377,6 +398,13 @@
 
   
   <url>
+    <loc>https://www.jkzhang.tk/categories/English/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.jkzhang.tk/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2022-01-29</lastmod>
     <changefreq>daily</changefreq>
@@ -406,13 +434,6 @@
   
   <url>
     <loc>https://www.jkzhang.tk/categories/%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2022-01-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jkzhang.tk/categories/English/</loc>
     <lastmod>2022-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
