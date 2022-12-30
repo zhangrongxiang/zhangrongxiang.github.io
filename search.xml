@@ -33,7 +33,7 @@ But merely say, ‘What a golden autumn hour! &#39;”
 </code></pre>
 <blockquote>
 </blockquote>
-<p>少年不识愁滋味，爱上层楼。爱上层楼，为赋新词强说愁。<br>而今识尽愁滋味，欲说还休。欲说还休，却道天凉好个秋。<br><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photos31251762_p0%20(1).jpg"></p>
+<p>少年不识愁滋味，爱上层楼。爱上层楼，为赋新词强说愁。<br>而今识尽愁滋味，欲说还休。欲说还休，却道天凉好个秋。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos31251762_p0%20(1).jpg"></p>
 ]]></content>
       <categories>
         <category>English</category>
@@ -140,9 +140,9 @@ w.to_file(&quot;pic.png&quot;)
     <url>/2021/02/14/%E4%B8%80%E9%94%AE%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4QQ%E5%8A%A8%E6%80%81/</url>
     <content><![CDATA[<p>当你看到你以前的QQ动态（说说）时，有何感觉？</p>
 <a id="more"></a>
-<p><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photosphotos%E8%B6%A3%E5%9B%BE%EF%BC%9A%E5%81%B6%E7%84%B6%E9%97%B4%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E5%A4%9A%E5%B9%B4%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81_java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95-CSDN%E5%8D%9A%E5%AE%A2_2.gif"><br>简直就是自己的一场黑历史。那么我们就来看一个能一键删除QQ动态的脚本。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosphotos%E8%B6%A3%E5%9B%BE%EF%BC%9A%E5%81%B6%E7%84%B6%E9%97%B4%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E5%A4%9A%E5%B9%B4%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81_java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95-CSDN%E5%8D%9A%E5%AE%A2_2.gif"><br>简直就是自己的一场黑历史。那么我们就来看一个能一键删除QQ动态的脚本。</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="进入DevTools"><a href="#进入DevTools" class="headerlink" title="进入DevTools"></a>进入DevTools</h2><p>浏览器打开QQ空间<a href="https://user.qzone.qq.com/">链接</a>，进入后按<code>F12</code>,浏览器弹出<code>DevTools</code>，或者右键选择“检查”。 </p>
-<h2 id="调出控制台"><a href="#调出控制台" class="headerlink" title="调出控制台"></a>调出控制台</h2><p>选择<code>console</code><br><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photosconsole.webp"> </p>
+<h2 id="调出控制台"><a href="#调出控制台" class="headerlink" title="调出控制台"></a>调出控制台</h2><p>选择<code>console</code><br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosconsole.webp"> </p>
 <h2 id="复制代码"><a href="#复制代码" class="headerlink" title="复制代码"></a>复制代码</h2><p>复制下面代码到控制台，回车即可。</p>
 <pre><code>var temp = true;
 
@@ -183,7 +183,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
   <entry>
     <title>人生</title>
     <url>/2020/02/13/%E4%BA%BA%E7%94%9F/</url>
-    <content><![CDATA[<p>在一隅孤独时，有一种静汹涌成潮，拍击我；有一种静凝结成无，茫然我；悲从中来，又有一种泪，撕扯我；在一种苦中不能自拔，就为寻找生的理由而头痛。<a id="more"></a>我在梦醒的一大片虚无中，自嘲、自恃，当然也有自救。人生得意也好，失意也罢，照常人的思维，活着便是生命。我不敢放弃生命，因为我怕活着的人，哪怕为我有一点伤悲。<br>人生，何谓人生？扪心自问，在我看来，人生是一盘危机四伏、险象环生的棋，杀得痛快淋漓、起伏跌宕。最终有人以轰轰烈烈的勇士之笑，笑傲世事；抑或被杀的丢盔弃甲、狼狈不堪，以残兵败将之态，隐遁名利，潜归山林以逃避现实。没有比苏轼的“人生如梦”更具权威了。其中，淡泊名利者大概会虚怀若谷，以自己的生命之光照亮别人，至油枯灯灭时，还意犹未尽而眷恋。宁为玉碎、不为瓦全者的撼山震荡气回肠的豪言壮语；奴颜婢膝苟且偷生者的惹人唾骂、令人发指的丑脸劣行都成过眼烟云……<br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/pocket-watch-3156771_640.jpg"><br>“大江东去，浪淘尽，千古风流人物。”是的，大浪淘沙，淘出的是真金，一种跨越时间和空间，亘古不变的灵魂。而那些金玉其中的小人，心怀鬼胎却又貌似斯文的伪君子则被洗涤一空。如果硬说他们留下了什么，那只能是为非作歹、欺压黎民的斑斑劣迹，“尔曹身与名俱灭，不废江河万古流”！<br>我们都是平凡的人，人生虽较长河微不足道，对具体的每个人，又至关重要。拥有时不懂得珍惜，失去时方显得宝贵。时间，总是无声无息的在你我身边流过，难怪古人有“时光容易把人抛，红了樱桃，绿了芭蕉”之说。由此看来，我们今日的“未觉池塘春草梦，阶前梧桐已秋声”的喟叹也就不足为奇了。<br>蜘蛛结网可能逮不到昆虫，但蜘蛛不结网，永远逮不到昆虫。不必说“书生意气”也不必再说“风华正茂”，我们和你们一样把握人生的长度，开拓人生的宽度。<br>纵观历史沧桑变幻，我唯有从中吸取教训和经验，以不变应万变。<br>漫读人生真谛，我只能抛弃舒适和安逸，否则，人生将是一段空白的轨迹。<br>我与大众同在，人何在？只恨一万年都太短！<br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/hot-air-balloons-4385384_1280.jpg"></p>
+    <content><![CDATA[<p>在一隅孤独时，有一种静汹涌成潮，拍击我；有一种静凝结成无，茫然我；悲从中来，又有一种泪，撕扯我；在一种苦中不能自拔，就为寻找生的理由而头痛。<a id="more"></a>我在梦醒的一大片虚无中，自嘲、自恃，当然也有自救。人生得意也好，失意也罢，照常人的思维，活着便是生命。我不敢放弃生命，因为我怕活着的人，哪怕为我有一点伤悲。<br>人生，何谓人生？扪心自问，在我看来，人生是一盘危机四伏、险象环生的棋，杀得痛快淋漓、起伏跌宕。最终有人以轰轰烈烈的勇士之笑，笑傲世事；抑或被杀的丢盔弃甲、狼狈不堪，以残兵败将之态，隐遁名利，潜归山林以逃避现实。没有比苏轼的“人生如梦”更具权威了。其中，淡泊名利者大概会虚怀若谷，以自己的生命之光照亮别人，至油枯灯灭时，还意犹未尽而眷恋。宁为玉碎、不为瓦全者的撼山震荡气回肠的豪言壮语；奴颜婢膝苟且偷生者的惹人唾骂、令人发指的丑脸劣行都成过眼烟云……<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/pocket-watch-3156771_640.jpg"><br>“大江东去，浪淘尽，千古风流人物。”是的，大浪淘沙，淘出的是真金，一种跨越时间和空间，亘古不变的灵魂。而那些金玉其中的小人，心怀鬼胎却又貌似斯文的伪君子则被洗涤一空。如果硬说他们留下了什么，那只能是为非作歹、欺压黎民的斑斑劣迹，“尔曹身与名俱灭，不废江河万古流”！<br>我们都是平凡的人，人生虽较长河微不足道，对具体的每个人，又至关重要。拥有时不懂得珍惜，失去时方显得宝贵。时间，总是无声无息的在你我身边流过，难怪古人有“时光容易把人抛，红了樱桃，绿了芭蕉”之说。由此看来，我们今日的“未觉池塘春草梦，阶前梧桐已秋声”的喟叹也就不足为奇了。<br>蜘蛛结网可能逮不到昆虫，但蜘蛛不结网，永远逮不到昆虫。不必说“书生意气”也不必再说“风华正茂”，我们和你们一样把握人生的长度，开拓人生的宽度。<br>纵观历史沧桑变幻，我唯有从中吸取教训和经验，以不变应万变。<br>漫读人生真谛，我只能抛弃舒适和安逸，否则，人生将是一段空白的轨迹。<br>我与大众同在，人何在？只恨一万年都太短！<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/hot-air-balloons-4385384_1280.jpg"></p>
 ]]></content>
       <categories>
         <category>散文</category>
@@ -198,10 +198,10 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
   <entry>
     <title>免付费专业版，这可能是同类里最好用的了</title>
     <url>/2020/02/19/%E5%85%8D%E4%BB%98%E8%B4%B9%E4%B8%93%E4%B8%9A%E7%89%88%EF%BC%8C%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E5%90%8C%E7%B1%BB%E9%87%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BA%86/</url>
-    <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
-<p>Wise Care 365 ，这是一款Windows 系统上的清理和加速工具。在功能上更加强大，并且优化速度非常快。<br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/62.jpg"><br><strong>正常永久版的软件是129RMB，而我分享的这个无需付费，打开即是专业版。并且软件是绿色单文件，</strong>不用安装，下载下来打开就能用。<br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/43.jpg"><br>具体软件怎么用我觉得没必要说了，简单的概括一下它的主要功能：实时保护、多功能清理、系统优化、隐私保护、系统和硬件监控。尤其是硬件监控，以前还要下载个鲁大师（娱乐大师）来看电脑硬件详情。用一次就卸载，很麻烦。     </p>
+    <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
+<p>Wise Care 365 ，这是一款Windows 系统上的清理和加速工具。在功能上更加强大，并且优化速度非常快。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/62.jpg"><br><strong>正常永久版的软件是129RMB，而我分享的这个无需付费，打开即是专业版。并且软件是绿色单文件，</strong>不用安装，下载下来打开就能用。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/43.jpg"><br>具体软件怎么用我觉得没必要说了，简单的概括一下它的主要功能：实时保护、多功能清理、系统优化、隐私保护、系统和硬件监控。尤其是硬件监控，以前还要下载个鲁大师（娱乐大师）来看电脑硬件详情。用一次就卸载，很麻烦。     </p>
 <p><strong>软件虽然颜值没有火绒，dism++这些软件颜值高，但实力上，绝对是数一数二的，感兴趣的小伙伴就自行下载体验吧。</strong></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/software/[0216]Wise_Care_365_Pro_%E7%A0%B4%E8%A7%A3%E6%B0%B8%E4%B9%85%E4%B8%93%E4%B8%9A%E7%89%88%E5%8D%95%E6%96%87%E4%BB%B6.zip">点我下载</a></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/software/[0216]Wise_Care_365_Pro_%E7%A0%B4%E8%A7%A3%E6%B0%B8%E4%B9%85%E4%B8%93%E4%B8%9A%E7%89%88%E5%8D%95%E6%96%87%E4%BB%B6.zip">点我下载</a></p>
 ]]></content>
       <categories>
         <category>软件</category>
@@ -226,7 +226,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
 <h2 id="2-极值"><a href="#2-极值" class="headerlink" title="2.极值"></a>2.极值</h2><p>(1)高峰，历史最高peak, hit an all-time high, break the record</p>
 <p>(2)低谷，历史最低：trough, hit an all-time low</p>
 <h2 id="3-描述走势相同或相反"><a href="#3-描述走势相同或相反" class="headerlink" title="3.描述走势相同或相反"></a>3.描述走势相同或相反</h2><p>(1)相同：A is in line with B, in accordance with, in conformity with</p>
-<p>(2)相反：A and B tend to move in opposite directions<br><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photosphoto-1526628953301-3e589a6a8b74.webp"></p>
+<p>(2)相反：A and B tend to move in opposite directions<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosphoto-1526628953301-3e589a6a8b74.webp"></p>
 <h2 id="4-大约、左右、接近于"><a href="#4-大约、左右、接近于" class="headerlink" title="4.大约、左右、接近于"></a>4.大约、左右、接近于</h2><p>(1)大约：about, approximately, roughly, around, some</p>
 <p>(2)左右：or so, plus or minus</p>
 <p>(3)接近于：close to, nearly</p>
@@ -274,7 +274,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
 <p><strong>导入</strong>。在主页面点击 “Import Project”，然后 “Import Project From Git Repo”，选择 GitHub。进行一下授权.</p>
 <p><strong>部署</strong>。导入过程中，选择 <code>other</code> 模板即可，默认 ci 命令不用改，<code>Root Directory</code> 也不用改，导入完成后就会自动帮你deploy。</p>
 <p>最后在部署卡片中就可以看到 zeit 生成的 URL<br><img src="https://pic3.zhimg.com/v2-4394000e68ae9ad10f3663590cfd578a_r.jpg"></p>
-<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>进入项目后选择<code>settings</code>选项，再选择<code>Domains</code>，进去后添加你拥有的域名即可<br><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photos2021-2-13%2010-1-9.png"></p>
+<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>进入项目后选择<code>settings</code>选项，再选择<code>Domains</code>，进去后添加你拥有的域名即可<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos2021-2-13%2010-1-9.png"></p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -308,11 +308,11 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
   <entry>
     <title>百毒度盘自己出的限速破解？</title>
     <url>/2020/02/16/%E7%99%BE%E6%AF%92%E5%BA%A6%E7%9B%98%E8%87%AA%E5%B7%B1%E5%87%BA%E7%9A%84%E9%99%90%E9%80%9F%E7%A0%B4%E8%A7%A3%EF%BC%9F/</url>
-    <content><![CDATA[<p>分享一张好看的手机（全面屏）壁纸，<a id="more"></a>下图为预览，<a href="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/2.14%E9%85%B7%E5%9B%BE.jpg">点我下载原图</a><br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/kutu.jpg"></p>
+    <content><![CDATA[<p>分享一张好看的手机（全面屏）壁纸，<a id="more"></a>下图为预览，<a href="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/2.14%E9%85%B7%E5%9B%BE.jpg">点我下载原图</a><br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/kutu.jpg"></p>
 <h2 id="爱奇艺万能联播"><a href="#爱奇艺万能联播" class="headerlink" title="爱奇艺万能联播"></a>爱奇艺万能联播</h2><p>标题写着度盘，为什么介绍爱奇艺？   </p>
-<p>别急，自己看爱奇艺万能联播里面的窗口：<strong>访问网盘</strong><br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/640.jpg"><br>没错，你没看错！爱奇艺万能联播支持手机快传、百度网盘访问、支持直播源地址在线播放等等功能。最重要的是支持百度云不限速下载，但是前提是你的账号没有被限速。其实限速也没啥大事，过个一两天就好了。    </p>
-<p>我们点访问网盘，进去按照提示登陆账号，下载文件即可。在【正在下载】里可以看到下载详情。<br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/600.png"><br><strong>切记！单任务挨个下载，不要多个一起下!!</strong>   </p>
-<p>看到这里很多人可能会有疑问，为什么爱奇艺会有度盘不限速的功能？其实，爱奇艺和百度是一家的，准确来说，爱奇艺是百度旗下的一个子品牌。<br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/601.jpg"></p>
+<p>别急，自己看爱奇艺万能联播里面的窗口：<strong>访问网盘</strong><br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/640.jpg"><br>没错，你没看错！爱奇艺万能联播支持手机快传、百度网盘访问、支持直播源地址在线播放等等功能。最重要的是支持百度云不限速下载，但是前提是你的账号没有被限速。其实限速也没啥大事，过个一两天就好了。    </p>
+<p>我们点访问网盘，进去按照提示登陆账号，下载文件即可。在【正在下载】里可以看到下载详情。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/600.png"><br><strong>切记！单任务挨个下载，不要多个一起下!!</strong>   </p>
+<p>看到这里很多人可能会有疑问，为什么爱奇艺会有度盘不限速的功能？其实，爱奇艺和百度是一家的，准确来说，爱奇艺是百度旗下的一个子品牌。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/601.jpg"></p>
 <h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a href="https://lanzous.com/i9d33ve">点我下载</a></p>
 ]]></content>
       <categories>
@@ -341,7 +341,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
 </blockquote>
 </li>
 </ul>
-<p>雨水在窗户上飞溅。<br><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photosphoto-1532294351631-a205083f392c.jpg"></p>
+<p>雨水在窗户上飞溅。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosphoto-1532294351631-a205083f392c.jpg"></p>
 <h3 id="各种“喊”"><a href="#各种“喊”" class="headerlink" title="各种“喊”"></a>各种“喊”</h3><h4 id="roar"><a href="#roar" class="headerlink" title="roar"></a>roar</h4><p>怒吼。</p>
 <blockquote>
 <p>the wind was roaring.  </p>
@@ -362,7 +362,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
 <p>“You see it, Watson?” he yelled. “You see it?”</p>
 </blockquote>
 <p>”看见了没，华生？“他狂喊。</p>
-<h2 id="短语"><a href="#短语" class="headerlink" title="短语"></a>短语</h2><p>His smile broadened.他笑得更开心了。<br>the sweet promise of spring春日甜美的景色。<br><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photos20210805195058.png"></p>
+<h2 id="短语"><a href="#短语" class="headerlink" title="短语"></a>短语</h2><p>His smile broadened.他笑得更开心了。<br>the sweet promise of spring春日甜美的景色。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210805195058.png"></p>
 <h2 id="神态描写"><a href="#神态描写" class="headerlink" title="神态描写"></a>神态描写</h2><blockquote>
 <p>My companion sat in the front of the trap, his arms folded, his hat pulled down over his eyes, <strong>and his chin sunk upon his breast, buried in the deepest thought.</strong></p>
 </blockquote>
@@ -386,7 +386,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
 <p>第四任列车长当然就是勃列日涅夫同志了，列车行进不久又停下了，勃列日涅夫挥舞着双手下令：“把所有的窗帘都拉下来，全体乘客坐在座位上自己摇晃身体，做出列车还在前进的样子就行了！”    </p>
 <p>勃列日涅夫下台后最后一任列车长是戈尔巴乔夫，戈尔巴乔夫下令：“把火车拆了，每人扛一个零件继续前进，到有铁轨的地方再拼装起来。”于是苏联的“社会主义”号的列车便解体了。     </p>
 <h4 id="2："><a href="#2：" class="headerlink" title="2："></a>2：</h4><p>在苏共二十三次代表大会上，勃列日涅夫作报告，他问：“我们这里有没有敌人？”一个人回答：“有一个，他坐在第四排第十八号位子上。”勃问：“为什么他是敌人？”回答：“列宁说过敌人是不会打瞌睡的，我发现全场只有他一个人没有打瞌睡！”</p>
-<h4 id="3："><a href="#3：" class="headerlink" title="3："></a>3：</h4><p>一天赫鲁晓夫到一个农场视察，看到有几头猪，就到猪的旁边拍了一张照片。随行人员在照片上写上：赫鲁晓夫和猪在一起，但又感到不妥。于是改成：猪和赫鲁晓夫在一起，可还是感觉不对。最后把照片上的字改成：“左起第三位是赫鲁晓夫同志”。<br><img src="https://raw.fastgit.org/zhangrongxiang/zhangrongxiang.github.io/matser/imgs/yvmi.jpg"></p>
+<h4 id="3："><a href="#3：" class="headerlink" title="3："></a>3：</h4><p>一天赫鲁晓夫到一个农场视察，看到有几头猪，就到猪的旁边拍了一张照片。随行人员在照片上写上：赫鲁晓夫和猪在一起，但又感到不妥。于是改成：猪和赫鲁晓夫在一起，可还是感觉不对。最后把照片上的字改成：“左起第三位是赫鲁晓夫同志”。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/zhangrongxiang.github.io/imgs/yvmi.jpg"></p>
 <h4 id="4"><a href="#4" class="headerlink" title="4:"></a>4:</h4><p>有个人向赫鲁晓夫汇报说：“现在大剧院正上演一个剧，里面有您出现，每当您一出场，下面就热烈鼓掌。”赫鲁晓夫听了以后非常得意。有一天他买了一张普通票，去看这个剧，他陷入了沉思，忘记了鼓掌，这时旁边有人推了他一把，紧张地说：“哎！你为什么不鼓掌？不要命啦？！”</p>
 <h4 id="5"><a href="#5" class="headerlink" title="5:"></a>5:</h4><p>美术馆里有一幅描写亚当和夏娃的画。</p>
 <p>一个英国人看了，说：“他们一定是英国人，男士有好吃的东西就和女士分享。”    </p>
@@ -445,10 +445,10 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
     <url>/2021/02/03/%E9%9D%99%E7%81%AB%E7%89%88%E3%80%8A%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86%E3%80%8B-%E5%BA%8F/</url>
     <content><![CDATA[<p>胡锦涛〔1〕 评价毛泽东“中国出了个毛泽东，这是中国共产党的骄傲，是中国人民的骄傲，是中华民族的骄傲。在为中国人民不懈奋斗的光辉一生中，毛泽东同志表现出了一个伟大革命领袖高瞻远瞩的政治远见、坚定不移的革命信念、炉火纯青的斗争艺术和杰出高超的领导才能。在中国革命和建设的壮丽历史画卷中，在祖国九百六十万平方公里的锦绣大地上，都留下了他作为一代伟人的风采。他不仅赢得了全党和全国各族人民的爱戴和敬仰，而且也赢得了世界上一切向往进步的人们的敬佩。毛泽东同志作为一个伟大的历史人物，属于中国，也属于世界。”〔2〕</p>
 <a id="more"></a>
-<p>对于这样一个伟大的人物，自他逝世后30年内，一些人利用自己的话语权肆意污蔑诋毁抹黑毛泽东，企图把毛泽东从人民的心中抹去，但是他们做到了吗？没有，他们永远也做不到，因为诋毁一个集大政治家、大革命家、大军事家、大战略家、大理论家、大思想家、大文学家、大书法家、大诗人为一身的伟大人物，是永远也不得人心的。<img src="https://raw.fastgit.org/zhangrongxiang/store/master/photos20210204094716.png"><br>感谢互联网，互联网真正贯彻了毛泽东主张的“公民有运用‘大鸣大放大字报大辩论’的权利”，正如毛泽东在本卷中所说，“科学是不怕论战的，怕论战的不是科学”，老朽提供这样一部毛选，就是为了供广大网友在辩论中有据可依，防止不良文人断章取义地歪曲毛泽东。</p>
+<p>对于这样一个伟大的人物，自他逝世后30年内，一些人利用自己的话语权肆意污蔑诋毁抹黑毛泽东，企图把毛泽东从人民的心中抹去，但是他们做到了吗？没有，他们永远也做不到，因为诋毁一个集大政治家、大革命家、大军事家、大战略家、大理论家、大思想家、大文学家、大书法家、大诗人为一身的伟大人物，是永远也不得人心的。<img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210204094716.png"><br>感谢互联网，互联网真正贯彻了毛泽东主张的“公民有运用‘大鸣大放大字报大辩论’的权利”，正如毛泽东在本卷中所说，“科学是不怕论战的，怕论战的不是科学”，老朽提供这样一部毛选，就是为了供广大网友在辩论中有据可依，防止不良文人断章取义地歪曲毛泽东。</p>
 <p>毛泽东最大的特点是相信群众、依靠群众，热爱群众、保护群众。毛泽东联系群众、相信群众、依靠群众，一切为了人民，一切为了劳苦大众的思想，就是毛泽东的政治路线。在井冈山是这样，在战争和经济建设中也是这样。因此在对待群众的态度问题上，是相信、依靠、热爱、保护群众，还是不相信、不依靠、不热爱、不保护群众，甚至镇压群众！这是区分真假马克思主义、真假共产党人、真假社会主义的试金石。</p>
 <div align=center>
-<img alt='人民领袖毛泽东' src=https://raw.fastgit.org/zhangrongxiang/store/master/photos20210204094903.png>
+<img alt='人民领袖毛泽东' src=https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210204094903.png>
 </div>
 
 <p>丢失了毛泽东的中国会变得怎样？三十年来，我们看到了什么？看到了成堆成堆的官老爷的腐败，看到了房地产开发商的贪婪，看到了最神圣职业医生的堕落，看到了学校在吃学生的肉喝家长的血，看到了城管对劳苦民众的暴虐，看到了计生委的灭绝人性，看到了众多反动学术权威的无耻言论，而这些人却结成了一个肮脏的“神圣同盟”，他们一提到“毛泽东”，就叫嚣什么“晚年错误”、“骄傲”、“专制”、“不民主”、“文革有罪”、“极左”，想尽一切办法妖魔化毛泽东，用那个决议（关于建国以来党的若干历史问题的决议）来做借口，却全不顾那个决议的精神“中国人民始终把毛泽东同志看作是自己敬爱的伟大领袖和导师”。这些人就是反毛狗。同时，老朽还认为，那个决议是某人为了夺权才搞出来的浆糊决议，经不起历史的检验，和某人的文选一样，现在再看，到处是谎言。</p>
@@ -485,7 +485,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
 <h1 id="1-嘲笑领导人的笑话"><a href="#1-嘲笑领导人的笑话" class="headerlink" title="1.嘲笑领导人的笑话"></a>1.嘲笑领导人的笑话</h1><p>苏联、东欧的重要领导人基本都进入了笑话：斯大林、赫鲁晓夫、勃列日涅夫、安德罗波夫、戈尔巴乔夫、昂纳克、齐奥塞斯库等人都是很经常出现的角色。列宁被讽刺的几率倒很低，因为他的历史形象一直比较好。不过，在1970年列宁诞辰100周年之际，由于官方铺天盖地的政治宣传，相应也出现了不少关于列宁和列宁纪念活动的笑话。   </p>
 <h2 id="列宁"><a href="#列宁" class="headerlink" title="列宁"></a>列宁</h2><p>有人通过走关系，把列宁同志送到了天堂，接纳了这个无神论者。<br>过了几天，这人给上帝打电话表示感谢，电话接通了，他说：你是上帝吗？<br>上帝回答：首先，没有上帝。其次，我们这里每个人都是同志。第三，有事请直说，我还要参加党代表会议。   </p>
 <h2 id="斯大林"><a href="#斯大林" class="headerlink" title="斯大林"></a>斯大林</h2><p>约瑟夫·斯大林在政治笑话中的形象一般是残暴、猜忌，他和农民生活困苦经常挂钩（考虑到1929年的农业集体化和30年代末的大清洗）。</p>
-<p>斯大林去看一场苏联喜剧电影的首映礼。在影片播放时他一直快活的大笑，不过在电影结束之时他突然问道：<br>“好吧，我喜欢这电影。可为什么那个丑角的小胡子和我的一样？”<br>所有人都噤若寒蝉，只有一人怯怯地提议道：“斯大林同志，要不要让演员把胡子剃了？”<br>斯大林答道：“好主意，枪毙前先把胡子剃了。”<br><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photos20210216120244.png"></p>
+<p>斯大林去看一场苏联喜剧电影的首映礼。在影片播放时他一直快活的大笑，不过在电影结束之时他突然问道：<br>“好吧，我喜欢这电影。可为什么那个丑角的小胡子和我的一样？”<br>所有人都噤若寒蝉，只有一人怯怯地提议道：“斯大林同志，要不要让演员把胡子剃了？”<br>斯大林答道：“好主意，枪毙前先把胡子剃了。”<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210216120244.png"></p>
 <p>集体农庄庄员伊万[注 1]在河里捉到一条大鱼，高兴的回到家里和老婆说：“看，我们有炸鱼吃了！”<br>“没有油啊。”<br>“那就煮！”<br>“没锅。”<br>“烤鱼！”<br>“没柴。”<br>伊万气死了，走到河边把鱼扔了回去。那鱼在水里划了一个半圆，上身出水，举起右鳍激动地高呼：“斯大林万岁！”  </p>
 <p>一位美国历史学家和一位俄罗斯历史学家，讨论谁领导二十世纪的前半世纪。<br>“我投票赞成胡佛先生，”美国人说，“他尝试着教导我们美国人停止酗酒！”<br>“那个没什么了不起！”俄国人接着说，“我选择斯大林，他尝试教我们俄国人不要吃饭。”</p>
 <h2 id="赫鲁晓夫"><a href="#赫鲁晓夫" class="headerlink" title="赫鲁晓夫"></a>赫鲁晓夫</h2><p>尼基塔·赫鲁晓夫在政治笑话中的形象是无知、粗鲁、愚蠢、秃顶、爱胡扯、爱吹牛皮的。这和他本人的以上作风分不开。也因为赫鲁晓夫当初是逼宫斯大林，出现不少揶揄赫鲁晓夫忌讳斯大林的笑话。</p>
@@ -496,7 +496,7 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
 <p>赫鲁晓夫和肯尼迪交谈，各自吹嘘，肯尼迪说：“美国医学发达，有种药死人吃了可以复活。”<br>赫鲁晓夫说：“苏联体育发达，有人十分钟可以从莫斯科跑到美国。”肯尼迪要求兑现，赫鲁晓夫慌了手脚，召集文武大臣商量对策，<br>有人出了个好计策说：“这很好办，你先让肯尼迪把药拿来，让斯大林吃了，那斯大林一定复活，那么你用不了五分钟就可以从苏联跑到美国。”</p>
 <h2 id="勃涅日列夫"><a href="#勃涅日列夫" class="headerlink" title="勃涅日列夫"></a>勃涅日列夫</h2><p>列昂尼德·勃列日涅夫在政治笑话中的形象一般是爱慕虚荣、权力欲强、喜欢享乐、痴呆、健忘、病入膏肓的。苏联当局努力培养对他的个人崇拜、他本人的“勋章收藏爱好”和他请人捉刀而获得了列宁文学奖的回忆录三部曲也经常是被嘲笑的对象。关于他的笑话是所有苏联领导人中最多的。</p>
 <p>在政治局会议上，勃列日涅夫兴致勃勃地说：“同志们都说我那三本回忆录写得好，哪天给我弄一套，我也读一读。”<br>在勃列日涅夫访问英国时，首相撒切尔夫人问：“您怎么看丘吉尔？”<br>“丘吉尔是谁？”勃列日涅夫反问。<br>回到苏联驻英大使馆，大使评价道：“祝贺您，勃列日涅夫同志，你让撒切尔夫人老实了。她以后再也不敢问什么愚蠢的问题了。”<br>“撒切尔是谁？”勃列日涅夫反问。</p>
-<p><img src="https://raw.fastgit.org/zhangrongxiang/store/master/photos20210216120026.png"><br>一只鳄鱼吃掉勃列日涅夫，结果它拉了一个星期的勋章。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210216120026.png"><br>一只鳄鱼吃掉勃列日涅夫，结果它拉了一个星期的勋章。</p>
 <p>“你听说了吗？勃列日涅夫做手术了。”<br>“做什么手术？”<br>“开胸手术。因为勋章摆不下了。”</p>
 <p>英国广播公司报道说： “昨天莫斯科发生了地震。”但是学者们对此表示怀疑，因为莫斯科处于非地震带。<br>不过，我们的驻莫斯科记者报告说该市确有震感。最后经过核实，原来并非是地震，而是苏共中央总书记勃列日涅夫佩戴勋章的衣服掉到了地上。</p>
 <p>一个苏联人在公众场合对着勃列日涅夫同志的肖像骂了句“白痴”，被克格勃逮捕，判了5年徒刑。他的罪名是：侮辱党和国家领导人判刑1年，泄露党和国家机密判刑4年。<br>不过听说他很快就获释了，因为自从勃列日涅夫同志在联合国发表演说之后，那就不再是党和国家机密了。</p>
