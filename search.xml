@@ -99,6 +99,56 @@ w.to_file(&quot;pic.png&quot;)
       </tags>
   </entry>
   <entry>
+    <title>����Ҫ��ʱ������˫����������ֵ</title>
+    <url>/2023/07/10/%E4%B8%8D%E9%9C%80%E8%A6%81%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%8C%E5%8F%98%E9%87%8F%E4%BA%A4%E6%8D%A2%E6%95%B0%E5%80%BC/</url>
+    <content><![CDATA[<h1 id="����Ҫ�����������i�������"><a href="#����Ҫ�����������i�������" class="headerlink" title="����Ҫ�����������ı�������"></a>����Ҫ�����������ı�������</h1><p>Ҫ֪�����£�</p>
+<p>a^0=a;</p>
+<p>a^a=0.</p>
+<pre><code class="c">void inplace_swap(int *x, int *y)&#123;
+
+*y =*x ^ *y;  //Step 1
+*x = *x ^ *y; //Step 2
+*y =*x ^*y;   //Step 3
+
+&#125;
+</code></pre>
+<p>����������ְ�ʾ�ģ�������Ϊ������̽�����ָ�����x yλ�ô���ŵ�ֵ��</p>
+<p>ע�⣬��ͨ��������ͬ���÷�������Ҫ��������ʱ�����洢��һ��ֵ���������ַ������������Ʋ��󣬽����Ǹ�������Ϸ��</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>*x</th>
+<th>*y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>a</td>
+<td>a^b</td>
+</tr>
+<tr>
+<td>2</td>
+<td>b</td>
+<td>a^b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>b</td>
+<td>a</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>�������</category>
+      </categories>
+      <tags>
+        <tag>C����</tag>
+        <tag>λ����</tag>
+        <tag>������������ϵͳ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【素材】平凡的世界好句</title>
     <url>/2019/10/13/%E3%80%90%E7%B4%A0%E6%9D%90%E3%80%91%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E5%A5%BD%E5%8F%A5/</url>
     <content><![CDATA[<p>只有自己诚心待人，别人才有可能对自己以诚相待。</p>
@@ -133,6 +183,21 @@ w.to_file(&quot;pic.png&quot;)
       <tags>
         <tag>作文素材</tag>
         <tag>好句</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人生</title>
+    <url>/2020/02/13/%E4%BA%BA%E7%94%9F/</url>
+    <content><![CDATA[<p>在一隅孤独时，有一种静汹涌成潮，拍击我；有一种静凝结成无，茫然我；悲从中来，又有一种泪，撕扯我；在一种苦中不能自拔，就为寻找生的理由而头痛。<a id="more"></a>我在梦醒的一大片虚无中，自嘲、自恃，当然也有自救。人生得意也好，失意也罢，照常人的思维，活着便是生命。我不敢放弃生命，因为我怕活着的人，哪怕为我有一点伤悲。<br>人生，何谓人生？扪心自问，在我看来，人生是一盘危机四伏、险象环生的棋，杀得痛快淋漓、起伏跌宕。最终有人以轰轰烈烈的勇士之笑，笑傲世事；抑或被杀的丢盔弃甲、狼狈不堪，以残兵败将之态，隐遁名利，潜归山林以逃避现实。没有比苏轼的“人生如梦”更具权威了。其中，淡泊名利者大概会虚怀若谷，以自己的生命之光照亮别人，至油枯灯灭时，还意犹未尽而眷恋。宁为玉碎、不为瓦全者的撼山震荡气回肠的豪言壮语；奴颜婢膝苟且偷生者的惹人唾骂、令人发指的丑脸劣行都成过眼烟云……<br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/pocket-watch-3156771_640.jpg"><br>“大江东去，浪淘尽，千古风流人物。”是的，大浪淘沙，淘出的是真金，一种跨越时间和空间，亘古不变的灵魂。而那些金玉其中的小人，心怀鬼胎却又貌似斯文的伪君子则被洗涤一空。如果硬说他们留下了什么，那只能是为非作歹、欺压黎民的斑斑劣迹，“尔曹身与名俱灭，不废江河万古流”！<br>我们都是平凡的人，人生虽较长河微不足道，对具体的每个人，又至关重要。拥有时不懂得珍惜，失去时方显得宝贵。时间，总是无声无息的在你我身边流过，难怪古人有“时光容易把人抛，红了樱桃，绿了芭蕉”之说。由此看来，我们今日的“未觉池塘春草梦，阶前梧桐已秋声”的喟叹也就不足为奇了。<br>蜘蛛结网可能逮不到昆虫，但蜘蛛不结网，永远逮不到昆虫。不必说“书生意气”也不必再说“风华正茂”，我们和你们一样把握人生的长度，开拓人生的宽度。<br>纵观历史沧桑变幻，我唯有从中吸取教训和经验，以不变应万变。<br>漫读人生真谛，我只能抛弃舒适和安逸，否则，人生将是一段空白的轨迹。<br>我与大众同在，人何在？只恨一万年都太短！<br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/hot-air-balloons-4385384_1280.jpg"></p>
+]]></content>
+      <categories>
+        <category>散文</category>
+      </categories>
+      <tags>
+        <tag>散文</tag>
+        <tag>励志</tag>
+        <tag>震撼</tag>
+        <tag>哲理</tag>
       </tags>
   </entry>
   <entry>
@@ -178,41 +243,6 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
         <tag>javascript</tag>
         <tag>说说</tag>
         <tag>动态</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人生</title>
-    <url>/2020/02/13/%E4%BA%BA%E7%94%9F/</url>
-    <content><![CDATA[<p>在一隅孤独时，有一种静汹涌成潮，拍击我；有一种静凝结成无，茫然我；悲从中来，又有一种泪，撕扯我；在一种苦中不能自拔，就为寻找生的理由而头痛。<a id="more"></a>我在梦醒的一大片虚无中，自嘲、自恃，当然也有自救。人生得意也好，失意也罢，照常人的思维，活着便是生命。我不敢放弃生命，因为我怕活着的人，哪怕为我有一点伤悲。<br>人生，何谓人生？扪心自问，在我看来，人生是一盘危机四伏、险象环生的棋，杀得痛快淋漓、起伏跌宕。最终有人以轰轰烈烈的勇士之笑，笑傲世事；抑或被杀的丢盔弃甲、狼狈不堪，以残兵败将之态，隐遁名利，潜归山林以逃避现实。没有比苏轼的“人生如梦”更具权威了。其中，淡泊名利者大概会虚怀若谷，以自己的生命之光照亮别人，至油枯灯灭时，还意犹未尽而眷恋。宁为玉碎、不为瓦全者的撼山震荡气回肠的豪言壮语；奴颜婢膝苟且偷生者的惹人唾骂、令人发指的丑脸劣行都成过眼烟云……<br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/pocket-watch-3156771_640.jpg"><br>“大江东去，浪淘尽，千古风流人物。”是的，大浪淘沙，淘出的是真金，一种跨越时间和空间，亘古不变的灵魂。而那些金玉其中的小人，心怀鬼胎却又貌似斯文的伪君子则被洗涤一空。如果硬说他们留下了什么，那只能是为非作歹、欺压黎民的斑斑劣迹，“尔曹身与名俱灭，不废江河万古流”！<br>我们都是平凡的人，人生虽较长河微不足道，对具体的每个人，又至关重要。拥有时不懂得珍惜，失去时方显得宝贵。时间，总是无声无息的在你我身边流过，难怪古人有“时光容易把人抛，红了樱桃，绿了芭蕉”之说。由此看来，我们今日的“未觉池塘春草梦，阶前梧桐已秋声”的喟叹也就不足为奇了。<br>蜘蛛结网可能逮不到昆虫，但蜘蛛不结网，永远逮不到昆虫。不必说“书生意气”也不必再说“风华正茂”，我们和你们一样把握人生的长度，开拓人生的宽度。<br>纵观历史沧桑变幻，我唯有从中吸取教训和经验，以不变应万变。<br>漫读人生真谛，我只能抛弃舒适和安逸，否则，人生将是一段空白的轨迹。<br>我与大众同在，人何在？只恨一万年都太短！<br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/hot-air-balloons-4385384_1280.jpg"></p>
-]]></content>
-      <categories>
-        <category>散文</category>
-      </categories>
-      <tags>
-        <tag>散文</tag>
-        <tag>励志</tag>
-        <tag>震撼</tag>
-        <tag>哲理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>免付费专业版，这可能是同类里最好用的了</title>
-    <url>/2020/02/19/%E5%85%8D%E4%BB%98%E8%B4%B9%E4%B8%93%E4%B8%9A%E7%89%88%EF%BC%8C%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E5%90%8C%E7%B1%BB%E9%87%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BA%86/</url>
-    <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
-<p>Wise Care 365 ，这是一款Windows 系统上的清理和加速工具。在功能上更加强大，并且优化速度非常快。<br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/62.jpg"><br><strong>正常永久版的软件是129RMB，而我分享的这个无需付费，打开即是专业版。并且软件是绿色单文件，</strong>不用安装，下载下来打开就能用。<br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/43.jpg"><br>具体软件怎么用我觉得没必要说了，简单的概括一下它的主要功能：实时保护、多功能清理、系统优化、隐私保护、系统和硬件监控。尤其是硬件监控，以前还要下载个鲁大师（娱乐大师）来看电脑硬件详情。用一次就卸载，很麻烦。     </p>
-<p><strong>软件虽然颜值没有火绒，dism++这些软件颜值高，但实力上，绝对是数一数二的，感兴趣的小伙伴就自行下载体验吧。</strong></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/software/[0216]Wise_Care_365_Pro_%E7%A0%B4%E8%A7%A3%E6%B0%B8%E4%B9%85%E4%B8%93%E4%B8%9A%E7%89%88%E5%8D%95%E6%96%87%E4%BB%B6.zip">点我下载</a></p>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>破解</tag>
-        <tag>秘藏</tag>
-        <tag>干货</tag>
-        <tag>杀毒</tag>
-        <tag>免收费</tag>
       </tags>
   </entry>
   <entry>
@@ -264,6 +294,45 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
       </tags>
   </entry>
   <entry>
+    <title>免付费专业版，这可能是同类里最好用的了</title>
+    <url>/2020/02/19/%E5%85%8D%E4%BB%98%E8%B4%B9%E4%B8%93%E4%B8%9A%E7%89%88%EF%BC%8C%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E5%90%8C%E7%B1%BB%E9%87%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BA%86/</url>
+    <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
+<p>Wise Care 365 ，这是一款Windows 系统上的清理和加速工具。在功能上更加强大，并且优化速度非常快。<br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/62.jpg"><br><strong>正常永久版的软件是129RMB，而我分享的这个无需付费，打开即是专业版。并且软件是绿色单文件，</strong>不用安装，下载下来打开就能用。<br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/43.jpg"><br>具体软件怎么用我觉得没必要说了，简单的概括一下它的主要功能：实时保护、多功能清理、系统优化、隐私保护、系统和硬件监控。尤其是硬件监控，以前还要下载个鲁大师（娱乐大师）来看电脑硬件详情。用一次就卸载，很麻烦。     </p>
+<p><strong>软件虽然颜值没有火绒，dism++这些软件颜值高，但实力上，绝对是数一数二的，感兴趣的小伙伴就自行下载体验吧。</strong></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/software/[0216]Wise_Care_365_Pro_%E7%A0%B4%E8%A7%A3%E6%B0%B8%E4%B9%85%E4%B8%93%E4%B8%9A%E7%89%88%E5%8D%95%E6%96%87%E4%BB%B6.zip">点我下载</a></p>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>破解</tag>
+        <tag>秘藏</tag>
+        <tag>干货</tag>
+        <tag>杀毒</tag>
+        <tag>免收费</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>柯西不等式及其应用</title>
+    <url>/2020/12/13/%E6%9F%AF%E8%A5%BF%E4%B8%8D%E7%AD%89%E5%BC%8F%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p>数学上，柯西-施瓦茨不等式，又称施瓦茨不等式或柯西-布尼亚科夫斯基-施瓦茨不等式，是一条很多场合都用得上的不等式.    </p>
+<a id="more"></a>
+<p>不等式以奥古斯丁·路易·柯西（Augustin Louis Cauchy），赫尔曼·阿曼杜斯·施瓦茨（Hermann Amandus Schwarz），和维克托·雅科夫列维奇·布尼亚科夫斯基（Виктор Яковлевич Буняковский）命名.<br>它的基本形式为<br>$$\left(\sum_{i=1}^{n} x_{i} y_{i}\right)^{2} \leq\left(\sum_{i=1}^{n} x_{i}^{2}\right)\left(\sum_{i=1}^{n} y_{i}^{2}\right).$$<br>也可以表示成<br>$$\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right)\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right) \geq\left(x_{1} y_{1}+x_{2} y_{2}+\cdots+x_{n} y_{n}\right)^{2}.$$<br>当<br>$$\frac{x_{1}}{y_{1}}=\frac{x_{2}}{y_{2}}=\cdots=\frac{x_{n}}{y_{n}}$$<br>时，等号成立.</p>
+<h1 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h1><p>将上文中不等式移项得</p>
+<p>该式称作权方和不等式.</p>
+<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>已知$x+y=1, x&gt;0, y&gt;0$,求$\frac{1}{x^{2}}+\frac{8}{y^{2}}$最小值.<br><strong>解:</strong><br>$$\frac{1}{x^{2}}+\frac{8}{y^{2}}=\frac{1^{3}}{x^{2}}+\frac{2^{3}}{y^{2}} \geq \frac{(1+2)^{3}}{(x+y)^{2}}=27$$</p>
+]]></content>
+      <categories>
+        <category>math</category>
+      </categories>
+      <tags>
+        <tag>math</tag>
+        <tag>不等式</tag>
+        <tag>吹牛</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>将hexo部署迁移至zeit</title>
     <url>/2021/02/13/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E8%BF%81%E7%A7%BB%E8%87%B3zeit/</url>
     <content><![CDATA[<p>Github Page在国内访问较慢，可以将服务部署到静态站zeit.io, 每月20G免费流量，并且能同步github项目。</p>
@@ -287,25 +356,6 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
       </tags>
   </entry>
   <entry>
-    <title>柯西不等式及其应用</title>
-    <url>/2020/12/13/%E6%9F%AF%E8%A5%BF%E4%B8%8D%E7%AD%89%E5%BC%8F%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p>数学上，柯西-施瓦茨不等式，又称施瓦茨不等式或柯西-布尼亚科夫斯基-施瓦茨不等式，是一条很多场合都用得上的不等式.    </p>
-<a id="more"></a>
-<p>不等式以奥古斯丁·路易·柯西（Augustin Louis Cauchy），赫尔曼·阿曼杜斯·施瓦茨（Hermann Amandus Schwarz），和维克托·雅科夫列维奇·布尼亚科夫斯基（Виктор Яковлевич Буняковский）命名.<br>它的基本形式为<br>$$\left(\sum_{i=1}^{n} x_{i} y_{i}\right)^{2} \leq\left(\sum_{i=1}^{n} x_{i}^{2}\right)\left(\sum_{i=1}^{n} y_{i}^{2}\right).$$<br>也可以表示成<br>$$\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right)\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right) \geq\left(x_{1} y_{1}+x_{2} y_{2}+\cdots+x_{n} y_{n}\right)^{2}.$$<br>当<br>$$\frac{x_{1}}{y_{1}}=\frac{x_{2}}{y_{2}}=\cdots=\frac{x_{n}}{y_{n}}$$<br>时，等号成立.</p>
-<h1 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h1><p>将上文中不等式移项得</p>
-<p>该式称作权方和不等式.</p>
-<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>已知$x+y=1, x&gt;0, y&gt;0$,求$\frac{1}{x^{2}}+\frac{8}{y^{2}}$最小值.<br><strong>解:</strong><br>$$\frac{1}{x^{2}}+\frac{8}{y^{2}}=\frac{1^{3}}{x^{2}}+\frac{2^{3}}{y^{2}} \geq \frac{(1+2)^{3}}{(x+y)^{2}}=27$$</p>
-]]></content>
-      <categories>
-        <category>math</category>
-      </categories>
-      <tags>
-        <tag>math</tag>
-        <tag>不等式</tag>
-        <tag>吹牛</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>百毒度盘自己出的限速破解？</title>
     <url>/2020/02/16/%E7%99%BE%E6%AF%92%E5%BA%A6%E7%9B%98%E8%87%AA%E5%B7%B1%E5%87%BA%E7%9A%84%E9%99%90%E9%80%9F%E7%A0%B4%E8%A7%A3%EF%BC%9F/</url>
     <content><![CDATA[<p>分享一张好看的手机（全面屏）壁纸，<a id="more"></a>下图为预览，<a href="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/2.14%E9%85%B7%E5%9B%BE.jpg">点我下载原图</a><br><img src="https://ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/kutu.jpg"></p>
@@ -324,57 +374,6 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
         <tag>秘藏</tag>
         <tag>干货</tag>
         <tag>福利</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>福尔摩斯精读:花斑带案</title>
-    <url>/2021/08/05/%E7%A6%8F%E5%B0%94%E6%91%A9%E6%96%AF%E7%B2%BE%E8%AF%BB-%E8%8A%B1%E6%96%91%E5%B8%A6%E6%A1%88/</url>
-    <content><![CDATA[<p>故事为冒险史中的小说<a id="more"></a><br>海伦·史东纳小姐在家中晚上听到口哨声，而她的姐姐茱莉亚在家中死前亦曾表示听到口哨声，还声称自己看到带有花斑的带子，所以海伦小姐感到十分害怕，故向福尔摩斯求助。福尔摩斯连同华生到海伦小姐居住的地方调查，福尔摩斯发现海伦小姐所住的地方有很多奇怪的装修，例如不通风的通风口、没有连接到仆人的房铃等，他已经大约推理到事件的情况，于是晚上躲在海伦小姐的房间等疑凶出现。最后终于发现海伦小姐的继父詹姆斯·罗伊洛特博士为了谋取家产，而设计以毒蛇杀害海伦两姊妹。</p>
-<h2 id="环境描写"><a href="#环境描写" class="headerlink" title="环境描写"></a>环境描写</h2><p>这部小说中为了渲染恐怖、惊险的氛围，大片段运用环境描写来衬托人物心理，渲染气氛，并推动情节进一步发展。<br>例如，在海伦叙述她姐姐暴死的夜晚时：  </p>
-<blockquote>
-<p>It was a wild night. <strong>The wind was howling outside, and the rain was beating and splashing against the windows.</strong> Suddenly, amid all the hubbub of the gale, there burst forth the wild scream of a terrified woman. </p>
-</blockquote>
-<ul>
-<li>howl<br>因惊恐而喊叫，等同于roar。</li>
-<li>splash<br>指雨水飞溅。<blockquote>
-<p>splash against the windows  </p>
-</blockquote>
-</li>
-</ul>
-<p>雨水在窗户上飞溅。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/photosphoto-1532294351631-a205083f392c.jpg"></p>
-<h3 id="各种“喊”"><a href="#各种“喊”" class="headerlink" title="各种“喊”"></a>各种“喊”</h3><h4 id="roar"><a href="#roar" class="headerlink" title="roar"></a>roar</h4><p>怒吼。</p>
-<blockquote>
-<p>the wind was roaring.  </p>
-</blockquote>
-<p>狂风大作。</p>
-<h4 id="scream"><a href="#scream" class="headerlink" title="scream"></a>scream</h4><p>惊喊</p>
-<blockquote>
-<p>Suddenly,  there burst forth the wild scream of a terrified woman.  </p>
-</blockquote>
-<p>突然间，爆出一个女人惊恐的叫喊。</p>
-<h4 id="cry"><a href="#cry" class="headerlink" title="cry"></a>cry</h4><p>哭喊</p>
-<blockquote>
-<p>He looked inside the envelope. ‘So it is,’ he cried.   </p>
-</blockquote>
-<p>他看了看信封里边，“看来是了！”他哭喊着。</p>
-<h4 id="yell"><a href="#yell" class="headerlink" title="yell"></a>yell</h4><p>狂喊</p>
-<blockquote>
-<p>“You see it, Watson?” he yelled. “You see it?”</p>
-</blockquote>
-<p>”看见了没，华生？“他狂喊。</p>
-<h2 id="短语"><a href="#短语" class="headerlink" title="短语"></a>短语</h2><p>His smile broadened.他笑得更开心了。<br>the sweet promise of spring春日甜美的景色。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/photos20210805195058.png"></p>
-<h2 id="神态描写"><a href="#神态描写" class="headerlink" title="神态描写"></a>神态描写</h2><blockquote>
-<p>My companion sat in the front of the trap, his arms folded, his hat pulled down over his eyes, <strong>and his chin sunk upon his breast, buried in the deepest thought.</strong></p>
-</blockquote>
-<p>我的朋友坐在车前，叉着胳膊，帽子遮在眼前，而头埋在胸前，陷入沉思。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>积累</tag>
-        <tag>Holmes</tag>
       </tags>
   </entry>
   <entry>
@@ -438,6 +437,57 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
         <tag>笑话</tag>
         <tag>苏联</tag>
         <tag>玉米大王</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>福尔摩斯精读:花斑带案</title>
+    <url>/2021/08/05/%E7%A6%8F%E5%B0%94%E6%91%A9%E6%96%AF%E7%B2%BE%E8%AF%BB-%E8%8A%B1%E6%96%91%E5%B8%A6%E6%A1%88/</url>
+    <content><![CDATA[<p>故事为冒险史中的小说<a id="more"></a><br>海伦·史东纳小姐在家中晚上听到口哨声，而她的姐姐茱莉亚在家中死前亦曾表示听到口哨声，还声称自己看到带有花斑的带子，所以海伦小姐感到十分害怕，故向福尔摩斯求助。福尔摩斯连同华生到海伦小姐居住的地方调查，福尔摩斯发现海伦小姐所住的地方有很多奇怪的装修，例如不通风的通风口、没有连接到仆人的房铃等，他已经大约推理到事件的情况，于是晚上躲在海伦小姐的房间等疑凶出现。最后终于发现海伦小姐的继父詹姆斯·罗伊洛特博士为了谋取家产，而设计以毒蛇杀害海伦两姊妹。</p>
+<h2 id="环境描写"><a href="#环境描写" class="headerlink" title="环境描写"></a>环境描写</h2><p>这部小说中为了渲染恐怖、惊险的氛围，大片段运用环境描写来衬托人物心理，渲染气氛，并推动情节进一步发展。<br>例如，在海伦叙述她姐姐暴死的夜晚时：  </p>
+<blockquote>
+<p>It was a wild night. <strong>The wind was howling outside, and the rain was beating and splashing against the windows.</strong> Suddenly, amid all the hubbub of the gale, there burst forth the wild scream of a terrified woman. </p>
+</blockquote>
+<ul>
+<li>howl<br>因惊恐而喊叫，等同于roar。</li>
+<li>splash<br>指雨水飞溅。<blockquote>
+<p>splash against the windows  </p>
+</blockquote>
+</li>
+</ul>
+<p>雨水在窗户上飞溅。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/photosphoto-1532294351631-a205083f392c.jpg"></p>
+<h3 id="各种“喊”"><a href="#各种“喊”" class="headerlink" title="各种“喊”"></a>各种“喊”</h3><h4 id="roar"><a href="#roar" class="headerlink" title="roar"></a>roar</h4><p>怒吼。</p>
+<blockquote>
+<p>the wind was roaring.  </p>
+</blockquote>
+<p>狂风大作。</p>
+<h4 id="scream"><a href="#scream" class="headerlink" title="scream"></a>scream</h4><p>惊喊</p>
+<blockquote>
+<p>Suddenly,  there burst forth the wild scream of a terrified woman.  </p>
+</blockquote>
+<p>突然间，爆出一个女人惊恐的叫喊。</p>
+<h4 id="cry"><a href="#cry" class="headerlink" title="cry"></a>cry</h4><p>哭喊</p>
+<blockquote>
+<p>He looked inside the envelope. ‘So it is,’ he cried.   </p>
+</blockquote>
+<p>他看了看信封里边，“看来是了！”他哭喊着。</p>
+<h4 id="yell"><a href="#yell" class="headerlink" title="yell"></a>yell</h4><p>狂喊</p>
+<blockquote>
+<p>“You see it, Watson?” he yelled. “You see it?”</p>
+</blockquote>
+<p>”看见了没，华生？“他狂喊。</p>
+<h2 id="短语"><a href="#短语" class="headerlink" title="短语"></a>短语</h2><p>His smile broadened.他笑得更开心了。<br>the sweet promise of spring春日甜美的景色。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/photos20210805195058.png"></p>
+<h2 id="神态描写"><a href="#神态描写" class="headerlink" title="神态描写"></a>神态描写</h2><blockquote>
+<p>My companion sat in the front of the trap, his arms folded, his hat pulled down over his eyes, <strong>and his chin sunk upon his breast, buried in the deepest thought.</strong></p>
+</blockquote>
+<p>我的朋友坐在车前，叉着胳膊，帽子遮在眼前，而头埋在胸前，陷入沉思。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>积累</tag>
+        <tag>Holmes</tag>
       </tags>
   </entry>
   <entry>
