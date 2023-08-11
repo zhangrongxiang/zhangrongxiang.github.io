@@ -99,9 +99,9 @@ w.to_file(&quot;pic.png&quot;)
       </tags>
   </entry>
   <entry>
-    <title>����Ҫ��ʱ������˫����������ֵ</title>
+    <title>不需要临时变量的双变量交换数值</title>
     <url>/2023/07/10/%E4%B8%8D%E9%9C%80%E8%A6%81%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%8C%E5%8F%98%E9%87%8F%E4%BA%A4%E6%8D%A2%E6%95%B0%E5%80%BC/</url>
-    <content><![CDATA[<h1 id="����Ҫ�����������i�������"><a href="#����Ҫ�����������i�������" class="headerlink" title="����Ҫ�����������ı�������"></a>����Ҫ�����������ı�������</h1><p>Ҫ֪�����£�</p>
+    <content><![CDATA[<h1 id="不需要第三个变量的变量交换"><a href="#不需要第三个变量的变量交换" class="headerlink" title="不需要第三个变量的变量交换"></a>不需要第三个变量的变量交换</h1><p>要知道的事：</p>
 <p>a^0=a;</p>
 <p>a^a=0.</p>
 <pre><code class="c">void inplace_swap(int *x, int *y)&#123;
@@ -112,8 +112,8 @@ w.to_file(&quot;pic.png&quot;)
 
 &#125;
 </code></pre>
-<p>����������ְ�ʾ�ģ�������Ϊ������̽�����ָ�����x yλ�ô���ŵ�ֵ��</p>
-<p>ע�⣬��ͨ��������ͬ���÷�������Ҫ��������ʱ�����洢��һ��ֵ���������ַ������������Ʋ��󣬽����Ǹ�������Ϸ��</p>
+<p>正如程序名字暗示的，我们认为这个过程交换了指针变量x y位置处存放的值。</p>
+<p>注意，与通常方法不同，该方法不需要第三个临时变量存储另一个值。不过这种方法性能上优势不大，仅仅是个智力游戏。</p>
 <table>
 <thead>
 <tr>
@@ -140,12 +140,12 @@ w.to_file(&quot;pic.png&quot;)
 </tbody></table>
 ]]></content>
       <categories>
-        <category>�������</category>
+        <category>程序设计</category>
       </categories>
       <tags>
-        <tag>C����</tag>
-        <tag>λ����</tag>
-        <tag>������������ϵͳ</tag>
+        <tag>C语言</tag>
+        <tag>位运算</tag>
+        <tag>深入理解计算机系统</tag>
       </tags>
   </entry>
   <entry>
