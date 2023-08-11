@@ -103,7 +103,7 @@ w.to_file(&quot;pic.png&quot;)
     <url>/2023/07/10/%E4%B8%8D%E9%9C%80%E8%A6%81%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%8C%E5%8F%98%E9%87%8F%E4%BA%A4%E6%8D%A2%E6%95%B0%E5%80%BC/</url>
     <content><![CDATA[<h1 id="不需要第三个变量的变量交换"><a href="#不需要第三个变量的变量交换" class="headerlink" title="不需要第三个变量的变量交换"></a>不需要第三个变量的变量交换</h1><p>要知道的事：</p>
 <p>a^0=a;</p>
-<p>a^a=0.</p>
+<p>a^a=0.<a id="more"></a></p>
 <pre><code class="c">void inplace_swap(int *x, int *y)&#123;
 
 *y =*x ^ *y;  //Step 1
@@ -596,6 +596,113 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
         <tag>笑话</tag>
         <tag>苏联</tag>
         <tag>玉米大王</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>子数列和问题</title>
+    <url>/2023/07/19/%E5%AD%90%E6%95%B0%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>一道经典的算法问题<a id="more"></a><br><img src="https://cdn.jsdelivr.net/gh/zhangrongxiang/store/Untitle3d.png"></p>
+<pre><code class="c"># include&lt;stdio.h&gt;
+
+int max(int A,int B, int C)&#123;
+
+    return (A &gt; B) ? (A &gt; C ? A : C) : (B &gt; C ? B : C);
+
+&#125;
+// 改进版暴力搜索
+int maxSubArray(int arr[],int n)&#123;
+   
+    int ultimate_max=0;
+    for(int i=0;i&lt;n;i++)&#123;
+         int this_max=0;
+        for(int j=i;j&lt;n;j++)&#123;
+            this_max += arr[j]; //直接加即可
+            if(this_max&gt;ultimate_max)&#123;
+                ultimate_max=this_max;
+            &#125;
+        &#125;
+    &#125;
+    return ultimate_max;
+&#125;
+
+/*分治法球List[left]到List[right]的最大子列和，复杂度O(nlog2n)*/
+int DivideAndConquer ( int List[], int left, int right ) &#123;
+    int MaxLeftSum, MaxRightSum;    //存放左右子问题的解。
+    int MaxLeftBorderSum, MaxRightBorderSum;    //存放跨分界线的结果。
+    
+    int LeftBorderSum, RightBorderSum;
+    int center, i;
+    
+    /*递归的终止条件，子列只有1个数字*/
+    if ( left == right ) &#123;
+        if ( List[left] &gt; 0 )    return List[left];
+        else return 0;
+    &#125;
+    
+    /* “分”的过程 */
+    center = ( left + right ) / 2;    //找到中分点。
+    MaxLeftSum = DivideAndConquer ( List, left, center );    //递归求左子列和。
+    MaxRightSum = DivideAndConquer ( List, center+1, right );    //递归求右子列和。
+    
+    /*求跨分界线的最大子列和*/
+    MaxLeftBorderSum = 0;    LeftBorderSum = 0;
+    for ( i = center; i &gt;= left; i-- ) &#123;
+        LeftBorderSum += List[i];
+        if ( LeftBorderSum &gt; MaxLeftBorderSum )
+            MaxLeftBorderSum = LeftBorderSum;
+    &#125;//左边扫描结束。
+    
+    MaxRightBorderSum = 0;    RightBorderSum = 0;
+    for ( i = center+1; i &lt;= right; i++ ) &#123;
+        RightBorderSum += List[i];
+        if ( RightBorderSum &gt; MaxRightBorderSum )
+            MaxRightBorderSum = RightBorderSum;
+    &#125;//右边扫描结束。
+    
+    /*返回“治”的结果*/
+    return max ( MaxLeftSum, MaxRightSum, MaxLeftBorderSum + MaxRightBorderSum );
+&#125;
+/*此函数用于保持接口相同*/
+int maxSubArray3 ( int List[], int N ) &#123;
+    return DivideAndConquer ( List, 0, N-1 );
+&#125;
+
+//在线处理法
+int maxSubArray2(int arr[],int n)&#123;
+    int this_max=0;
+    int ultimate_max=0;
+    for(int i=0;i&lt;n;i++)&#123;
+        this_max += arr[i];
+        if(this_max&gt;ultimate_max)&#123;
+            ultimate_max=this_max;
+        &#125;else if(this_max &lt; 0)&#123;
+            this_max = 0;
+        &#125;
+    &#125;
+    return ultimate_max;
+&#125;
+
+int main()
+&#123;
+    int n=0;
+    int array[1000];
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=0;i&lt;n;i++)&#123;
+        scanf(&quot;%d&quot;,&amp;array[i]);
+    &#125;
+    printf(&quot;OK.&quot;);
+    getchar();
+    printf(&quot;%d&quot;,maxSubArray3(array,n));
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
 </search>
