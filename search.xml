@@ -705,4 +705,99 @@ int main()
         <tag>算法</tag>
       </tags>
   </entry>
+  <entry>
+    <title>转置一个矩阵</title>
+    <url>/2023/08/27/%E8%BD%AC%E7%BD%AE%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5/</url>
+    <content><![CDATA[<p><strong>将一个三行四列的矩阵转置后变成四行三列的矩阵。</strong></p>
+<p>这个问题我打算用二维数组。</p>
+<p>首先，我打算随机生成一个数组，并定义一个函数绘制它</p>
+<pre><code>void printAnArray(int arr[ROW][COL])&#123;
+        for(int i=0;i&lt;ROW;i++)&#123;
+        for(int j=0;j&lt;COL;j++)&#123;
+            printf(&quot;%4d&quot;,arr[i][j]); //%4d tab制表
+
+        &#125;
+         printf(&quot;\n&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>怎么实现转置，认清实质：把每一行的元素赋给对应列！</p>
+<pre><code>void convertion(int arr[ROW][COL],int arr2[COL][ROW])&#123;
+       for(int i=0;i&lt;COL;i++)&#123;
+        for(int j=0;j&lt;ROW;j++)&#123;
+            arr2[i][j]=arr[j][i]; //有理解难度！
+
+        &#125;
+
+    &#125;
+for(int i=0;i&lt;COL;i++)&#123;
+        for(int j=0;j&lt;ROW;j++)&#123;
+             printf(&quot;%4d&quot;,arr2[i][j]);
+
+        &#125;
+          printf(&quot;\n&quot;);
+    &#125;
+&#125;
+
+
+</code></pre>
+<p>综上，</p>
+<pre><code># include &lt;stdio.h&gt;
+# include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#define ROW 3
+#define COL 4
+void printAnArray(int arr[ROW][COL])&#123;
+        for(int i=0;i&lt;ROW;i++)&#123;
+        for(int j=0;j&lt;COL;j++)&#123;
+            printf(&quot;%4d&quot;,arr[i][j]);
+
+        &#125;
+         printf(&quot;\n&quot;);
+    &#125;
+&#125;
+void convertion(int arr[ROW][COL],int arr2[COL][ROW])&#123;
+       for(int i=0;i&lt;COL;i++)&#123;
+        for(int j=0;j&lt;ROW;j++)&#123;
+            arr2[i][j]=arr[j][i];
+
+        &#125;
+
+    &#125;
+for(int i=0;i&lt;COL;i++)&#123;
+        for(int j=0;j&lt;ROW;j++)&#123;
+             printf(&quot;%4d&quot;,arr2[i][j]);
+
+        &#125;
+          printf(&quot;\n&quot;);
+    &#125;
+&#125;
+
+
+int main()&#123;
+    int array_a[ROW][COL]=&#123;&#125;;
+    int array_b[COL][ROW]=&#123;&#125;;
+    srand(time(0));
+    for(int i=0;i&lt;ROW;i++)&#123;
+        for(int j=0;j&lt;COL;j++)&#123;
+            array_a[i][j]=rand()%100;
+
+        &#125;
+    &#125;
+    printf(&quot;Before converted:\n&quot;);
+    printAnArray(array_a);
+    printf(&quot;After convertion:\n&quot;);
+    convertion(array_a,array_b);
+    return 0;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>C语言学习</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>二维数组</tag>
+      </tags>
+  </entry>
 </search>
