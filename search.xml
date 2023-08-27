@@ -791,6 +791,28 @@ int main()&#123;
     return 0;
 &#125;
 </code></pre>
+<p>书上还提供了一个思考题：如果行数、列数相等，能否只用一个数组实现？</p>
+<p>我觉得，不用操作数组，更改打印的思路：</p>
+<p>原来是横着打印，现在竖着打印就行。即原来按列走，现在按行走。</p>
+<pre><code>int main()&#123;
+    
+       for(int i=0;i&lt;ROW;i++)&#123;
+        for(int j=0;j&lt;ROW;j++)&#123;
+            arr[i][j]=rand()%100;
+
+        &#125;
+    &#125;
+    printAnArray(arr);
+    printf(&quot;After operation:\n&quot;);
+    for(int i =0 ;i&lt;ROW;i++)&#123;
+        for(int j =0;j&lt;ROW;j++)&#123;
+            printf(&quot;%4d&quot;,arr[j][i]);
+        &#125;
+        printf(&quot;\n&quot;);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
 ]]></content>
       <categories>
         <category>C语言学习</category>
