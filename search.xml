@@ -825,6 +825,30 @@ int main()&#123;
   <entry>
     <title>逆序输出数字</title>
     <url>/2023/09/06/%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E6%95%B0%E5%AD%97/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p><strong>输入一个数字后逆序输出之。</strong><br>用数列吗？也可以。</p>
+<p>更为巧妙的是，利用了取余运算。<br>因为整数取余给整型，仍会强制转换为整型，因此不断除以10并取余。</p>
+<pre><code>#include&lt;stdio.h&gt;
+
+int main()&#123;
+    int inp = 0;
+    scanf(&quot;%d&quot;,&amp;inp);
+
+    while(inp%10!=0)&#123;
+            printf(&quot;%d&quot;,inp%10);
+            inp = inp/10;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>算法</tag>
+        <tag>基础算法</tag>
+        <tag>取余</tag>
+      </tags>
   </entry>
 </search>
