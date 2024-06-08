@@ -1,6 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GPT-4多模态模型学习笔记（1）</title>
+    <url>/2024/05/17/GPT-4%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="GPT-4多模态模型学习笔记（1）"><a href="#GPT-4多模态模型学习笔记（1）" class="headerlink" title="GPT-4多模态模型学习笔记（1）"></a>GPT-4多模态模型学习笔记（1）</h1><p>之前我们一直说自然语言处理是人工智能王冠上最大的那颗珍珠，但如今用世俗的珍珠或者王冠形容已经不合适了。多模态大模型带给人类世界的震撼，就如人工智能企业Hugging Face（因提供开源预训练模型库而闻名）的联合创始人Thomas Wolf所述：“在过去的几年里，好的多模态模型一直是许多大型技术实验室的圣杯。”<strong>其中多模态指的是融合文本、图像、视频或音频等多种模态作为输入或输出。</strong> </p>
+<p>GPT-4这个标签代表第4代生成式预训练变换模型(Generative Pre-trained Transformer 4)，是OpenAI在2023年3月14日公开的一种多模态模型，是对前几个月发布的ChatGPT的多模态升级。GPT-4模型可对图文多模态输入生成应答文字，以及对视觉元素的分类、分析和隐含语义提取，并表现出优秀的应答能力。</p>
+<h2 id="GPT-4核心技术有哪些？"><a href="#GPT-4核心技术有哪些？" class="headerlink" title="GPT-4核心技术有哪些？"></a><strong>GPT-4核心技术有哪些？</strong></h2><h3 id="1-1理论基础——多模态涌现能力"><a href="#1-1理论基础——多模态涌现能力" class="headerlink" title="1.1理论基础——多模态涌现能力"></a>1.1理论基础——多模态涌现能力</h3><p>讲到大语言模型的优势，一般首先要提到这类模型的<strong>涌现能力和思维链</strong>。这两者是大语言模型不断接近人类的关键特征。我们之所以认为GPT-4会是具有里程碑意义的一代，正是因为多模态的GPT-4会从视觉角度和视觉-文字语义融合方面涌现出更多的能力。2022-2023年，我们可以认为AI是第一次睁开双眼理解这个世界。</p>
+<p>在大型语言模型（LLM）中，<strong>涌现能力（Emergent Abilities）是指模型具有从原始训练数据中自动学习并发现新的、更高层次的特征和模式的能力。</strong></p>
+<p>就中文释义而言，涌现能力也指大语言模型涌现出来的新能力。这有点类似于去超市遇到买二赠一，赠品的质量居然还出乎意料。</p>
+<p>与大语言模型（LLM）相比，<strong>多模态大语言模型(Multi-modal Large Language Model，MLLM)可实现更好的常识推理性能，</strong> 跨模态迁移更有利于知识获取，产生更多新的能力，加速了能力的涌现。这些独立模态或跨模态新特征、能力或模式通常不是通过目的明确的编程或训练获得的，而是模型在大量多模态数据中自然而然的学习到的。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2024/06/07/16921ff8c137363a.png"></p>
+<p>在语言模型发展的早期，通过在更多数据上训练更大的模型，可获得近似连续的精确度提升。*(可称为缩放定律/Scaling Laws*)到了2015年左右，随着深度学习技术的发展和语料库的增大，模型达到一定的临界规模后，NLP开发者们发现，<strong>大语言模型(包括GPT-3、GLaM、LaMDA和Megatron-Turing NLG等)开始表现出一些开发者最开始未能预测的、更复杂的能力和特性，这些新能力和新特性被认为是涌现能力的体现。</strong></p>
+<p>涌现能力是基于深度学习模型的分层结构和权重学习机制实现的。涌现出来的能力可以是基于文本的，也可以是多模态的。我们可以将GPT-4这类大模型的训练视为解方程，每一层神经元（可视为变量组合）的输出都作为下一层神经元的输入，并且模型的每个权重（Weight）都通过强化学习算法进行学习和更新。这种分层的结构和权重学习机制使得深度学习模型能够自动的学习到从原始数据中提取隐含的特征和模式，从而实现涌现能力。</p>
+<p>涌现能力的另一个重要表现是<strong>模型的泛化能力</strong>。在没有专门训练过的情况，GPT-4也可以泛化到新的、未知的多模态数据样本上。这种泛化能力取决于模型的结构和训练过程，以及数据的数量和多样性。如果模型具有足够的复杂性和泛化能力，就可以从原始数据中发现新的、未知的特征和模式。当然，GPT-4涌现出的新能力可能仍有局限性，例如：模型可能产生错误的回答，对某些问题缺乏理解，容易受到输入干扰等。目前认为GPT-4的幻觉与其涌现能力具有相关性。</p>
+<h2 id="多模态思维链"><a href="#多模态思维链" class="headerlink" title="多模态思维链"></a>多模态思维链</h2><p><strong>思维链(Chain of Thought)可视为大语言模型涌现出来的核心能力之一。</strong>之所以现在各类GPT研究火爆，也与模型训练出的思维链可进入实用有密切关系。思维链形成机制可以解释为模型通过学习大量的语言数据来构建一个关于语言结构和意义的内在表示，通过一系列中间自然语言推理步骤来完成最终输出。思维链是ChatGPT和GPT-4能让大众感觉到语言模型“像人”的关键特性。</p>
+<p>虽然GPT-4这些模型并非具备真正的意识或思考能力，<strong>但用类似于人的推理方式的思维链来提示语言模型，极大的提高了GPT-4在推理任务上的表现，打破了精调（Fine-tune）的平坦曲线。</strong>具备了多模态思维链能力的GPT-4模型<strong>具有一定逻辑分析能力，已经不是传统意义上的词汇概率逼近模型。</strong></p>
+<p>当然思维链的训练可能并不容易。尽管现在有大量团队进入大语言模型训练领域，但若干年内能找到训练诀窍并完成思维链训练的团队可能不多。对创企来说，完成思维链的训练，才算真正拿到了这波大模型AI竞技的入场券。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2024/06/07/3e7dcec6de2aa9ce.png"></p>
+<p>通过多模态思维链技术，GPT-4将一个多步骤的问题（例如图表推理）分解为可以单独解决的中间步骤。在解决多步骤推理问题时，模型生成的思维链会模仿人类思维过程。这意味着额外的计算资源被分配给需要更多推理步骤的问题，可以进一步增强GPT-4的表达和推理能力。</p>
+]]></content>
+      <categories>
+        <category>AI学习笔记</category>
+      </categories>
+      <tags>
+        <tag>GPT-4</tag>
+        <tag>多模态</tag>
+        <tag>LLM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git入门使用完整流程</title>
+    <url>/2024/06/07/git%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="git入门-完整流程"><a href="#git入门-完整流程" class="headerlink" title="git入门-完整流程"></a>git入门-完整流程</h1><h2 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h2><p>创建新文件夹，打开，然后执行<code>git init</code>，以创建新的 git 仓库。</p>
+<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><p>执行<code>git clone</code>以创建仓库的克隆版本。</p>
+<h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>本地仓库由 git 维护的三棵“树”组成。第一个是你的 <strong>工作目录</strong>，它持有实际文件；第二个是 <strong>暂存区（Index）</strong>，它像个缓存区域，临时保存你的改动；最后是 <strong>HEAD</strong>，它指向你最后一次提交的结果。</p>
+<p><img src="https://www.runoob.com/manual/git-guide/img/trees.png" alt="https://www.runoob.com/manual/git-guide/img/trees.png"></p>
+<h2 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h2><p>你可以提出更改（把它们添加到暂存区），使用如下命令： </p>
+<pre><code class="python">git add &lt;filename&gt; 
+</code></pre>
+<p>或者添加目录下面所有文件</p>
+<pre><code class="python">git add .
+</code></pre>
+<p> 这是 git 基本工作流程的第一步；使用如下命令以实际提交改动：</p>
+<pre><code class="python"> git commit -m &quot;代码提交信息&quot; 
+</code></pre>
+<p>现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库。</p>
+<h2 id="推送改动"><a href="#推送改动" class="headerlink" title="推送改动"></a>推送改动</h2><p>你的改动现在已经在本地仓库的 HEAD 中了。执行如下命令以将这些改动提交到远端仓库：</p>
+<pre><code class="python"> git push origin master 
+</code></pre>
+<p>可以把 master 换成你想要推送的任何分支。 </p>
+<p>如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加： </p>
+<pre><code class="python">git remote add origin &lt;server&gt;
+</code></pre>
+<p> 如此你就能够将你的改动推送到所添加的服务器上去了。</p>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候，<em>master</em> 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。</p>
+<p><img src="https://www.runoob.com/manual/git-guide/img/branches.png" alt="https://www.runoob.com/manual/git-guide/img/branches.png"></p>
+<p>创建一个叫做“feature_x”的分支，并切换过去：</p>
+<pre><code class="python">git checkout -b feature_x
+</code></pre>
+<p>切换回主分支：</p>
+<pre><code class="python">git checkout master
+</code></pre>
+<p>再把新建的分支删掉：</p>
+<pre><code class="python">git branch -d feature_x
+</code></pre>
+<p>除非你将分支推送到远端仓库，不然该分支就是 <strong><em>不为他人所见的</em>：</strong></p>
+<pre><code class="python">git push origin &lt;branch&gt;
+</code></pre>
+<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2><p>要更新你的本地仓库至最新改动，执行：</p>
+<pre><code class="python">git pull
+</code></pre>
+<p>以在你的工作目录中 <em>获取（fetch）</em> 并 <em>合并（merge）</em> 远端的改动。</p>
+<p>要合并其他分支到你的当前分支（例如 master），执行：</p>
+<pre><code class="python">git merge &lt;branch&gt;
+</code></pre>
+<p>在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现<em>冲突（conflicts）</em>。 这时候就需要你修改这些文件来手动合并这些<em>冲突（conflicts）</em>。改完之后，你需要执行如下命令以将它们标记为合并成功：</p>
+<pre><code class="python">git add &lt;filename&gt;
+</code></pre>
+<p>在合并改动之前，你可以使用如下命令预览差异：</p>
+<pre><code class="python">git diff &lt;source_branch&gt; &lt;target_branch&gt;
+</code></pre>
+<h2 id="实践——向gitea上传仓库"><a href="#实践——向gitea上传仓库" class="headerlink" title="实践——向gitea上传仓库"></a>实践——向gitea上传仓库</h2><p><strong>基本流程:add-&gt;commit-&gt;push。</strong></p>
+<h3 id="一、init"><a href="#一、init" class="headerlink" title="一、init"></a>一、init</h3><pre><code class="python">git init
+</code></pre>
+<h3 id="二、add"><a href="#二、add" class="headerlink" title="二、add"></a>二、add</h3><p>注意:add有多种形式，可以add某个文件，某个文件夹，或直接add当前仓库下所有文件</p>
+<pre><code class="python">git add 单个文件
+git add 文件夹1/ 文件夹2/ ……多个文件夹之间空格隔开
+git add .
+</code></pre>
+<h3 id="三、commit"><a href="#三、commit" class="headerlink" title="三、commit"></a><strong>三、commit</strong></h3><pre><code>git commit -m “注释”
+</code></pre>
+<h3 id="四、push"><a href="#四、push" class="headerlink" title="四、push"></a><strong>四、push</strong></h3><pre><code>git push -u origin master
+</code></pre>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>The End Of Life</title>
     <url>/2022/01/29/The-Ends-Of-Life/</url>
     <content><![CDATA[<p>THE END OF LIFE, being the first section of the last chapter “Epilogue” of Lin Yutang’s My Country and My People, published in New York by the John Day Publishing Company, 1935.</p>
@@ -41,6 +142,103 @@ But merely say, ‘What a golden autumn hour! &#39;”
       <tags>
         <tag>essay</tag>
         <tag>Lin Yutang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【素材】平凡的世界好句</title>
+    <url>/2019/10/13/%E3%80%90%E7%B4%A0%E6%9D%90%E3%80%91%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E5%A5%BD%E5%8F%A5/</url>
+    <content><![CDATA[<p>只有自己诚心待人，别人才有可能对自己以诚相待。</p>
+<a id="more"></a>
+<p>只要春天不死，就有迎春的花朵年年岁岁开放，生命讲涅磐，生生不息，并会以另一种形式永存。</p>
+<p>在我们短促而又漫长的一生中，我们在苦苦地寻找人生的幸福，可幸福往往又与我们失之交臂。当我们为此而耗尽宝贵的青春年华，皱纹也悄悄地爬上了眼角的时候，我们或许才能稍稍懂得生活实际上意味着什么。</p>
+<p>有了希望，人就会产生激情，并可以义无反顾地为之而付出代价；在这样的过程中，才能真正体会到人生的意义。什么是人生？人生就是永无休止的奋斗！只有决定了目标并在奋斗中，感到自己的努力没有虚掷，这样的生活才是充实的，精神也会永远年轻。</p>
+<p>在一个人的思想还没有强大到自己能完全把握自己的时候，就需要在精神上依托另一个比自己更强的人。也许有一天，学生会变成自己老师的老师——这是常常会有的——但人在壮大过程中的每一个阶段，都需要求得当时比自己的认识更高明的指教。<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=117801519,1704045645&fm=26&gp=0.jpg"><br>人之所以痛苦，在于追求错误的东西。如果你不给自己烦恼，别人也永远不可能给你烦恼。因为你自己的内心，你放不下。好好的管教你自己，不要管别人。</p>
+<p>人生啊，是这样不可预测，没有永恒的痛苦，也没有永恒的幸福，生活像流水一般，有时是那么平展，有时又是那么曲折。</p>
+<p>人们宁愿去关心一个蹩脚电影演员的吃喝拉撒和鸡毛蒜皮，而不愿了解一个普通人波涛汹涌的内心世界……</p>
+<p>生活不能等待别人来安排，要自已去争取和奋斗；而不论其结果是喜是悲，但可以慰藉的是，你总不枉在这世界上活了一场。有了这样的认识，你就会珍重生活，而不会玩世不恭；同时，也会给人自身注入一种强大的内在力量。</p>
+<p>其实我们每个人的生活都是一个世界，即使最平凡的人也要为他生活的那个世界而奋斗。</p>
+<p>普通并不等于庸俗。在许许多多普普通通的事情中，应该表现出不平常的看法和做法来。</p>
+<p>年轻是一个中性词，它代表着很多缺点：缺乏经验、少不更事、容易冲动。但是也有很多优点，其中之一就是有大把的时间去遗忘那些不该记住的事情。</p>
+<p>你知道，幸福不仅仅是吃饱穿暖，而是勇敢的战胜困难。</p>
+<p>命运总是不如愿。但往往是在无数的痛苦中，在重重的矛盾和艰难中，才使人成熟起来，坚强起来；虽然这些东西在实际感受中给人带来的并不都是欢乐。</p>
+<p>美丽的花朵凋谢了也是美丽的。<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3737405160,276266928&fm=26&gp=0.jpg"><br>每一分钟都有新的生命欣喜地降生到这个世界，同时也把另一些人送进坟墓。这边万里无云，阳光灿烂；那边就可能风云骤起，地裂山崩。世界没有一天是平静的。</p>
+<p>即使有一天我要远走他乡，但愿我还能在梦中再回到这里来…</p>
+<p>即使没有月亮，心中也是一片皎洁。</p>
+<p>多少美好的东西消失和毁灭了，世界还像什么事也没有发生。是的，生活在继续着。可是，生活中的每一个人却在不断地失去自己最珍贵的东西。</p>
+<p>对于生活的理想，应该像宗教徒一样充满虔诚与热情！遥远的撒哈拉大沙漠里，衣衫褴褛、蓬头垢面、一步一跪的教徒们，眼睛里闪烁着超凡脱俗的光芒，艰难地爬沿着走向圣地麦加……</p>
+<p>一个平凡而普通的人，时时都会感到被生活的波涛巨浪所淹没。你会被淹没吗？除非你甘心就此而沉沦！！</p>
+<p>死去的只是躯壳，生命将涅槃生生不息并以另一种形式存在。</p>
+<p>生活中真正的勇士向来默默无闻，喧哗不止的永远是自视高贵的一群。不要怕苦难！如果能深刻理解苦难，苦难就会给你带来崇高感。如果生活需要你忍受苦难，你一定要咬紧牙关坚持下去，有位了不起的人说过：痛苦难道是白受的吗？它应该使我们伟大！</p>
+<p>时光静悄悄地流逝。世界上有些人因为忙而感到生活的沉重，而有些人因为闲而活得压抑。</p>
+<p>生命里有着多少的无奈和惋惜，又有着怎样的愁苦和感伤？雨浸风蚀的落寞与苍楚一定是水，静静地流过青春奋斗的日子和触摸理想的岁月。</p>
+<p>什么是人生？人生就是用不休止的奋斗！只有选定了目标并在奋斗中感到自己的努力没有虚掷，这样的生活才是充实的，精神也会永远年轻！<br><img src="https://images.pexels.com/photos/64022/joan-of-arc-golden-sculpture-golden-statue-64022.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></p>
+]]></content>
+      <categories>
+        <category>作文</category>
+      </categories>
+      <tags>
+        <tag>作文素材</tag>
+        <tag>好句</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人生</title>
+    <url>/2020/02/13/%E4%BA%BA%E7%94%9F/</url>
+    <content><![CDATA[<p>在一隅孤独时，有一种静汹涌成潮，拍击我；有一种静凝结成无，茫然我；悲从中来，又有一种泪，撕扯我；在一种苦中不能自拔，就为寻找生的理由而头痛。<a id="more"></a>我在梦醒的一大片虚无中，自嘲、自恃，当然也有自救。人生得意也好，失意也罢，照常人的思维，活着便是生命。我不敢放弃生命，因为我怕活着的人，哪怕为我有一点伤悲。<br>人生，何谓人生？扪心自问，在我看来，人生是一盘危机四伏、险象环生的棋，杀得痛快淋漓、起伏跌宕。最终有人以轰轰烈烈的勇士之笑，笑傲世事；抑或被杀的丢盔弃甲、狼狈不堪，以残兵败将之态，隐遁名利，潜归山林以逃避现实。没有比苏轼的“人生如梦”更具权威了。其中，淡泊名利者大概会虚怀若谷，以自己的生命之光照亮别人，至油枯灯灭时，还意犹未尽而眷恋。宁为玉碎、不为瓦全者的撼山震荡气回肠的豪言壮语；奴颜婢膝苟且偷生者的惹人唾骂、令人发指的丑脸劣行都成过眼烟云……<br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/pocket-watch-3156771_640.jpg"><br>“大江东去，浪淘尽，千古风流人物。”是的，大浪淘沙，淘出的是真金，一种跨越时间和空间，亘古不变的灵魂。而那些金玉其中的小人，心怀鬼胎却又貌似斯文的伪君子则被洗涤一空。如果硬说他们留下了什么，那只能是为非作歹、欺压黎民的斑斑劣迹，“尔曹身与名俱灭，不废江河万古流”！<br>我们都是平凡的人，人生虽较长河微不足道，对具体的每个人，又至关重要。拥有时不懂得珍惜，失去时方显得宝贵。时间，总是无声无息的在你我身边流过，难怪古人有“时光容易把人抛，红了樱桃，绿了芭蕉”之说。由此看来，我们今日的“未觉池塘春草梦，阶前梧桐已秋声”的喟叹也就不足为奇了。<br>蜘蛛结网可能逮不到昆虫，但蜘蛛不结网，永远逮不到昆虫。不必说“书生意气”也不必再说“风华正茂”，我们和你们一样把握人生的长度，开拓人生的宽度。<br>纵观历史沧桑变幻，我唯有从中吸取教训和经验，以不变应万变。<br>漫读人生真谛，我只能抛弃舒适和安逸，否则，人生将是一段空白的轨迹。<br>我与大众同在，人何在？只恨一万年都太短！<br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/hot-air-balloons-4385384_1280.jpg"></p>
+]]></content>
+      <categories>
+        <category>散文</category>
+      </categories>
+      <tags>
+        <tag>散文</tag>
+        <tag>励志</tag>
+        <tag>震撼</tag>
+        <tag>哲理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一键批量删除QQ动态</title>
+    <url>/2021/02/14/%E4%B8%80%E9%94%AE%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4QQ%E5%8A%A8%E6%80%81/</url>
+    <content><![CDATA[<p>当你看到你以前的QQ动态（说说）时，有何感觉？</p>
+<a id="more"></a>
+<p><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosphotos%E8%B6%A3%E5%9B%BE%EF%BC%9A%E5%81%B6%E7%84%B6%E9%97%B4%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E5%A4%9A%E5%B9%B4%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81_java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95-CSDN%E5%8D%9A%E5%AE%A2_2.gif"><br>简直就是自己的一场黑历史。那么我们就来看一个能一键删除QQ动态的脚本。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="进入DevTools"><a href="#进入DevTools" class="headerlink" title="进入DevTools"></a>进入DevTools</h2><p>浏览器打开QQ空间<a href="https://user.qzone.qq.com/">链接</a>，进入后按<code>F12</code>,浏览器弹出<code>DevTools</code>，或者右键选择“检查”。 </p>
+<h2 id="调出控制台"><a href="#调出控制台" class="headerlink" title="调出控制台"></a>调出控制台</h2><p>选择<code>console</code><br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosconsole.webp"> </p>
+<h2 id="复制代码"><a href="#复制代码" class="headerlink" title="复制代码"></a>复制代码</h2><p>复制下面代码到控制台，回车即可。</p>
+<pre><code>var temp = true;
+
+function clickDel() &#123;
+    try &#123;
+        document.querySelector(&#39;.app_canvas_frame&#39;).contentDocument.querySelector(&#39;.del_btn&#39;).click();
+    &#125; catch&#123;
+        var a = document.querySelector(&#39;.app_canvas_frame&#39;).contentDocument.querySelector(&#39;.mod_pagenav_main&#39;).querySelectorAll(&#39;.c_tx&#39;);
+        a[a.length - 1].click();
+        temp = false;
+        setTimeout(clickDel, 2000);
+    &#125;
+    setTimeout(clickYes, temp ? 2000 : 5000);
+    temp = true;
+&#125;
+function clickYes() &#123;
+    document.querySelector(&#39;.qz_dialog_layer_btn&#39;).click();
+    setTimeout(clickDel, 2000);
+&#125;
+if (confirm(&quot;是不是要删除说说&quot;)) &#123;
+    setTimeout(function () &#123;
+        document.querySelectorAll(&quot;a[tabindex]&quot;)[8].click();
+        setTimeout(clickDel, 2000);
+    &#125;, 3000);
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>javascript</tag>
+        <tag>说说</tag>
+        <tag>动态</tag>
       </tags>
   </entry>
   <entry>
@@ -99,103 +297,6 @@ w.to_file(&quot;pic.png&quot;)
       </tags>
   </entry>
   <entry>
-    <title>一键批量删除QQ动态</title>
-    <url>/2021/02/14/%E4%B8%80%E9%94%AE%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4QQ%E5%8A%A8%E6%80%81/</url>
-    <content><![CDATA[<p>当你看到你以前的QQ动态（说说）时，有何感觉？</p>
-<a id="more"></a>
-<p><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosphotos%E8%B6%A3%E5%9B%BE%EF%BC%9A%E5%81%B6%E7%84%B6%E9%97%B4%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E5%A4%9A%E5%B9%B4%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81_java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95-CSDN%E5%8D%9A%E5%AE%A2_2.gif"><br>简直就是自己的一场黑历史。那么我们就来看一个能一键删除QQ动态的脚本。</p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="进入DevTools"><a href="#进入DevTools" class="headerlink" title="进入DevTools"></a>进入DevTools</h2><p>浏览器打开QQ空间<a href="https://user.qzone.qq.com/">链接</a>，进入后按<code>F12</code>,浏览器弹出<code>DevTools</code>，或者右键选择“检查”。 </p>
-<h2 id="调出控制台"><a href="#调出控制台" class="headerlink" title="调出控制台"></a>调出控制台</h2><p>选择<code>console</code><br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosconsole.webp"> </p>
-<h2 id="复制代码"><a href="#复制代码" class="headerlink" title="复制代码"></a>复制代码</h2><p>复制下面代码到控制台，回车即可。</p>
-<pre><code>var temp = true;
-
-function clickDel() &#123;
-    try &#123;
-        document.querySelector(&#39;.app_canvas_frame&#39;).contentDocument.querySelector(&#39;.del_btn&#39;).click();
-    &#125; catch&#123;
-        var a = document.querySelector(&#39;.app_canvas_frame&#39;).contentDocument.querySelector(&#39;.mod_pagenav_main&#39;).querySelectorAll(&#39;.c_tx&#39;);
-        a[a.length - 1].click();
-        temp = false;
-        setTimeout(clickDel, 2000);
-    &#125;
-    setTimeout(clickYes, temp ? 2000 : 5000);
-    temp = true;
-&#125;
-function clickYes() &#123;
-    document.querySelector(&#39;.qz_dialog_layer_btn&#39;).click();
-    setTimeout(clickDel, 2000);
-&#125;
-if (confirm(&quot;是不是要删除说说&quot;)) &#123;
-    setTimeout(function () &#123;
-        document.querySelectorAll(&quot;a[tabindex]&quot;)[8].click();
-        setTimeout(clickDel, 2000);
-    &#125;, 3000);
-&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>技术</tag>
-        <tag>javascript</tag>
-        <tag>说说</tag>
-        <tag>动态</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【素材】平凡的世界好句</title>
-    <url>/2019/10/13/%E3%80%90%E7%B4%A0%E6%9D%90%E3%80%91%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E5%A5%BD%E5%8F%A5/</url>
-    <content><![CDATA[<p>只有自己诚心待人，别人才有可能对自己以诚相待。</p>
-<a id="more"></a>
-<p>只要春天不死，就有迎春的花朵年年岁岁开放，生命讲涅磐，生生不息，并会以另一种形式永存。</p>
-<p>在我们短促而又漫长的一生中，我们在苦苦地寻找人生的幸福，可幸福往往又与我们失之交臂。当我们为此而耗尽宝贵的青春年华，皱纹也悄悄地爬上了眼角的时候，我们或许才能稍稍懂得生活实际上意味着什么。</p>
-<p>有了希望，人就会产生激情，并可以义无反顾地为之而付出代价；在这样的过程中，才能真正体会到人生的意义。什么是人生？人生就是永无休止的奋斗！只有决定了目标并在奋斗中，感到自己的努力没有虚掷，这样的生活才是充实的，精神也会永远年轻。</p>
-<p>在一个人的思想还没有强大到自己能完全把握自己的时候，就需要在精神上依托另一个比自己更强的人。也许有一天，学生会变成自己老师的老师——这是常常会有的——但人在壮大过程中的每一个阶段，都需要求得当时比自己的认识更高明的指教。<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=117801519,1704045645&fm=26&gp=0.jpg"><br>人之所以痛苦，在于追求错误的东西。如果你不给自己烦恼，别人也永远不可能给你烦恼。因为你自己的内心，你放不下。好好的管教你自己，不要管别人。</p>
-<p>人生啊，是这样不可预测，没有永恒的痛苦，也没有永恒的幸福，生活像流水一般，有时是那么平展，有时又是那么曲折。</p>
-<p>人们宁愿去关心一个蹩脚电影演员的吃喝拉撒和鸡毛蒜皮，而不愿了解一个普通人波涛汹涌的内心世界……</p>
-<p>生活不能等待别人来安排，要自已去争取和奋斗；而不论其结果是喜是悲，但可以慰藉的是，你总不枉在这世界上活了一场。有了这样的认识，你就会珍重生活，而不会玩世不恭；同时，也会给人自身注入一种强大的内在力量。</p>
-<p>其实我们每个人的生活都是一个世界，即使最平凡的人也要为他生活的那个世界而奋斗。</p>
-<p>普通并不等于庸俗。在许许多多普普通通的事情中，应该表现出不平常的看法和做法来。</p>
-<p>年轻是一个中性词，它代表着很多缺点：缺乏经验、少不更事、容易冲动。但是也有很多优点，其中之一就是有大把的时间去遗忘那些不该记住的事情。</p>
-<p>你知道，幸福不仅仅是吃饱穿暖，而是勇敢的战胜困难。</p>
-<p>命运总是不如愿。但往往是在无数的痛苦中，在重重的矛盾和艰难中，才使人成熟起来，坚强起来；虽然这些东西在实际感受中给人带来的并不都是欢乐。</p>
-<p>美丽的花朵凋谢了也是美丽的。<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3737405160,276266928&fm=26&gp=0.jpg"><br>每一分钟都有新的生命欣喜地降生到这个世界，同时也把另一些人送进坟墓。这边万里无云，阳光灿烂；那边就可能风云骤起，地裂山崩。世界没有一天是平静的。</p>
-<p>即使有一天我要远走他乡，但愿我还能在梦中再回到这里来…</p>
-<p>即使没有月亮，心中也是一片皎洁。</p>
-<p>多少美好的东西消失和毁灭了，世界还像什么事也没有发生。是的，生活在继续着。可是，生活中的每一个人却在不断地失去自己最珍贵的东西。</p>
-<p>对于生活的理想，应该像宗教徒一样充满虔诚与热情！遥远的撒哈拉大沙漠里，衣衫褴褛、蓬头垢面、一步一跪的教徒们，眼睛里闪烁着超凡脱俗的光芒，艰难地爬沿着走向圣地麦加……</p>
-<p>一个平凡而普通的人，时时都会感到被生活的波涛巨浪所淹没。你会被淹没吗？除非你甘心就此而沉沦！！</p>
-<p>死去的只是躯壳，生命将涅槃生生不息并以另一种形式存在。</p>
-<p>生活中真正的勇士向来默默无闻，喧哗不止的永远是自视高贵的一群。不要怕苦难！如果能深刻理解苦难，苦难就会给你带来崇高感。如果生活需要你忍受苦难，你一定要咬紧牙关坚持下去，有位了不起的人说过：痛苦难道是白受的吗？它应该使我们伟大！</p>
-<p>时光静悄悄地流逝。世界上有些人因为忙而感到生活的沉重，而有些人因为闲而活得压抑。</p>
-<p>生命里有着多少的无奈和惋惜，又有着怎样的愁苦和感伤？雨浸风蚀的落寞与苍楚一定是水，静静地流过青春奋斗的日子和触摸理想的岁月。</p>
-<p>什么是人生？人生就是用不休止的奋斗！只有选定了目标并在奋斗中感到自己的努力没有虚掷，这样的生活才是充实的，精神也会永远年轻！<br><img src="https://images.pexels.com/photos/64022/joan-of-arc-golden-sculpture-golden-statue-64022.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></p>
-]]></content>
-      <categories>
-        <category>作文</category>
-      </categories>
-      <tags>
-        <tag>作文素材</tag>
-        <tag>好句</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人生</title>
-    <url>/2020/02/13/%E4%BA%BA%E7%94%9F/</url>
-    <content><![CDATA[<p>在一隅孤独时，有一种静汹涌成潮，拍击我；有一种静凝结成无，茫然我；悲从中来，又有一种泪，撕扯我；在一种苦中不能自拔，就为寻找生的理由而头痛。<a id="more"></a>我在梦醒的一大片虚无中，自嘲、自恃，当然也有自救。人生得意也好，失意也罢，照常人的思维，活着便是生命。我不敢放弃生命，因为我怕活着的人，哪怕为我有一点伤悲。<br>人生，何谓人生？扪心自问，在我看来，人生是一盘危机四伏、险象环生的棋，杀得痛快淋漓、起伏跌宕。最终有人以轰轰烈烈的勇士之笑，笑傲世事；抑或被杀的丢盔弃甲、狼狈不堪，以残兵败将之态，隐遁名利，潜归山林以逃避现实。没有比苏轼的“人生如梦”更具权威了。其中，淡泊名利者大概会虚怀若谷，以自己的生命之光照亮别人，至油枯灯灭时，还意犹未尽而眷恋。宁为玉碎、不为瓦全者的撼山震荡气回肠的豪言壮语；奴颜婢膝苟且偷生者的惹人唾骂、令人发指的丑脸劣行都成过眼烟云……<br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/pocket-watch-3156771_640.jpg"><br>“大江东去，浪淘尽，千古风流人物。”是的，大浪淘沙，淘出的是真金，一种跨越时间和空间，亘古不变的灵魂。而那些金玉其中的小人，心怀鬼胎却又貌似斯文的伪君子则被洗涤一空。如果硬说他们留下了什么，那只能是为非作歹、欺压黎民的斑斑劣迹，“尔曹身与名俱灭，不废江河万古流”！<br>我们都是平凡的人，人生虽较长河微不足道，对具体的每个人，又至关重要。拥有时不懂得珍惜，失去时方显得宝贵。时间，总是无声无息的在你我身边流过，难怪古人有“时光容易把人抛，红了樱桃，绿了芭蕉”之说。由此看来，我们今日的“未觉池塘春草梦，阶前梧桐已秋声”的喟叹也就不足为奇了。<br>蜘蛛结网可能逮不到昆虫，但蜘蛛不结网，永远逮不到昆虫。不必说“书生意气”也不必再说“风华正茂”，我们和你们一样把握人生的长度，开拓人生的宽度。<br>纵观历史沧桑变幻，我唯有从中吸取教训和经验，以不变应万变。<br>漫读人生真谛，我只能抛弃舒适和安逸，否则，人生将是一段空白的轨迹。<br>我与大众同在，人何在？只恨一万年都太短！<br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/hot-air-balloons-4385384_1280.jpg"></p>
-]]></content>
-      <categories>
-        <category>散文</category>
-      </categories>
-      <tags>
-        <tag>散文</tag>
-        <tag>励志</tag>
-        <tag>震撼</tag>
-        <tag>哲理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>不需要临时变量的双变量交换数值</title>
     <url>/2023/07/10/%E4%B8%8D%E9%9C%80%E8%A6%81%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%8C%E5%8F%98%E9%87%8F%E4%BA%A4%E6%8D%A2%E6%95%B0%E5%80%BC/</url>
     <content><![CDATA[<h1 id="不需要第三个变量的变量交换"><a href="#不需要第三个变量的变量交换" class="headerlink" title="不需要第三个变量的变量交换"></a>不需要第三个变量的变量交换</h1><p>要知道的事：</p>
@@ -246,6 +347,60 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
       </tags>
   </entry>
   <entry>
+    <title>免付费专业版，这可能是同类里最好用的了</title>
+    <url>/2020/02/19/%E5%85%8D%E4%BB%98%E8%B4%B9%E4%B8%93%E4%B8%9A%E7%89%88%EF%BC%8C%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E5%90%8C%E7%B1%BB%E9%87%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BA%86/</url>
+    <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://ghhttps//mirror.ghproxy://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
+<p>Wise Care 365 ，这是一款Windows 系统上的清理和加速工具。在功能上更加强大，并且优化速度非常快。<br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/62.jpg"><br><strong>正常永久版的软件是129RMB，而我分享的这个无需付费，打开即是专业版。并且软件是绿色单文件，</strong>不用安装，下载下来打开就能用。<br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/43.jpg"><br>具体软件怎么用我觉得没必要说了，简单的概括一下它的主要功能：实时保护、多功能清理、系统优化、隐私保护、系统和硬件监控。尤其是硬件监控，以前还要下载个鲁大师（娱乐大师）来看电脑硬件详情。用一次就卸载，很麻烦。     </p>
+<p><strong>软件虽然颜值没有火绒，dism++这些软件颜值高，但实力上，绝对是数一数二的，感兴趣的小伙伴就自行下载体验吧。</strong></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="hthttps://mirror.ghproxyom/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/software/[0216]Wise_Care_365_Pro_破解永久专业版单文件.zip">点我下载</a></p>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>破解</tag>
+        <tag>秘藏</tag>
+        <tag>干货</tag>
+        <tag>杀毒</tag>
+        <tag>免收费</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在糟糕的环境中保持心灵的宁静</title>
+    <url>/2024/05/25/%E5%9C%A8%E7%B3%9F%E7%B3%95%E7%9A%84%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%BF%9D%E6%8C%81%E5%BF%83%E7%81%B5%E7%9A%84%E5%AE%81%E9%9D%99/</url>
+    <content><![CDATA[<p>爱比克泰德有一个重要观点：自由意志不可剥夺。他说的自由意志，是指人在自己可支配的领域里进行选择、做决定和采取行动的能力。所以，必须分清什么是可支配的，什么是不可支配的。可支配的是道德和心灵生活，在这个领域里，人有自由意志，要负起自己的责任。不可支配的是外部事物、外在遭遇以及一切其他人，在这个领域里，人没有自由意志，应该抱顺其自然的态度。<strong>明确了这个区分，在内在方面努力，在外在方面超脱，就能够保持心灵的宁静。</strong></p>
+<h2 id="1-分清可支配的和不可支配的"><a href="#1-分清可支配的和不可支配的" class="headerlink" title="1. 分清可支配的和不可支配的"></a>1. 分清可支配的和不可支配的</h2><p>人可以支配自己的道德和心灵生活。你怎样做人，是行善还是作恶，做好人还是坏人；你有怎样的心灵品质，是优秀还是平庸，这是你自己可以做主的，任何外部的力量都不能剥夺你的主权。也只有在这个范围内，才存在善和恶、好和坏的区别与选择。  </p>
+<p>超出这个范围的事物，既然是你不能支配的，对你来说也就无所谓善和恶、好和坏，你不要去做善恶好坏的判断，顺其自然就是了。</p>
+<p>在你可支配的范围内，好好地运用你的自由意志，读书、写作、学习，提高自己，让自己成为心灵丰富、品德高尚的人。这个范围之外的事情，你都把它们看作与己无关，不去关心和追求。  </p>
+<p>如果这样，你的心怎么会不宁静呢？专注于自由意志范围之内的事情，这是获得宁静的唯一途径。相反，“请记住，如果你看重自由意志范围之外的东西，你就会毁了你的自由意志”。<br>爱比克泰德反复地讲这个道理。凡是看重自己不能支配的东西的人，就会失去自由，成为这些东西——以及能够控制这些东西的人——的奴隶，受它们奴役，被它们抛来抛去。你想要得到那些你以为的好东西，你就会渴望、嫉妒、奉承、心神不安。你想要躲避那些你以为的坏事情，你就会恐惧、焦虑、屈服、悲伤。<br>神规定了可支配和不可支配的界限，你却不服从，这些精神的痛苦都是对你不服从神意的惩罚。</p>
+<p>一个人处在焦虑不安之中，就一定是出了问题。如果他没有想要得到不在他可支配范围内的东西，他是不会焦虑不安的。琴师独自演奏的时候，总是不慌不忙，可是到了舞台上，尽管琴艺高超，他仍然会慌张，因为这时他想要的不只是演奏得好，还想博得掌声，而这就不是他能够支配的了。</p>
+<p>人活在世上，感官会从外界接受许多表象，你不可以受它们控制，而应该要用理性加以分析。对那些按照自己的每一种感官表象行事的人应该怎么称呼呢？爱比克泰德回答说：“一群疯子。</p>
+<p><strong>外部世界很强大，但是一个能够正确运用自由意志的人比外部世界更强大。”知道自己可以支配什么东西，热爱这些东西，并且知道你的这些东西是任何别人无权支配的，你就会无所畏惧，获得宁静和自由。</strong></p>
+<p><img src="https://s3.bmp.ovh/imgs/2024/06/07/98f88df09b005296.jpg"></p>
+<h2 id="2-错误的判断导致痛苦"><a href="#2-错误的判断导致痛苦" class="headerlink" title="2.错误的判断导致痛苦"></a>2.错误的判断导致痛苦</h2><p>你要把自己可支配领域里的事情做好，同时正确对待自己不可支配领域里的事情。这个正确对待，按照爱比克泰德的说法，</p>
+<p>就是不要做好坏的判断。因为那些事情不是你可以支配的，你不必对它们负责，对于你就不存在好坏的区别，而只要你做了好坏的判断，就一定是错误判断。</p>
+<p>正是由于对不可支配的事情做好坏的判断，造成了一切痛苦。“哭泣与叹息是什么？一个判断。不幸是什么？一个判断。冲突、争执、吹毛求疵、非难、不敬、愚蠢，这些是什么？它们都是判断，是对在自由意志领域之外的事物所下的判断，认为它们是好的或坏的。”破坏我们灵魂安宁的东西，不是事情本身，而是我们对它们做的判断。</p>
+<p>然而，这种做好坏判断的习惯是根深蒂固的，在我们幼年时代就开始形成了。一个小孩撞上了一块石头，正打算号啕大哭，这个时候，看护者不是批评小孩，反而是去打那块石头。爱比克泰德问道：“怎么，石头做了什么？难道因为你幼稚无知，石头就必须离开它所在的位置吗？”成年人遇到不顺心的事情，因此而怪罪事情本身，遵循的是同样的逻辑。</p>
+<p>什么东西属于不可支配的领域？大致有三类：一是身外之物；二是外在遭遇；三是他人的品性和行为。在这三个方面，你都不要做好坏的判断，都要淡然处之。</p>
+<h2 id="3-不受制于身外之物"><a href="#3-不受制于身外之物" class="headerlink" title="3. 不受制于身外之物"></a>3. 不受制于身外之物</h2><p>凡是拥有或不拥有都不在你的支配之下的事物，和你只能在某种程度上或某种条件下拥有的事物，都不是真正属于你的，都是身外之物。你要控制自己的欲望，不要对它们产生羡慕和迷恋，  </p>
+<p>否则你就会受它们奴役，被它们控制。对任何身外之物的拥有都受命运的支配，今天得到，明天就可能失去。更为根本的是，一切身外之物都有生有灭，会被时间夺走。所以，你要按照事物当初被给予你时附带的条件来持有它们，只保留它们到所给予你的时限为止。神既给予，也拿回，你为什么要反抗呢？  </p>
+<p>那么，哪些东西属于身外之物呢？一切在我们的心灵之外和我们发生联系的事物，包括财产、地位、名声，包括亲人和各种社会关系，也包括你的身体和生命，因为所有这些都不是你的自由意志能够支配的。  </p>
+<p>财产显然是身外之物。但是，受制于财产是人世间最普遍的现象。爱比克泰德说：“我以神的名义命令你，终止对物的崇拜，<br>因为这种崇拜会使你成为物的奴隶，并且成为那些既能让你得到财产也能拿走你的财产的人的奴隶。”   </p>
+<p>父母、兄弟、孩子也是身外之物。各人都有自己的人生之路，也都可能犯错误，那是你不能支配的，神并没有要你为之负责。  </p>
+<p>你爱的人也都终有一死，并非与你不可分离，你要接受这个事实。你的身体及其各个部分也是身外之物，你不能完全控制自己的健康，保证自己不生病。当然，你也终有一死，所以生命也是你不可支配的身外之物。  </p>
+<p>对于一切身外之物，你都不要说：我失去了它。你应该说：我把它归还了。你有丧子之痛吗？孩子被收回去了。你有丧妻之哀吗？妻子被收回去了。你的钱财被抢走了？这也不过是被收回去了。神的法律是，凡是给你的东西，你要当作托付给你的东西好好照料，而一旦被拿走了，你要欣然地归还，而且为你拥有使用权的那段时间心存感激。</p>
+]]></content>
+      <categories>
+        <category>感受</category>
+      </categories>
+      <tags>
+        <tag>感想</tag>
+        <tag>哲思</tag>
+        <tag>周国平</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图表写作词句</title>
     <url>/2021/08/15/%E5%9B%BE%E8%A1%A8%E5%86%99%E4%BD%9C%E8%AF%8D%E5%8F%A5/</url>
     <content><![CDATA[<h1 id="波动"><a href="#波动" class="headerlink" title="波动"></a>波动</h1><p>change, seesaw, fluctuate, fluctuation(s), rise(s) and fall(s), peak(s) and trough(s)</p>
@@ -291,49 +446,6 @@ if (confirm(&quot;是不是要删除说说&quot;)) &#123;
       <tags>
         <tag>English</tag>
         <tag>writing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>免付费专业版，这可能是同类里最好用的了</title>
-    <url>/2020/02/19/%E5%85%8D%E4%BB%98%E8%B4%B9%E4%B8%93%E4%B8%9A%E7%89%88%EF%BC%8C%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E5%90%8C%E7%B1%BB%E9%87%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BA%86/</url>
-    <content><![CDATA[<p>分享一张壁纸，下图为预览,<a id="more"></a><a href="https://ghhttps//mirror.ghproxy://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/75880135_p0_master1200.jpg">点我下载原图</a><br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/60.jpg"><br>提起最好用的系统优化软件，大部分人第一反应是火绒。事实上火绒是一块杀毒软件。虽然也有系统优化的功能，但保护电脑安全才是主要功能。    </p>
-<p>Wise Care 365 ，这是一款Windows 系统上的清理和加速工具。在功能上更加强大，并且优化速度非常快。<br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/62.jpg"><br><strong>正常永久版的软件是129RMB，而我分享的这个无需付费，打开即是专业版。并且软件是绿色单文件，</strong>不用安装，下载下来打开就能用。<br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/43.jpg"><br>具体软件怎么用我觉得没必要说了，简单的概括一下它的主要功能：实时保护、多功能清理、系统优化、隐私保护、系统和硬件监控。尤其是硬件监控，以前还要下载个鲁大师（娱乐大师）来看电脑硬件详情。用一次就卸载，很麻烦。     </p>
-<p><strong>软件虽然颜值没有火绒，dism++这些软件颜值高，但实力上，绝对是数一数二的，感兴趣的小伙伴就自行下载体验吧。</strong></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="hthttps://mirror.ghproxyom/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/software/[0216]Wise_Care_365_Pro_破解永久专业版单文件.zip">点我下载</a></p>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>破解</tag>
-        <tag>秘藏</tag>
-        <tag>干货</tag>
-        <tag>杀毒</tag>
-        <tag>免收费</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>将hexo部署迁移至zeit</title>
-    <url>/2021/02/13/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E8%BF%81%E7%A7%BB%E8%87%B3zeit/</url>
-    <content><![CDATA[<p>Github Page在国内访问较慢，可以将服务部署到静态站zeit.io, 每月20G免费流量，并且能同步github项目。</p>
-<a id="more"></a>
-<h1 id="关于zeit-co"><a href="#关于zeit-co" class="headerlink" title="关于zeit.co"></a>关于zeit.co</h1><p>这天在搜索资料时，注意到有博主提到 zeit.co，一个静态网页和无状态函数托管的云平台。试用了之后，感觉非常强大，它能够以 Github App 的形式与 GitHub 集成，接管 repo 的 CI，进行深度定制，并且能够快速部署、自动伸缩。</p>
-<p>关键是，现在基本功能是免费的，这对于我们托管博客来说，已经很够用了。更惊喜的是，它还提供智能 CDN 和智能 DNS。<br><img src="https://pic3.zhimg.com/v2-ac44b7cffb05befb5d875d50e1e3235a_r.jpg"></p>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p><strong>注册</strong>。打开<a href="https://zeit.co/login">登陆页面</a>使用 GitHub 账号登陆即可。   </p>
-<p><strong>导入</strong>。在主页面点击 “Import Project”，然后 “Import Project From Git Repo”，选择 GitHub。进行一下授权.</p>
-<p><strong>部署</strong>。导入过程中，选择 <code>other</code> 模板即可，默认 ci 命令不用改，<code>Root Directory</code> 也不用改，导入完成后就会自动帮你deploy。</p>
-<p>最后在部署卡片中就可以看到 zeit 生成的 URL<br><img src="https://pic3.zhimg.com/v2-4394000e68ae9ad10f3663590cfd578a_r.jpg"></p>
-<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>进入项目后选择<code>settings</code>选项，再选择<code>Domains</code>，进去后添加你拥有的域名即可<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos2021-2-13%2010-1-9.png"></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>技术</tag>
-        <tag>博客</tag>
-        <tag>zeit.co</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -444,6 +556,99 @@ int main()
       </tags>
   </entry>
   <entry>
+    <title>将hexo部署迁移至zeit</title>
+    <url>/2021/02/13/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E8%BF%81%E7%A7%BB%E8%87%B3zeit/</url>
+    <content><![CDATA[<p>Github Page在国内访问较慢，可以将服务部署到静态站zeit.io, 每月20G免费流量，并且能同步github项目。</p>
+<a id="more"></a>
+<h1 id="关于zeit-co"><a href="#关于zeit-co" class="headerlink" title="关于zeit.co"></a>关于zeit.co</h1><p>这天在搜索资料时，注意到有博主提到 zeit.co，一个静态网页和无状态函数托管的云平台。试用了之后，感觉非常强大，它能够以 Github App 的形式与 GitHub 集成，接管 repo 的 CI，进行深度定制，并且能够快速部署、自动伸缩。</p>
+<p>关键是，现在基本功能是免费的，这对于我们托管博客来说，已经很够用了。更惊喜的是，它还提供智能 CDN 和智能 DNS。<br><img src="https://pic3.zhimg.com/v2-ac44b7cffb05befb5d875d50e1e3235a_r.jpg"></p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p><strong>注册</strong>。打开<a href="https://zeit.co/login">登陆页面</a>使用 GitHub 账号登陆即可。   </p>
+<p><strong>导入</strong>。在主页面点击 “Import Project”，然后 “Import Project From Git Repo”，选择 GitHub。进行一下授权.</p>
+<p><strong>部署</strong>。导入过程中，选择 <code>other</code> 模板即可，默认 ci 命令不用改，<code>Root Directory</code> 也不用改，导入完成后就会自动帮你deploy。</p>
+<p>最后在部署卡片中就可以看到 zeit 生成的 URL<br><img src="https://pic3.zhimg.com/v2-4394000e68ae9ad10f3663590cfd578a_r.jpg"></p>
+<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>进入项目后选择<code>settings</code>选项，再选择<code>Domains</code>，进去后添加你拥有的域名即可<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos2021-2-13%2010-1-9.png"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>博客</tag>
+        <tag>zeit.co</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>柯西不等式及其应用</title>
+    <url>/2020/12/13/%E6%9F%AF%E8%A5%BF%E4%B8%8D%E7%AD%89%E5%BC%8F%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p>数学上，柯西-施瓦茨不等式，又称施瓦茨不等式或柯西-布尼亚科夫斯基-施瓦茨不等式，是一条很多场合都用得上的不等式.    </p>
+<a id="more"></a>
+<p>不等式以奥古斯丁·路易·柯西（Augustin Louis Cauchy），赫尔曼·阿曼杜斯·施瓦茨（Hermann Amandus Schwarz），和维克托·雅科夫列维奇·布尼亚科夫斯基（Виктор Яковлевич Буняковский）命名.<br>它的基本形式为<br>$$\left(\sum_{i=1}^{n} x_{i} y_{i}\right)^{2} \leq\left(\sum_{i=1}^{n} x_{i}^{2}\right)\left(\sum_{i=1}^{n} y_{i}^{2}\right).$$<br>也可以表示成<br>$$\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right)\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right) \geq\left(x_{1} y_{1}+x_{2} y_{2}+\cdots+x_{n} y_{n}\right)^{2}.$$<br>当<br>$$\frac{x_{1}}{y_{1}}=\frac{x_{2}}{y_{2}}=\cdots=\frac{x_{n}}{y_{n}}$$<br>时，等号成立.</p>
+<h1 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h1><p>将上文中不等式移项得</p>
+<p>该式称作权方和不等式.</p>
+<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>已知$x+y=1, x&gt;0, y&gt;0$,求$\frac{1}{x^{2}}+\frac{8}{y^{2}}$最小值.<br><strong>解:</strong><br>$$\frac{1}{x^{2}}+\frac{8}{y^{2}}=\frac{1^{3}}{x^{2}}+\frac{2^{3}}{y^{2}} \geq \frac{(1+2)^{3}}{(x+y)^{2}}=27$$</p>
+]]></content>
+      <categories>
+        <category>math</category>
+      </categories>
+      <tags>
+        <tag>math</tag>
+        <tag>不等式</tag>
+        <tag>吹牛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>福尔摩斯精读:花斑带案</title>
+    <url>/2021/08/05/%E7%A6%8F%E5%B0%94%E6%91%A9%E6%96%AF%E7%B2%BE%E8%AF%BB-%E8%8A%B1%E6%96%91%E5%B8%A6%E6%A1%88/</url>
+    <content><![CDATA[<p>故事为冒险史中的小说<a id="more"></a><br>海伦·史东纳小姐在家中晚上听到口哨声，而她的姐姐茱莉亚在家中死前亦曾表示听到口哨声，还声称自己看到带有花斑的带子，所以海伦小姐感到十分害怕，故向福尔摩斯求助。福尔摩斯连同华生到海伦小姐居住的地方调查，福尔摩斯发现海伦小姐所住的地方有很多奇怪的装修，例如不通风的通风口、没有连接到仆人的房铃等，他已经大约推理到事件的情况，于是晚上躲在海伦小姐的房间等疑凶出现。最后终于发现海伦小姐的继父詹姆斯·罗伊洛特博士为了谋取家产，而设计以毒蛇杀害海伦两姊妹。</p>
+<h2 id="环境描写"><a href="#环境描写" class="headerlink" title="环境描写"></a>环境描写</h2><p>这部小说中为了渲染恐怖、惊险的氛围，大片段运用环境描写来衬托人物心理，渲染气氛，并推动情节进一步发展。<br>例如，在海伦叙述她姐姐暴死的夜晚时：  </p>
+<blockquote>
+<p>It was a wild night. <strong>The wind was howling outside, and the rain was beating and splashing against the windows.</strong> Suddenly, amid all the hubbub of the gale, there burst forth the wild scream of a terrified woman. </p>
+</blockquote>
+<ul>
+<li>howl<br>因惊恐而喊叫，等同于roar。</li>
+<li>splash<br>指雨水飞溅。<blockquote>
+<p>splash against the windows  </p>
+</blockquote>
+</li>
+</ul>
+<p>雨水在窗户上飞溅。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosphoto-1532294351631-a205083f392c.jpg"></p>
+<h3 id="各种“喊”"><a href="#各种“喊”" class="headerlink" title="各种“喊”"></a>各种“喊”</h3><h4 id="roar"><a href="#roar" class="headerlink" title="roar"></a>roar</h4><p>怒吼。</p>
+<blockquote>
+<p>the wind was roaring.  </p>
+</blockquote>
+<p>狂风大作。</p>
+<h4 id="scream"><a href="#scream" class="headerlink" title="scream"></a>scream</h4><p>惊喊</p>
+<blockquote>
+<p>Suddenly,  there burst forth the wild scream of a terrified woman.  </p>
+</blockquote>
+<p>突然间，爆出一个女人惊恐的叫喊。</p>
+<h4 id="cry"><a href="#cry" class="headerlink" title="cry"></a>cry</h4><p>哭喊</p>
+<blockquote>
+<p>He looked inside the envelope. ‘So it is,’ he cried.   </p>
+</blockquote>
+<p>他看了看信封里边，“看来是了！”他哭喊着。</p>
+<h4 id="yell"><a href="#yell" class="headerlink" title="yell"></a>yell</h4><p>狂喊</p>
+<blockquote>
+<p>“You see it, Watson?” he yelled. “You see it?”</p>
+</blockquote>
+<p>”看见了没，华生？“他狂喊。</p>
+<h2 id="短语"><a href="#短语" class="headerlink" title="短语"></a>短语</h2><p>His smile broadened.他笑得更开心了。<br>the sweet promise of spring春日甜美的景色。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210805195058.png"></p>
+<h2 id="神态描写"><a href="#神态描写" class="headerlink" title="神态描写"></a>神态描写</h2><blockquote>
+<p>My companion sat in the front of the trap, his arms folded, his hat pulled down over his eyes, <strong>and his chin sunk upon his breast, buried in the deepest thought.</strong></p>
+</blockquote>
+<p>我的朋友坐在车前，叉着胳膊，帽子遮在眼前，而头埋在胸前，陷入沉思。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>积累</tag>
+        <tag>Holmes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>百毒度盘自己出的限速破解？</title>
     <url>/2020/02/16/%E7%99%BE%E6%AF%92%E5%BA%A6%E7%9B%98%E8%87%AA%E5%B7%B1%E5%87%BA%E7%9A%84%E9%99%90%E9%80%9F%E7%A0%B4%E8%A7%A3%EF%BC%9F/</url>
     <content><![CDATA[<p>分享一张好看的手机（全面屏）壁纸，<a id="more"></a>下图为预览，<a href="https://ghproxyhttps//mirror.ghproxyw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/2.14%E9%85%B7%E5%9B%BE.jpg">点我下载原图</a><br><img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhangrongxiang/zhangrongxiang.github.io/master/imgs/kutu.jpg"></p>
@@ -462,6 +667,78 @@ int main()
         <tag>秘藏</tag>
         <tag>干货</tag>
         <tag>福利</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>苏联政治笑话浅谈</title>
+    <url>/2021/02/15/%E8%8B%8F%E8%81%94%E6%94%BF%E6%B2%BB%E7%AC%91%E8%AF%9D%E9%80%89%E8%B0%88/</url>
+    <content><![CDATA[<p>苏联政治笑话（或称苏东政治笑话），即流行于前苏联和前东欧社会主义国家的政治笑话。<a id="more"></a>这种笑话的来源很多，除了来自于在这些国家生活的人之手外，也有一些来自美国、西德及其他国家的报社杂志，此类笑话以讽刺苏联-东欧诸国的领导人、政治、经济和生活状态为主，数量极大，讽刺辛辣，广为流传，前美国总统罗纳德·里根还在公众集会上讲过几个这样的笑话，据他所说他还“讲给了戈尔巴乔夫听，然后他笑了”。[1]近年美国政府解密档案揭露，当年美国驻莫斯科大使馆一直持续收集并整理流传的苏联政治笑话，再用密电传回华盛顿给中情局分析，因“这些笑话非常准确的反映苏联社会公众的情绪”。   </p>
+<p>在苏联的这种政治笑话的起源时间不详，但在50年代斯大林执政末期就已经广泛出现了。这些笑话最初来自于沙俄时期的政治笑话。在苏联和东欧，政治笑话的泛滥是在60-80年代（尤其是在勃列日涅夫执政后期），和地下出版物一起成为了社会主义阵营中政治异见的一种象征。在“公开化”之前当局一直试图限制政治笑话的传播流动，但效果不佳。   </p>
+<p>从体裁上，政治笑话一般是段子式或者问答式，问答式也会非常简单，适合一个人为别人讲。著名的“亚美尼亚广播电台”系列就是典型的问答式政治笑话。<br><a href="http://www.talkreason.org/marperak/jokes/armenrad.htm">亚美尼亚广播电台笑话链接</a></p>
+<h1 id="1-嘲笑领导人的笑话"><a href="#1-嘲笑领导人的笑话" class="headerlink" title="1.嘲笑领导人的笑话"></a>1.嘲笑领导人的笑话</h1><p>苏联、东欧的重要领导人基本都进入了笑话：斯大林、赫鲁晓夫、勃列日涅夫、安德罗波夫、戈尔巴乔夫、昂纳克、齐奥塞斯库等人都是很经常出现的角色。列宁被讽刺的几率倒很低，因为他的历史形象一直比较好。不过，在1970年列宁诞辰100周年之际，由于官方铺天盖地的政治宣传，相应也出现了不少关于列宁和列宁纪念活动的笑话。   </p>
+<h2 id="列宁"><a href="#列宁" class="headerlink" title="列宁"></a>列宁</h2><p>有人通过走关系，把列宁同志送到了天堂，接纳了这个无神论者。<br>过了几天，这人给上帝打电话表示感谢，电话接通了，他说：你是上帝吗？<br>上帝回答：首先，没有上帝。其次，我们这里每个人都是同志。第三，有事请直说，我还要参加党代表会议。   </p>
+<h2 id="斯大林"><a href="#斯大林" class="headerlink" title="斯大林"></a>斯大林</h2><p>约瑟夫·斯大林在政治笑话中的形象一般是残暴、猜忌，他和农民生活困苦经常挂钩（考虑到1929年的农业集体化和30年代末的大清洗）。</p>
+<p>斯大林去看一场苏联喜剧电影的首映礼。在影片播放时他一直快活的大笑，不过在电影结束之时他突然问道：<br>“好吧，我喜欢这电影。可为什么那个丑角的小胡子和我的一样？”<br>所有人都噤若寒蝉，只有一人怯怯地提议道：“斯大林同志，要不要让演员把胡子剃了？”<br>斯大林答道：“好主意，枪毙前先把胡子剃了。”<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210216120244.png"></p>
+<p>集体农庄庄员伊万[注 1]在河里捉到一条大鱼，高兴的回到家里和老婆说：“看，我们有炸鱼吃了！”<br>“没有油啊。”<br>“那就煮！”<br>“没锅。”<br>“烤鱼！”<br>“没柴。”<br>伊万气死了，走到河边把鱼扔了回去。那鱼在水里划了一个半圆，上身出水，举起右鳍激动地高呼：“斯大林万岁！”  </p>
+<p>一位美国历史学家和一位俄罗斯历史学家，讨论谁领导二十世纪的前半世纪。<br>“我投票赞成胡佛先生，”美国人说，“他尝试着教导我们美国人停止酗酒！”<br>“那个没什么了不起！”俄国人接着说，“我选择斯大林，他尝试教我们俄国人不要吃饭。”</p>
+<h2 id="赫鲁晓夫"><a href="#赫鲁晓夫" class="headerlink" title="赫鲁晓夫"></a>赫鲁晓夫</h2><p>尼基塔·赫鲁晓夫在政治笑话中的形象是无知、粗鲁、愚蠢、秃顶、爱胡扯、爱吹牛皮的。这和他本人的以上作风分不开。也因为赫鲁晓夫当初是逼宫斯大林，出现不少揶揄赫鲁晓夫忌讳斯大林的笑话。</p>
+<p>赫鲁晓夫前来参观前卫派的美术展览。<br>“这对该死的绿点和黄点是什么？”<br>“这幅画，赫鲁晓夫同志，是表现我们英勇的农民在努力完成生产两亿吨谷物的计划。”<br>“啊……哦……那这堆黑三角和红条条呢？”<br>“这幅画描绘了工厂中我们英雄般的产业工人。”<br>“那这个长耳朵的肥屁股呢？”<br>“赫鲁晓夫同志，这不是画，是镜子。”</p>
+<p>共产党餐叙，赫鲁晓夫直接用手抓肉吃得非常狼狈，在一旁的斯大林看不过去对他说：“尼基塔，把刀子拿出来”，赫鲁晓夫迅速的回答说：“是的，领导同志！下一个目标是谁？”<br>有个人向赫鲁晓夫汇报说：“现在大剧院正上演一个剧，里面有您出现，每当您一出场，下面就热烈鼓掌。”赫鲁晓夫听了以后非常得意。有一天他买了一张票去看这个剧，他陷入了沉思，忘记了鼓掌，这时旁边有人推了他一把，紧张地说：“哎！你为什么不鼓掌？不要命啦？”<br>科学家联名要求赫鲁晓夫去领导一个癌症治疗所。赫鲁晓夫推托道：“谢谢同志们的支持，但我对癌症一窍不通啊。”<br>科学家们纷纷说道：“赫鲁晓夫同志，您只要应用一下您在农业问题上的经验就好了！您一负责，粮食就全不见了！”</p>
+<p>斯大林死后， 因为被赫鲁晓夫视为禁忌， 因此希望把斯大林的遗体葬在海外，于是苏联向各国征求意愿：<br>英： 我们这边已经有丘吉尔，大战的英雄有一个就很够了。<br>德： 我们这边已经有希特勒，独裁者有一个就太多了。<br>这时， 以色列表明同意的意见。但是赫鲁晓夫马上脸色发青，<br>“靠！ 那里以前有人复活过啊！”</p>
+<p>在苏共20大上，赫鲁晓夫在做秘密报告前突然消失了。但是过了几分钟后他又回来了，并登上了主席台。<br>人们问他：“赫鲁晓夫同志，您刚才去哪了？”<br>赫鲁晓夫说：“我去列宁墓里看了看，摸摸斯大林还有没有脉搏，以防万一。”</p>
+<p>赫鲁晓夫和肯尼迪交谈，各自吹嘘，肯尼迪说：“美国医学发达，有种药死人吃了可以复活。”<br>赫鲁晓夫说：“苏联体育发达，有人十分钟可以从莫斯科跑到美国。”肯尼迪要求兑现，赫鲁晓夫慌了手脚，召集文武大臣商量对策，<br>有人出了个好计策说：“这很好办，你先让肯尼迪把药拿来，让斯大林吃了，那斯大林一定复活，那么你用不了五分钟就可以从苏联跑到美国。”</p>
+<h2 id="勃涅日列夫"><a href="#勃涅日列夫" class="headerlink" title="勃涅日列夫"></a>勃涅日列夫</h2><p>列昂尼德·勃列日涅夫在政治笑话中的形象一般是爱慕虚荣、权力欲强、喜欢享乐、痴呆、健忘、病入膏肓的。苏联当局努力培养对他的个人崇拜、他本人的“勋章收藏爱好”和他请人捉刀而获得了列宁文学奖的回忆录三部曲也经常是被嘲笑的对象。关于他的笑话是所有苏联领导人中最多的。</p>
+<p>在政治局会议上，勃列日涅夫兴致勃勃地说：“同志们都说我那三本回忆录写得好，哪天给我弄一套，我也读一读。”<br>在勃列日涅夫访问英国时，首相撒切尔夫人问：“您怎么看丘吉尔？”<br>“丘吉尔是谁？”勃列日涅夫反问。<br>回到苏联驻英大使馆，大使评价道：“祝贺您，勃列日涅夫同志，你让撒切尔夫人老实了。她以后再也不敢问什么愚蠢的问题了。”<br>“撒切尔是谁？”勃列日涅夫反问。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210216120026.png"><br>一只鳄鱼吃掉勃列日涅夫，结果它拉了一个星期的勋章。</p>
+<p>“你听说了吗？勃列日涅夫做手术了。”<br>“做什么手术？”<br>“开胸手术。因为勋章摆不下了。”</p>
+<p>英国广播公司报道说： “昨天莫斯科发生了地震。”但是学者们对此表示怀疑，因为莫斯科处于非地震带。<br>不过，我们的驻莫斯科记者报告说该市确有震感。最后经过核实，原来并非是地震，而是苏共中央总书记勃列日涅夫佩戴勋章的衣服掉到了地上。</p>
+<p>一个苏联人在公众场合对着勃列日涅夫同志的肖像骂了句“白痴”，被克格勃逮捕，判了5年徒刑。他的罪名是：侮辱党和国家领导人判刑1年，泄露党和国家机密判刑4年。<br>不过听说他很快就获释了，因为自从勃列日涅夫同志在联合国发表演说之后，那就不再是党和国家机密了。</p>
+<p>话说勃列日涅夫同志当上苏共中央总书记之后，将在乡下的老母亲接到了莫斯科。老太太来了以后，勃列日涅夫得意洋洋地向老妈展示了一番自己的豪华别墅、高级汽车、名贵家具等等，展示完了后，勃列日涅夫问老太太这一切如何？老太太说：“儿子啊，这一切都很好，但是，共产党来了你怎么办？”</p>
+<p>在美国人登陆月球成功后，勃列日涅夫当天就打电话给苏联太空人：“鉴于美国人已经在月球上登陆，现在苏联决定，马上派你们去太阳登陆。”<br>太空人大惊，哽咽道：“您不知道吗，勃列日涅夫同志，我们会被烧死的。”<br>勃列日涅夫生气地说：“你以为政治局没有考虑过吗？我们已经决定，派你们在晚上在太阳登陆！”</p>
+<p>勃列日涅夫即将访问波兰，波兰当局命令一位著名画家创作一幅名为《勃列日涅夫在波兰》的大型油画作为献礼。很不情愿的画家在威逼下接受了工作。画完成后，波兰一高官前来验收，结果让他大吃一惊：画面上是一男一女在豪华的大床上极尽缠绵，窗外的风景是克里姆林宫。<br>“这是什么？这女的是谁？！”高官愤怒的问。<br>“勃列日涅夫的夫人。”画家答道。<br>“男的呢？！”“勃列日涅夫的秘书。”<br>“可勃列日涅夫同志在哪里？”<br>“勃列日涅夫在波兰。”画家答道。</p>
+<h2 id="安德罗波夫"><a href="#安德罗波夫" class="headerlink" title="安德罗波夫"></a>安德罗波夫</h2><p>短暂担任过苏联最高领导人的尤里·安德罗波夫除了克格勃主席的身份经常遭到讽刺之外，他糟糕的健康状况也是老人政治的缩影，故也经常在笑话中出场。</p>
+<p>问：为什么勃列日涅夫能出国，安德罗波夫却不能？<br>答：因为前者安的是电池，后者接的是电线。（勃列日涅夫用心脏起搏器，安德罗波夫用透析机）</p>
+<h2 id="昂纳克"><a href="#昂纳克" class="headerlink" title="昂纳克"></a>昂纳克</h2><p>关于埃里希·昂纳克的政治笑话相当丰富，因为德意志民主共和国国内的知识分子政治异见势力较强，而昂纳克又执政太久。这些笑话大多是表达对昂内克的各种不满和不支持。</p>
+<p>埃里希·昂纳克想知道人民是如何看待他的，所以他化妆微服私访。他在大街上问一个人：“打搅一下，请问您觉得昂纳克怎么样？”<br>这个人把他引到一条暗巷，确认四下无人，没有其他人能听见他说话之后，他贴着埃里希的耳朵小声说：“我支持昂纳克！”  </p>
+<p>一个老妇人在东德询问站岗的警察：“请问那家名字叫‘原则’的商店在哪里呢？”<br>警察想了一会说：“这里没有叫这个名字的商店啊。”<br>老夫人说：“肯定应该有的啊，不然我们的昂纳克同志怎么会说‘一切东西在原则上都是可以买到的’呢？”  </p>
+<p>昂纳克想知道自己的民意支持度如何，于是走近一家高端住宅并敲开了门。<br>一个小女孩打开门：“叔叔，你是谁呀？”<br>“小朋友，我是那个让你们能够生活得如此幸福的人，是我为你们带来了食物和住所……”<br>“妈妈，妈妈，快点过来，慕尼黑的彼得叔叔来看我们啦！”（慕尼黑在西德）  </p>
+<h1 id="2-亚美尼亚广播电台系列"><a href="#2-亚美尼亚广播电台系列" class="headerlink" title="2.亚美尼亚广播电台系列"></a>2.亚美尼亚广播电台系列</h1><p>亚美尼亚广播电台（或称埃里温广播电台）是苏联境内（远不限于亚美尼亚）甚至整个东欧地区都广为流传的笑话，笑话的格式相对固定，为“亚美尼亚广播电台收到提问……，亚美尼亚广播电台对此回答……”，通常简写为“问答”（Q/A）式笑话。这种笑话的题材其实不仅仅限于政治笑话（还有不少生活笑话），但政治笑话占绝大多数。这样的笑话经常会有很多小系列。在德国电影《窃听风暴》里，斯塔西的头头古毕兹中校就讲了一个关于昂纳克的这种笑话。</p>
+<p>问：鸡和蛋哪个先有？<br>答：从前两个都有。<br>问：什么是最短的笑话？<br>答：共产主义。<br>问：什么是最长的笑话？<br>答：赫鲁晓夫在党代表大会上的讲话。<br>问：猪会秃头吗？<br>答：我们不回答政治问题。<br>问：改革的前景是什么？<br>答：有两种可能的情况。现实的可能是火星人会降临地球帮我们打理一切，科幻的可能是我们能自己完成改革目标。<br>问：什么是混乱？<br>答：我们对国民经济不做评论。<br>问：您能描述一下东德的地理特征吗？<br>答：一个充满各种瓶颈的坦途。<br>问：民主与社会主义民主的区别是什么？<br>答：大概相当于椅子和电椅的区别。<br>问：我要去西方国家开会，可是旅费不够。怎么办？<br>答：在原则上这不是问题。别买返程票就行。<br><a href="http://www.talkreason.org/marperak/jokes/armenrad.htm">更多亚美尼亚广播电台笑话链接</a></p>
+<h1 id="3-犹太人笑话"><a href="#3-犹太人笑话" class="headerlink" title="3.犹太人笑话"></a>3.犹太人笑话</h1><p>由于历史原因，在苏联曾经对犹太人有着严重的偏见和歧视，尤其是在50年代斯大林执政后期和70年代移民以色列风潮期间。犹太人对歧视不满于是编出了不少笑话。犹太人的奸猾形象也经常出现在笑话之中。前一类笑话中的犹太人一般叫拉宾诺维奇（Rabinovich，因此这一系列经常称为拉宾诺维奇笑话），后一种笑话中的犹太人则经常叫埃布拉姆。这一类笑话通常和敖德萨（沙俄时代起的犹太人聚居区）、移民以色列（在一段时间中苏联人能够自由移民的国家只有以色列，在勃列日涅夫时代有1/4的苏联犹太人移民以色列）有关。</p>
+<p>俄罗斯移民在好莱坞开了家俄式餐馆叫“俄罗斯怀旧”。菜单：<br>第一道菜——罗宋汤；<br>第二道菜——油炸包；<br>甜点——猛敲一下顾客的脖子并怒吼：“滚出去犹太猪！”</p>
+<p>在五一劳动节的游行上，拉宾诺维奇举着这样一个牌子走过会场：感谢你，斯大林同志，是你给了我幸福的童年。<br>党代表找到他：“你在侮辱我们的常识吗？谁都知道当你在童年的时候我们的斯大林同志还没出生呢！”<br>拉宾诺维奇答道：“这就是我感谢他的原因。”</p>
+<p>苏联反犹太主义者：“外国报纸全都是犹太人办的！”<br>苏联犹太人：“没错！所以外国报纸寄到这里时都给施了割礼。”</p>
+<p>说：曾经有法老和犹太人，法老灭绝了，犹太人活下来了；曾经有宗教裁判官和犹太人，前者都死绝了，后者活了下来；曾经有纳粹和犹太人，前者灭绝了，后者存活了下来；现在有共产主义者和犹太人。<br>问：你到底想说什么？<br>答：没什么，只是说犹太人可能活到最后。 </p>
+<h1 id="4-苏美关系的笑话"><a href="#4-苏美关系的笑话" class="headerlink" title="4.苏美关系的笑话"></a>4.苏美关系的笑话</h1><p>苏美关系是苏联笑话中特别常见的话题，讽刺的内容不定，不过经常是针对苏联领导人或苏联体制的。</p>
+<p>一个美国人和一个苏联人互相吹牛，夸耀自己的国家。美国人说道：“我的国家实在自由。你可以径直走进白宫，对总统说：‘总统先生，我不同意你的现行对内政策！’”苏联人便答道：“嘿，这有什么！我的国家也很自由！你可以径直走进克里姆林宫，对总书记说：‘总书记同志，我不同意美国总统的现行对内政策！’”</p>
+<h1 id="5-关于政治"><a href="#5-关于政治" class="headerlink" title="5.关于政治"></a>5.关于政治</h1><p>作为政治笑话，讽刺苏联、东欧政治生活的内容是相当多的，涉及到党组织生活、等额选举、路线摇摆、老人政治、言论控制等等等等。政治笑话经常在重大政治事件之后飞速传播，克格勃的调查报告称，一个政治笑话可以在一天以内传遍一个莫斯科大小的城市。</p>
+<p>有人给克里姆林宫打电话：<br>“你们现在在找苏共的新总书记吗？”<br>“不！你是谁？傻瓜吗？”<br>“对，病入膏肓的老傻瓜！”</p>
+<p>问：美国和苏联宪法有什么区别？不是都保证言论自由吗？<br>答：当然，不过美国宪法也保证言论后的自由。</p>
+<p>美国人：“我们有言论自由，就是在白宫前面说美国总统是傻子也没事。”<br>苏联人：“那又怎么样？我们在克林姆林宫前面说美国总统是傻子也没事。”</p>
+<p>在调查表上有这样一个问题：在执行总路线时你动摇过吗？<br>拉宾诺维奇回答道：“我和总路线一起动摇。”</p>
+<p>监狱里两个囚犯正交流经验。<br>“你是因为政治犯罪被捕的么？”<br>“当然。我是个管子工，被党委员会叫去修下水管。我看了看，说，‘整个体系都该换换了’，于是我就被判了7年。”</p>
+<p>一个英国人、一个法国人、一个苏联人谈论什么是世界上最幸福的事。<br>英国人：“最幸福的事情就是冬天晚上回家，穿着羊毛裤坐在壁炉前面。”<br>法国人：“你们英国人就是古板，最幸福的事情是和一个金发女郎一起去地中海度假，然后我们好聚好散。”<br>苏联人：“最幸福的事情就是半夜有警察敲门，开门后：‘伊万，你被捕了。’”<br>…：“你弄错了，伊万在隔壁。”</p>
+<h1 id="6-关于内务部-克格勃-斯塔西等秘密警察机构"><a href="#6-关于内务部-克格勃-斯塔西等秘密警察机构" class="headerlink" title="6.关于内务部-克格勃-斯塔西等秘密警察机构"></a>6.关于内务部-克格勃-斯塔西等秘密警察机构</h1><p>讽刺秘密警察（内务人民委员部、克格勃、斯塔西）的段子多以调侃这些组织的严刑逼供和无孔不入为主。也有一些笑话是在嘲笑他们的愚蠢。</p>
+<p>来了一个格鲁吉亚代表团，得到斯大林接见，谈话，然后离开，斯大林开始找他的烟斗，找不到。<br>他叫贝利亚来：“拉甫连季·巴甫洛维奇，去追代表团，找找谁拿了我的烟斗。”<br>贝利亚赶忙去追代表团。<br>五分钟后，斯大林在一堆纸下（一说为椅子下）找到了他的烟斗。<br>他叫贝利亚——“瞧，拉甫连季·巴甫洛维奇，我找到我的烟斗了。”<br>“太晚了。”贝利亚说，“代表团中的半数已经承认他们拿了你的烟斗，并且加入了‘利用偷烟斗进行暗杀活动的托洛茨基阴谋组织’，而另外一半则在审讯中死掉了。”   </p>
+<p>地狱里有条规矩：所有生前杀过人的都要被受害者的血淹没。一个人下地狱参观，发现贝利亚的血只淹没到了他的膝盖，不解问他为什么。<br>贝利亚说：“因为我站在斯大林同志的肩膀上。”  </p>
+<p>一个东德的居民被掐掉了电话线，他跑去申诉并询问原因，有关部门告诉他：<br>“因为您诬蔑了国家安全部。”<br>“我怎么诬蔑的？”<br>“我们有记录：您曾多次在电话中声称，安全部窃听了您的通话。”</p>
+<p>一位内务人民委员部审判员结束一天的审判工作，回到办公室，突然独自大笑起来。<br>对面办公桌的同事奇怪的问道：“有什么好笑的事吗？”<br>“是啊，”审判员用手帕擦著笑出来的眼泪：“一个很好笑的笑话……”<br>“哦？说来听听？”<br>“你疯了吗？我刚判了说这笑话的家伙五年苦役！”</p>
+<p>“假设你在酒吧里，而一个陌生人坐到你的身边并开始唉声叹气，你该怎么做？”<br>“立即去阻止这种反苏宣传。”  </p>
+<p>一位莫斯科市民在公车上：“您好同志，请问您是克格勃吗？”<br>“不是。”<br>“那您的家人或直系亲属有在克格勃工作吗？”<br>“没有。”<br>“那您有朋友在克格勃吗？”<br>“没有。”<br>“那您把脚拿开好吗，您踩到我的脚了。”   </p>
+<p>一位年轻人在工作时抱怨道：“这种政府真差劲。”<br>结果被一位秘密警察听到而遭逮捕。<br>年轻人辩解说：“我根本没讲是哪个政府，你怎么可以随便逮捕我呢？”<br>“你少骗人！”秘密警察咆哮道，“我在这里工作二十多年了，哪一个政府差劲我不会知道吗？”</p>
+<h1 id="7-关于政治笑话"><a href="#7-关于政治笑话" class="headerlink" title="7.关于政治笑话"></a>7.关于政治笑话</h1><p>在公开化之前的年代讲政治笑话并不是没有风险的。在斯大林时代，如果讲政治笑话遭到检举就会因违反苏联刑法第58号条款第10款（恶意散布煽动推翻、分裂或削弱苏维埃联盟的言论）处一般3-5年的徒刑，根据历史学家、持不同政见者罗伊·麦德维杰夫的说法，在1953年斯大林死后，当局决定释放因讲政治笑话而入狱的人，而因此获释的人数达20万[6]。赫鲁晓夫时代之后这一惩罚措施被取消，但当局针对不同政见的压制仍然明显存在。克格勃和斯塔西都拥有监控居民言论和行为的部门，政治笑话也是考虑点之一。因此就有了关于政治笑话的政治笑话。</p>
+<p>Q：白海-波罗的海运河是什么人修建的？<br>A：左边是讲政治笑话的人修的，右边是听政治笑话的人修的。</p>
+<p>有人喜欢说笑话；有人喜欢收集笑话去说笑话；有人喜欢收集说笑话的人。</p>
+<p>“勃列日涅夫同志，听说您收集政治笑话，是真的么？”<br>“是的。”<br>“那么您现在收集了多少了呢？”<br>“三座半劳改营。”</p>
+<p>向最佳政治笑话大赛获奖者颁奖：一等奖，二十五年；二等奖，二十年；还有两个三等奖，每个十五年。</p>
+]]></content>
+      <categories>
+        <category>笑话</category>
+      </categories>
+      <tags>
+        <tag>笑话</tag>
+        <tag>苏联</tag>
+        <tag>玉米大王</tag>
       </tags>
   </entry>
   <entry>
@@ -525,57 +802,6 @@ int main()
         <tag>笑话</tag>
         <tag>苏联</tag>
         <tag>玉米大王</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>福尔摩斯精读:花斑带案</title>
-    <url>/2021/08/05/%E7%A6%8F%E5%B0%94%E6%91%A9%E6%96%AF%E7%B2%BE%E8%AF%BB-%E8%8A%B1%E6%96%91%E5%B8%A6%E6%A1%88/</url>
-    <content><![CDATA[<p>故事为冒险史中的小说<a id="more"></a><br>海伦·史东纳小姐在家中晚上听到口哨声，而她的姐姐茱莉亚在家中死前亦曾表示听到口哨声，还声称自己看到带有花斑的带子，所以海伦小姐感到十分害怕，故向福尔摩斯求助。福尔摩斯连同华生到海伦小姐居住的地方调查，福尔摩斯发现海伦小姐所住的地方有很多奇怪的装修，例如不通风的通风口、没有连接到仆人的房铃等，他已经大约推理到事件的情况，于是晚上躲在海伦小姐的房间等疑凶出现。最后终于发现海伦小姐的继父詹姆斯·罗伊洛特博士为了谋取家产，而设计以毒蛇杀害海伦两姊妹。</p>
-<h2 id="环境描写"><a href="#环境描写" class="headerlink" title="环境描写"></a>环境描写</h2><p>这部小说中为了渲染恐怖、惊险的氛围，大片段运用环境描写来衬托人物心理，渲染气氛，并推动情节进一步发展。<br>例如，在海伦叙述她姐姐暴死的夜晚时：  </p>
-<blockquote>
-<p>It was a wild night. <strong>The wind was howling outside, and the rain was beating and splashing against the windows.</strong> Suddenly, amid all the hubbub of the gale, there burst forth the wild scream of a terrified woman. </p>
-</blockquote>
-<ul>
-<li>howl<br>因惊恐而喊叫，等同于roar。</li>
-<li>splash<br>指雨水飞溅。<blockquote>
-<p>splash against the windows  </p>
-</blockquote>
-</li>
-</ul>
-<p>雨水在窗户上飞溅。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photosphoto-1532294351631-a205083f392c.jpg"></p>
-<h3 id="各种“喊”"><a href="#各种“喊”" class="headerlink" title="各种“喊”"></a>各种“喊”</h3><h4 id="roar"><a href="#roar" class="headerlink" title="roar"></a>roar</h4><p>怒吼。</p>
-<blockquote>
-<p>the wind was roaring.  </p>
-</blockquote>
-<p>狂风大作。</p>
-<h4 id="scream"><a href="#scream" class="headerlink" title="scream"></a>scream</h4><p>惊喊</p>
-<blockquote>
-<p>Suddenly,  there burst forth the wild scream of a terrified woman.  </p>
-</blockquote>
-<p>突然间，爆出一个女人惊恐的叫喊。</p>
-<h4 id="cry"><a href="#cry" class="headerlink" title="cry"></a>cry</h4><p>哭喊</p>
-<blockquote>
-<p>He looked inside the envelope. ‘So it is,’ he cried.   </p>
-</blockquote>
-<p>他看了看信封里边，“看来是了！”他哭喊着。</p>
-<h4 id="yell"><a href="#yell" class="headerlink" title="yell"></a>yell</h4><p>狂喊</p>
-<blockquote>
-<p>“You see it, Watson?” he yelled. “You see it?”</p>
-</blockquote>
-<p>”看见了没，华生？“他狂喊。</p>
-<h2 id="短语"><a href="#短语" class="headerlink" title="短语"></a>短语</h2><p>His smile broadened.他笑得更开心了。<br>the sweet promise of spring春日甜美的景色。<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210805195058.png"></p>
-<h2 id="神态描写"><a href="#神态描写" class="headerlink" title="神态描写"></a>神态描写</h2><blockquote>
-<p>My companion sat in the front of the trap, his arms folded, his hat pulled down over his eyes, <strong>and his chin sunk upon his breast, buried in the deepest thought.</strong></p>
-</blockquote>
-<p>我的朋友坐在车前，叉着胳膊，帽子遮在眼前，而头埋在胸前，陷入沉思。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>积累</tag>
-        <tag>Holmes</tag>
       </tags>
   </entry>
   <entry>
@@ -696,107 +922,6 @@ int main()&#123;
       </tags>
   </entry>
   <entry>
-    <title>逆序输出数字</title>
-    <url>/2023/09/06/%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E6%95%B0%E5%AD%97/</url>
-    <content><![CDATA[<p><strong>输入一个数字后逆序输出之。</strong><br>用数列吗？也可以。</p>
-<p>更为巧妙的是，利用了取余运算。<br>因为整数取余给整型，仍会强制转换为整型，因此不断除以10并取余。</p>
-<pre><code>#include&lt;stdio.h&gt;
-
-int main()&#123;
-    int inp = 0;
-    scanf(&quot;%d&quot;,&amp;inp);
-
-    while(inp%10!=0)&#123;
-            printf(&quot;%d&quot;,inp%10);
-            inp = inp/10;
-    &#125;
-    return 0;
-&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-        <tag>算法</tag>
-        <tag>基础算法</tag>
-        <tag>取余</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>苏联政治笑话浅谈</title>
-    <url>/2021/02/15/%E8%8B%8F%E8%81%94%E6%94%BF%E6%B2%BB%E7%AC%91%E8%AF%9D%E9%80%89%E8%B0%88/</url>
-    <content><![CDATA[<p>苏联政治笑话（或称苏东政治笑话），即流行于前苏联和前东欧社会主义国家的政治笑话。<a id="more"></a>这种笑话的来源很多，除了来自于在这些国家生活的人之手外，也有一些来自美国、西德及其他国家的报社杂志，此类笑话以讽刺苏联-东欧诸国的领导人、政治、经济和生活状态为主，数量极大，讽刺辛辣，广为流传，前美国总统罗纳德·里根还在公众集会上讲过几个这样的笑话，据他所说他还“讲给了戈尔巴乔夫听，然后他笑了”。[1]近年美国政府解密档案揭露，当年美国驻莫斯科大使馆一直持续收集并整理流传的苏联政治笑话，再用密电传回华盛顿给中情局分析，因“这些笑话非常准确的反映苏联社会公众的情绪”。   </p>
-<p>在苏联的这种政治笑话的起源时间不详，但在50年代斯大林执政末期就已经广泛出现了。这些笑话最初来自于沙俄时期的政治笑话。在苏联和东欧，政治笑话的泛滥是在60-80年代（尤其是在勃列日涅夫执政后期），和地下出版物一起成为了社会主义阵营中政治异见的一种象征。在“公开化”之前当局一直试图限制政治笑话的传播流动，但效果不佳。   </p>
-<p>从体裁上，政治笑话一般是段子式或者问答式，问答式也会非常简单，适合一个人为别人讲。著名的“亚美尼亚广播电台”系列就是典型的问答式政治笑话。<br><a href="http://www.talkreason.org/marperak/jokes/armenrad.htm">亚美尼亚广播电台笑话链接</a></p>
-<h1 id="1-嘲笑领导人的笑话"><a href="#1-嘲笑领导人的笑话" class="headerlink" title="1.嘲笑领导人的笑话"></a>1.嘲笑领导人的笑话</h1><p>苏联、东欧的重要领导人基本都进入了笑话：斯大林、赫鲁晓夫、勃列日涅夫、安德罗波夫、戈尔巴乔夫、昂纳克、齐奥塞斯库等人都是很经常出现的角色。列宁被讽刺的几率倒很低，因为他的历史形象一直比较好。不过，在1970年列宁诞辰100周年之际，由于官方铺天盖地的政治宣传，相应也出现了不少关于列宁和列宁纪念活动的笑话。   </p>
-<h2 id="列宁"><a href="#列宁" class="headerlink" title="列宁"></a>列宁</h2><p>有人通过走关系，把列宁同志送到了天堂，接纳了这个无神论者。<br>过了几天，这人给上帝打电话表示感谢，电话接通了，他说：你是上帝吗？<br>上帝回答：首先，没有上帝。其次，我们这里每个人都是同志。第三，有事请直说，我还要参加党代表会议。   </p>
-<h2 id="斯大林"><a href="#斯大林" class="headerlink" title="斯大林"></a>斯大林</h2><p>约瑟夫·斯大林在政治笑话中的形象一般是残暴、猜忌，他和农民生活困苦经常挂钩（考虑到1929年的农业集体化和30年代末的大清洗）。</p>
-<p>斯大林去看一场苏联喜剧电影的首映礼。在影片播放时他一直快活的大笑，不过在电影结束之时他突然问道：<br>“好吧，我喜欢这电影。可为什么那个丑角的小胡子和我的一样？”<br>所有人都噤若寒蝉，只有一人怯怯地提议道：“斯大林同志，要不要让演员把胡子剃了？”<br>斯大林答道：“好主意，枪毙前先把胡子剃了。”<br><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210216120244.png"></p>
-<p>集体农庄庄员伊万[注 1]在河里捉到一条大鱼，高兴的回到家里和老婆说：“看，我们有炸鱼吃了！”<br>“没有油啊。”<br>“那就煮！”<br>“没锅。”<br>“烤鱼！”<br>“没柴。”<br>伊万气死了，走到河边把鱼扔了回去。那鱼在水里划了一个半圆，上身出水，举起右鳍激动地高呼：“斯大林万岁！”  </p>
-<p>一位美国历史学家和一位俄罗斯历史学家，讨论谁领导二十世纪的前半世纪。<br>“我投票赞成胡佛先生，”美国人说，“他尝试着教导我们美国人停止酗酒！”<br>“那个没什么了不起！”俄国人接着说，“我选择斯大林，他尝试教我们俄国人不要吃饭。”</p>
-<h2 id="赫鲁晓夫"><a href="#赫鲁晓夫" class="headerlink" title="赫鲁晓夫"></a>赫鲁晓夫</h2><p>尼基塔·赫鲁晓夫在政治笑话中的形象是无知、粗鲁、愚蠢、秃顶、爱胡扯、爱吹牛皮的。这和他本人的以上作风分不开。也因为赫鲁晓夫当初是逼宫斯大林，出现不少揶揄赫鲁晓夫忌讳斯大林的笑话。</p>
-<p>赫鲁晓夫前来参观前卫派的美术展览。<br>“这对该死的绿点和黄点是什么？”<br>“这幅画，赫鲁晓夫同志，是表现我们英勇的农民在努力完成生产两亿吨谷物的计划。”<br>“啊……哦……那这堆黑三角和红条条呢？”<br>“这幅画描绘了工厂中我们英雄般的产业工人。”<br>“那这个长耳朵的肥屁股呢？”<br>“赫鲁晓夫同志，这不是画，是镜子。”</p>
-<p>共产党餐叙，赫鲁晓夫直接用手抓肉吃得非常狼狈，在一旁的斯大林看不过去对他说：“尼基塔，把刀子拿出来”，赫鲁晓夫迅速的回答说：“是的，领导同志！下一个目标是谁？”<br>有个人向赫鲁晓夫汇报说：“现在大剧院正上演一个剧，里面有您出现，每当您一出场，下面就热烈鼓掌。”赫鲁晓夫听了以后非常得意。有一天他买了一张票去看这个剧，他陷入了沉思，忘记了鼓掌，这时旁边有人推了他一把，紧张地说：“哎！你为什么不鼓掌？不要命啦？”<br>科学家联名要求赫鲁晓夫去领导一个癌症治疗所。赫鲁晓夫推托道：“谢谢同志们的支持，但我对癌症一窍不通啊。”<br>科学家们纷纷说道：“赫鲁晓夫同志，您只要应用一下您在农业问题上的经验就好了！您一负责，粮食就全不见了！”</p>
-<p>斯大林死后， 因为被赫鲁晓夫视为禁忌， 因此希望把斯大林的遗体葬在海外，于是苏联向各国征求意愿：<br>英： 我们这边已经有丘吉尔，大战的英雄有一个就很够了。<br>德： 我们这边已经有希特勒，独裁者有一个就太多了。<br>这时， 以色列表明同意的意见。但是赫鲁晓夫马上脸色发青，<br>“靠！ 那里以前有人复活过啊！”</p>
-<p>在苏共20大上，赫鲁晓夫在做秘密报告前突然消失了。但是过了几分钟后他又回来了，并登上了主席台。<br>人们问他：“赫鲁晓夫同志，您刚才去哪了？”<br>赫鲁晓夫说：“我去列宁墓里看了看，摸摸斯大林还有没有脉搏，以防万一。”</p>
-<p>赫鲁晓夫和肯尼迪交谈，各自吹嘘，肯尼迪说：“美国医学发达，有种药死人吃了可以复活。”<br>赫鲁晓夫说：“苏联体育发达，有人十分钟可以从莫斯科跑到美国。”肯尼迪要求兑现，赫鲁晓夫慌了手脚，召集文武大臣商量对策，<br>有人出了个好计策说：“这很好办，你先让肯尼迪把药拿来，让斯大林吃了，那斯大林一定复活，那么你用不了五分钟就可以从苏联跑到美国。”</p>
-<h2 id="勃涅日列夫"><a href="#勃涅日列夫" class="headerlink" title="勃涅日列夫"></a>勃涅日列夫</h2><p>列昂尼德·勃列日涅夫在政治笑话中的形象一般是爱慕虚荣、权力欲强、喜欢享乐、痴呆、健忘、病入膏肓的。苏联当局努力培养对他的个人崇拜、他本人的“勋章收藏爱好”和他请人捉刀而获得了列宁文学奖的回忆录三部曲也经常是被嘲笑的对象。关于他的笑话是所有苏联领导人中最多的。</p>
-<p>在政治局会议上，勃列日涅夫兴致勃勃地说：“同志们都说我那三本回忆录写得好，哪天给我弄一套，我也读一读。”<br>在勃列日涅夫访问英国时，首相撒切尔夫人问：“您怎么看丘吉尔？”<br>“丘吉尔是谁？”勃列日涅夫反问。<br>回到苏联驻英大使馆，大使评价道：“祝贺您，勃列日涅夫同志，你让撒切尔夫人老实了。她以后再也不敢问什么愚蠢的问题了。”<br>“撒切尔是谁？”勃列日涅夫反问。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/zhangrongxiang/store/master/photos20210216120026.png"><br>一只鳄鱼吃掉勃列日涅夫，结果它拉了一个星期的勋章。</p>
-<p>“你听说了吗？勃列日涅夫做手术了。”<br>“做什么手术？”<br>“开胸手术。因为勋章摆不下了。”</p>
-<p>英国广播公司报道说： “昨天莫斯科发生了地震。”但是学者们对此表示怀疑，因为莫斯科处于非地震带。<br>不过，我们的驻莫斯科记者报告说该市确有震感。最后经过核实，原来并非是地震，而是苏共中央总书记勃列日涅夫佩戴勋章的衣服掉到了地上。</p>
-<p>一个苏联人在公众场合对着勃列日涅夫同志的肖像骂了句“白痴”，被克格勃逮捕，判了5年徒刑。他的罪名是：侮辱党和国家领导人判刑1年，泄露党和国家机密判刑4年。<br>不过听说他很快就获释了，因为自从勃列日涅夫同志在联合国发表演说之后，那就不再是党和国家机密了。</p>
-<p>话说勃列日涅夫同志当上苏共中央总书记之后，将在乡下的老母亲接到了莫斯科。老太太来了以后，勃列日涅夫得意洋洋地向老妈展示了一番自己的豪华别墅、高级汽车、名贵家具等等，展示完了后，勃列日涅夫问老太太这一切如何？老太太说：“儿子啊，这一切都很好，但是，共产党来了你怎么办？”</p>
-<p>在美国人登陆月球成功后，勃列日涅夫当天就打电话给苏联太空人：“鉴于美国人已经在月球上登陆，现在苏联决定，马上派你们去太阳登陆。”<br>太空人大惊，哽咽道：“您不知道吗，勃列日涅夫同志，我们会被烧死的。”<br>勃列日涅夫生气地说：“你以为政治局没有考虑过吗？我们已经决定，派你们在晚上在太阳登陆！”</p>
-<p>勃列日涅夫即将访问波兰，波兰当局命令一位著名画家创作一幅名为《勃列日涅夫在波兰》的大型油画作为献礼。很不情愿的画家在威逼下接受了工作。画完成后，波兰一高官前来验收，结果让他大吃一惊：画面上是一男一女在豪华的大床上极尽缠绵，窗外的风景是克里姆林宫。<br>“这是什么？这女的是谁？！”高官愤怒的问。<br>“勃列日涅夫的夫人。”画家答道。<br>“男的呢？！”“勃列日涅夫的秘书。”<br>“可勃列日涅夫同志在哪里？”<br>“勃列日涅夫在波兰。”画家答道。</p>
-<h2 id="安德罗波夫"><a href="#安德罗波夫" class="headerlink" title="安德罗波夫"></a>安德罗波夫</h2><p>短暂担任过苏联最高领导人的尤里·安德罗波夫除了克格勃主席的身份经常遭到讽刺之外，他糟糕的健康状况也是老人政治的缩影，故也经常在笑话中出场。</p>
-<p>问：为什么勃列日涅夫能出国，安德罗波夫却不能？<br>答：因为前者安的是电池，后者接的是电线。（勃列日涅夫用心脏起搏器，安德罗波夫用透析机）</p>
-<h2 id="昂纳克"><a href="#昂纳克" class="headerlink" title="昂纳克"></a>昂纳克</h2><p>关于埃里希·昂纳克的政治笑话相当丰富，因为德意志民主共和国国内的知识分子政治异见势力较强，而昂纳克又执政太久。这些笑话大多是表达对昂内克的各种不满和不支持。</p>
-<p>埃里希·昂纳克想知道人民是如何看待他的，所以他化妆微服私访。他在大街上问一个人：“打搅一下，请问您觉得昂纳克怎么样？”<br>这个人把他引到一条暗巷，确认四下无人，没有其他人能听见他说话之后，他贴着埃里希的耳朵小声说：“我支持昂纳克！”  </p>
-<p>一个老妇人在东德询问站岗的警察：“请问那家名字叫‘原则’的商店在哪里呢？”<br>警察想了一会说：“这里没有叫这个名字的商店啊。”<br>老夫人说：“肯定应该有的啊，不然我们的昂纳克同志怎么会说‘一切东西在原则上都是可以买到的’呢？”  </p>
-<p>昂纳克想知道自己的民意支持度如何，于是走近一家高端住宅并敲开了门。<br>一个小女孩打开门：“叔叔，你是谁呀？”<br>“小朋友，我是那个让你们能够生活得如此幸福的人，是我为你们带来了食物和住所……”<br>“妈妈，妈妈，快点过来，慕尼黑的彼得叔叔来看我们啦！”（慕尼黑在西德）  </p>
-<h1 id="2-亚美尼亚广播电台系列"><a href="#2-亚美尼亚广播电台系列" class="headerlink" title="2.亚美尼亚广播电台系列"></a>2.亚美尼亚广播电台系列</h1><p>亚美尼亚广播电台（或称埃里温广播电台）是苏联境内（远不限于亚美尼亚）甚至整个东欧地区都广为流传的笑话，笑话的格式相对固定，为“亚美尼亚广播电台收到提问……，亚美尼亚广播电台对此回答……”，通常简写为“问答”（Q/A）式笑话。这种笑话的题材其实不仅仅限于政治笑话（还有不少生活笑话），但政治笑话占绝大多数。这样的笑话经常会有很多小系列。在德国电影《窃听风暴》里，斯塔西的头头古毕兹中校就讲了一个关于昂纳克的这种笑话。</p>
-<p>问：鸡和蛋哪个先有？<br>答：从前两个都有。<br>问：什么是最短的笑话？<br>答：共产主义。<br>问：什么是最长的笑话？<br>答：赫鲁晓夫在党代表大会上的讲话。<br>问：猪会秃头吗？<br>答：我们不回答政治问题。<br>问：改革的前景是什么？<br>答：有两种可能的情况。现实的可能是火星人会降临地球帮我们打理一切，科幻的可能是我们能自己完成改革目标。<br>问：什么是混乱？<br>答：我们对国民经济不做评论。<br>问：您能描述一下东德的地理特征吗？<br>答：一个充满各种瓶颈的坦途。<br>问：民主与社会主义民主的区别是什么？<br>答：大概相当于椅子和电椅的区别。<br>问：我要去西方国家开会，可是旅费不够。怎么办？<br>答：在原则上这不是问题。别买返程票就行。<br><a href="http://www.talkreason.org/marperak/jokes/armenrad.htm">更多亚美尼亚广播电台笑话链接</a></p>
-<h1 id="3-犹太人笑话"><a href="#3-犹太人笑话" class="headerlink" title="3.犹太人笑话"></a>3.犹太人笑话</h1><p>由于历史原因，在苏联曾经对犹太人有着严重的偏见和歧视，尤其是在50年代斯大林执政后期和70年代移民以色列风潮期间。犹太人对歧视不满于是编出了不少笑话。犹太人的奸猾形象也经常出现在笑话之中。前一类笑话中的犹太人一般叫拉宾诺维奇（Rabinovich，因此这一系列经常称为拉宾诺维奇笑话），后一种笑话中的犹太人则经常叫埃布拉姆。这一类笑话通常和敖德萨（沙俄时代起的犹太人聚居区）、移民以色列（在一段时间中苏联人能够自由移民的国家只有以色列，在勃列日涅夫时代有1/4的苏联犹太人移民以色列）有关。</p>
-<p>俄罗斯移民在好莱坞开了家俄式餐馆叫“俄罗斯怀旧”。菜单：<br>第一道菜——罗宋汤；<br>第二道菜——油炸包；<br>甜点——猛敲一下顾客的脖子并怒吼：“滚出去犹太猪！”</p>
-<p>在五一劳动节的游行上，拉宾诺维奇举着这样一个牌子走过会场：感谢你，斯大林同志，是你给了我幸福的童年。<br>党代表找到他：“你在侮辱我们的常识吗？谁都知道当你在童年的时候我们的斯大林同志还没出生呢！”<br>拉宾诺维奇答道：“这就是我感谢他的原因。”</p>
-<p>苏联反犹太主义者：“外国报纸全都是犹太人办的！”<br>苏联犹太人：“没错！所以外国报纸寄到这里时都给施了割礼。”</p>
-<p>说：曾经有法老和犹太人，法老灭绝了，犹太人活下来了；曾经有宗教裁判官和犹太人，前者都死绝了，后者活了下来；曾经有纳粹和犹太人，前者灭绝了，后者存活了下来；现在有共产主义者和犹太人。<br>问：你到底想说什么？<br>答：没什么，只是说犹太人可能活到最后。 </p>
-<h1 id="4-苏美关系的笑话"><a href="#4-苏美关系的笑话" class="headerlink" title="4.苏美关系的笑话"></a>4.苏美关系的笑话</h1><p>苏美关系是苏联笑话中特别常见的话题，讽刺的内容不定，不过经常是针对苏联领导人或苏联体制的。</p>
-<p>一个美国人和一个苏联人互相吹牛，夸耀自己的国家。美国人说道：“我的国家实在自由。你可以径直走进白宫，对总统说：‘总统先生，我不同意你的现行对内政策！’”苏联人便答道：“嘿，这有什么！我的国家也很自由！你可以径直走进克里姆林宫，对总书记说：‘总书记同志，我不同意美国总统的现行对内政策！’”</p>
-<h1 id="5-关于政治"><a href="#5-关于政治" class="headerlink" title="5.关于政治"></a>5.关于政治</h1><p>作为政治笑话，讽刺苏联、东欧政治生活的内容是相当多的，涉及到党组织生活、等额选举、路线摇摆、老人政治、言论控制等等等等。政治笑话经常在重大政治事件之后飞速传播，克格勃的调查报告称，一个政治笑话可以在一天以内传遍一个莫斯科大小的城市。</p>
-<p>有人给克里姆林宫打电话：<br>“你们现在在找苏共的新总书记吗？”<br>“不！你是谁？傻瓜吗？”<br>“对，病入膏肓的老傻瓜！”</p>
-<p>问：美国和苏联宪法有什么区别？不是都保证言论自由吗？<br>答：当然，不过美国宪法也保证言论后的自由。</p>
-<p>美国人：“我们有言论自由，就是在白宫前面说美国总统是傻子也没事。”<br>苏联人：“那又怎么样？我们在克林姆林宫前面说美国总统是傻子也没事。”</p>
-<p>在调查表上有这样一个问题：在执行总路线时你动摇过吗？<br>拉宾诺维奇回答道：“我和总路线一起动摇。”</p>
-<p>监狱里两个囚犯正交流经验。<br>“你是因为政治犯罪被捕的么？”<br>“当然。我是个管子工，被党委员会叫去修下水管。我看了看，说，‘整个体系都该换换了’，于是我就被判了7年。”</p>
-<p>一个英国人、一个法国人、一个苏联人谈论什么是世界上最幸福的事。<br>英国人：“最幸福的事情就是冬天晚上回家，穿着羊毛裤坐在壁炉前面。”<br>法国人：“你们英国人就是古板，最幸福的事情是和一个金发女郎一起去地中海度假，然后我们好聚好散。”<br>苏联人：“最幸福的事情就是半夜有警察敲门，开门后：‘伊万，你被捕了。’”<br>…：“你弄错了，伊万在隔壁。”</p>
-<h1 id="6-关于内务部-克格勃-斯塔西等秘密警察机构"><a href="#6-关于内务部-克格勃-斯塔西等秘密警察机构" class="headerlink" title="6.关于内务部-克格勃-斯塔西等秘密警察机构"></a>6.关于内务部-克格勃-斯塔西等秘密警察机构</h1><p>讽刺秘密警察（内务人民委员部、克格勃、斯塔西）的段子多以调侃这些组织的严刑逼供和无孔不入为主。也有一些笑话是在嘲笑他们的愚蠢。</p>
-<p>来了一个格鲁吉亚代表团，得到斯大林接见，谈话，然后离开，斯大林开始找他的烟斗，找不到。<br>他叫贝利亚来：“拉甫连季·巴甫洛维奇，去追代表团，找找谁拿了我的烟斗。”<br>贝利亚赶忙去追代表团。<br>五分钟后，斯大林在一堆纸下（一说为椅子下）找到了他的烟斗。<br>他叫贝利亚——“瞧，拉甫连季·巴甫洛维奇，我找到我的烟斗了。”<br>“太晚了。”贝利亚说，“代表团中的半数已经承认他们拿了你的烟斗，并且加入了‘利用偷烟斗进行暗杀活动的托洛茨基阴谋组织’，而另外一半则在审讯中死掉了。”   </p>
-<p>地狱里有条规矩：所有生前杀过人的都要被受害者的血淹没。一个人下地狱参观，发现贝利亚的血只淹没到了他的膝盖，不解问他为什么。<br>贝利亚说：“因为我站在斯大林同志的肩膀上。”  </p>
-<p>一个东德的居民被掐掉了电话线，他跑去申诉并询问原因，有关部门告诉他：<br>“因为您诬蔑了国家安全部。”<br>“我怎么诬蔑的？”<br>“我们有记录：您曾多次在电话中声称，安全部窃听了您的通话。”</p>
-<p>一位内务人民委员部审判员结束一天的审判工作，回到办公室，突然独自大笑起来。<br>对面办公桌的同事奇怪的问道：“有什么好笑的事吗？”<br>“是啊，”审判员用手帕擦著笑出来的眼泪：“一个很好笑的笑话……”<br>“哦？说来听听？”<br>“你疯了吗？我刚判了说这笑话的家伙五年苦役！”</p>
-<p>“假设你在酒吧里，而一个陌生人坐到你的身边并开始唉声叹气，你该怎么做？”<br>“立即去阻止这种反苏宣传。”  </p>
-<p>一位莫斯科市民在公车上：“您好同志，请问您是克格勃吗？”<br>“不是。”<br>“那您的家人或直系亲属有在克格勃工作吗？”<br>“没有。”<br>“那您有朋友在克格勃吗？”<br>“没有。”<br>“那您把脚拿开好吗，您踩到我的脚了。”   </p>
-<p>一位年轻人在工作时抱怨道：“这种政府真差劲。”<br>结果被一位秘密警察听到而遭逮捕。<br>年轻人辩解说：“我根本没讲是哪个政府，你怎么可以随便逮捕我呢？”<br>“你少骗人！”秘密警察咆哮道，“我在这里工作二十多年了，哪一个政府差劲我不会知道吗？”</p>
-<h1 id="7-关于政治笑话"><a href="#7-关于政治笑话" class="headerlink" title="7.关于政治笑话"></a>7.关于政治笑话</h1><p>在公开化之前的年代讲政治笑话并不是没有风险的。在斯大林时代，如果讲政治笑话遭到检举就会因违反苏联刑法第58号条款第10款（恶意散布煽动推翻、分裂或削弱苏维埃联盟的言论）处一般3-5年的徒刑，根据历史学家、持不同政见者罗伊·麦德维杰夫的说法，在1953年斯大林死后，当局决定释放因讲政治笑话而入狱的人，而因此获释的人数达20万[6]。赫鲁晓夫时代之后这一惩罚措施被取消，但当局针对不同政见的压制仍然明显存在。克格勃和斯塔西都拥有监控居民言论和行为的部门，政治笑话也是考虑点之一。因此就有了关于政治笑话的政治笑话。</p>
-<p>Q：白海-波罗的海运河是什么人修建的？<br>A：左边是讲政治笑话的人修的，右边是听政治笑话的人修的。</p>
-<p>有人喜欢说笑话；有人喜欢收集笑话去说笑话；有人喜欢收集说笑话的人。</p>
-<p>“勃列日涅夫同志，听说您收集政治笑话，是真的么？”<br>“是的。”<br>“那么您现在收集了多少了呢？”<br>“三座半劳改营。”</p>
-<p>向最佳政治笑话大赛获奖者颁奖：一等奖，二十五年；二等奖，二十年；还有两个三等奖，每个十五年。</p>
-]]></content>
-      <categories>
-        <category>笑话</category>
-      </categories>
-      <tags>
-        <tag>笑话</tag>
-        <tag>苏联</tag>
-        <tag>玉米大王</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>静火版《毛泽东选集》 静火有言</title>
     <url>/2021/02/03/%E9%9D%99%E7%81%AB%E7%89%88%E3%80%8A%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86%E3%80%8B-%E5%BA%8F/</url>
     <content><![CDATA[<p>胡锦涛〔1〕 评价毛泽东“中国出了个毛泽东，这是中国共产党的骄傲，是中国人民的骄傲，是中华民族的骄傲。在为中国人民不懈奋斗的光辉一生中，毛泽东同志表现出了一个伟大革命领袖高瞻远瞩的政治远见、坚定不移的革命信念、炉火纯青的斗争艺术和杰出高超的领导才能。在中国革命和建设的壮丽历史画卷中，在祖国九百六十万平方公里的锦绣大地上，都留下了他作为一代伟人的风采。他不仅赢得了全党和全国各族人民的爱戴和敬仰，而且也赢得了世界上一切向往进步的人们的敬佩。毛泽东同志作为一个伟大的历史人物，属于中国，也属于世界。”〔2〕</p>
@@ -833,157 +958,32 @@ int main()&#123;
       </tags>
   </entry>
   <entry>
-    <title>柯西不等式及其应用</title>
-    <url>/2020/12/13/%E6%9F%AF%E8%A5%BF%E4%B8%8D%E7%AD%89%E5%BC%8F%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p>数学上，柯西-施瓦茨不等式，又称施瓦茨不等式或柯西-布尼亚科夫斯基-施瓦茨不等式，是一条很多场合都用得上的不等式.    </p>
-<a id="more"></a>
-<p>不等式以奥古斯丁·路易·柯西（Augustin Louis Cauchy），赫尔曼·阿曼杜斯·施瓦茨（Hermann Amandus Schwarz），和维克托·雅科夫列维奇·布尼亚科夫斯基（Виктор Яковлевич Буняковский）命名.<br>它的基本形式为<br>$$\left(\sum_{i=1}^{n} x_{i} y_{i}\right)^{2} \leq\left(\sum_{i=1}^{n} x_{i}^{2}\right)\left(\sum_{i=1}^{n} y_{i}^{2}\right).$$<br>也可以表示成<br>$$\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right)\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right) \geq\left(x_{1} y_{1}+x_{2} y_{2}+\cdots+x_{n} y_{n}\right)^{2}.$$<br>当<br>$$\frac{x_{1}}{y_{1}}=\frac{x_{2}}{y_{2}}=\cdots=\frac{x_{n}}{y_{n}}$$<br>时，等号成立.</p>
-<h1 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h1><p>将上文中不等式移项得</p>
-<p>该式称作权方和不等式.</p>
-<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>已知$x+y=1, x&gt;0, y&gt;0$,求$\frac{1}{x^{2}}+\frac{8}{y^{2}}$最小值.<br><strong>解:</strong><br>$$\frac{1}{x^{2}}+\frac{8}{y^{2}}=\frac{1^{3}}{x^{2}}+\frac{2^{3}}{y^{2}} \geq \frac{(1+2)^{3}}{(x+y)^{2}}=27$$</p>
-]]></content>
-      <categories>
-        <category>math</category>
-      </categories>
-      <tags>
-        <tag>math</tag>
-        <tag>不等式</tag>
-        <tag>吹牛</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GPT-4多模态模型学习笔记（1）</title>
-    <url>/2024/05/17/GPT-4%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="GPT-4多模态模型学习笔记（1）"><a href="#GPT-4多模态模型学习笔记（1）" class="headerlink" title="GPT-4多模态模型学习笔记（1）"></a>GPT-4多模态模型学习笔记（1）</h1><p>之前我们一直说自然语言处理是人工智能王冠上最大的那颗珍珠，但如今用世俗的珍珠或者王冠形容已经不合适了。多模态大模型带给人类世界的震撼，就如人工智能企业Hugging Face（因提供开源预训练模型库而闻名）的联合创始人Thomas Wolf所述：“在过去的几年里，好的多模态模型一直是许多大型技术实验室的圣杯。”<strong>其中多模态指的是融合文本、图像、视频或音频等多种模态作为输入或输出。</strong> </p>
-<p>GPT-4这个标签代表第4代生成式预训练变换模型(Generative Pre-trained Transformer 4)，是OpenAI在2023年3月14日公开的一种多模态模型，是对前几个月发布的ChatGPT的多模态升级。GPT-4模型可对图文多模态输入生成应答文字，以及对视觉元素的分类、分析和隐含语义提取，并表现出优秀的应答能力。</p>
-<h2 id="GPT-4核心技术有哪些？"><a href="#GPT-4核心技术有哪些？" class="headerlink" title="GPT-4核心技术有哪些？"></a><strong>GPT-4核心技术有哪些？</strong></h2><h3 id="1-1理论基础——多模态涌现能力"><a href="#1-1理论基础——多模态涌现能力" class="headerlink" title="1.1理论基础——多模态涌现能力"></a>1.1理论基础——多模态涌现能力</h3><p>讲到大语言模型的优势，一般首先要提到这类模型的<strong>涌现能力和思维链</strong>。这两者是大语言模型不断接近人类的关键特征。我们之所以认为GPT-4会是具有里程碑意义的一代，正是因为多模态的GPT-4会从视觉角度和视觉-文字语义融合方面涌现出更多的能力。2022-2023年，我们可以认为AI是第一次睁开双眼理解这个世界。</p>
-<p>在大型语言模型（LLM）中，<strong>涌现能力（Emergent Abilities）是指模型具有从原始训练数据中自动学习并发现新的、更高层次的特征和模式的能力。</strong></p>
-<p>就中文释义而言，涌现能力也指大语言模型涌现出来的新能力。这有点类似于去超市遇到买二赠一，赠品的质量居然还出乎意料。</p>
-<p>与大语言模型（LLM）相比，<strong>多模态大语言模型(Multi-modal Large Language Model，MLLM)可实现更好的常识推理性能，</strong> 跨模态迁移更有利于知识获取，产生更多新的能力，加速了能力的涌现。这些独立模态或跨模态新特征、能力或模式通常不是通过目的明确的编程或训练获得的，而是模型在大量多模态数据中自然而然的学习到的。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2024/06/07/16921ff8c137363a.png"></p>
-<p>在语言模型发展的早期，通过在更多数据上训练更大的模型，可获得近似连续的精确度提升。*(可称为缩放定律/Scaling Laws*)到了2015年左右，随着深度学习技术的发展和语料库的增大，模型达到一定的临界规模后，NLP开发者们发现，<strong>大语言模型(包括GPT-3、GLaM、LaMDA和Megatron-Turing NLG等)开始表现出一些开发者最开始未能预测的、更复杂的能力和特性，这些新能力和新特性被认为是涌现能力的体现。</strong></p>
-<p>涌现能力是基于深度学习模型的分层结构和权重学习机制实现的。涌现出来的能力可以是基于文本的，也可以是多模态的。我们可以将GPT-4这类大模型的训练视为解方程，每一层神经元（可视为变量组合）的输出都作为下一层神经元的输入，并且模型的每个权重（Weight）都通过强化学习算法进行学习和更新。这种分层的结构和权重学习机制使得深度学习模型能够自动的学习到从原始数据中提取隐含的特征和模式，从而实现涌现能力。</p>
-<p>涌现能力的另一个重要表现是<strong>模型的泛化能力</strong>。在没有专门训练过的情况，GPT-4也可以泛化到新的、未知的多模态数据样本上。这种泛化能力取决于模型的结构和训练过程，以及数据的数量和多样性。如果模型具有足够的复杂性和泛化能力，就可以从原始数据中发现新的、未知的特征和模式。当然，GPT-4涌现出的新能力可能仍有局限性，例如：模型可能产生错误的回答，对某些问题缺乏理解，容易受到输入干扰等。目前认为GPT-4的幻觉与其涌现能力具有相关性。</p>
-<h2 id="多模态思维链"><a href="#多模态思维链" class="headerlink" title="多模态思维链"></a>多模态思维链</h2><p><strong>思维链(Chain of Thought)可视为大语言模型涌现出来的核心能力之一。</strong>之所以现在各类GPT研究火爆，也与模型训练出的思维链可进入实用有密切关系。思维链形成机制可以解释为模型通过学习大量的语言数据来构建一个关于语言结构和意义的内在表示，通过一系列中间自然语言推理步骤来完成最终输出。思维链是ChatGPT和GPT-4能让大众感觉到语言模型“像人”的关键特性。</p>
-<p>虽然GPT-4这些模型并非具备真正的意识或思考能力，<strong>但用类似于人的推理方式的思维链来提示语言模型，极大的提高了GPT-4在推理任务上的表现，打破了精调（Fine-tune）的平坦曲线。</strong>具备了多模态思维链能力的GPT-4模型<strong>具有一定逻辑分析能力，已经不是传统意义上的词汇概率逼近模型。</strong></p>
-<p>当然思维链的训练可能并不容易。尽管现在有大量团队进入大语言模型训练领域，但若干年内能找到训练诀窍并完成思维链训练的团队可能不多。对创企来说，完成思维链的训练，才算真正拿到了这波大模型AI竞技的入场券。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2024/06/07/3e7dcec6de2aa9ce.png"></p>
-<p>通过多模态思维链技术，GPT-4将一个多步骤的问题（例如图表推理）分解为可以单独解决的中间步骤。在解决多步骤推理问题时，模型生成的思维链会模仿人类思维过程。这意味着额外的计算资源被分配给需要更多推理步骤的问题，可以进一步增强GPT-4的表达和推理能力。</p>
-]]></content>
-      <categories>
-        <category>AI学习笔记</category>
-      </categories>
-      <tags>
-        <tag>GPT-4</tag>
-        <tag>多模态</tag>
-        <tag>LLM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在糟糕的环境中保持心灵的宁静</title>
-    <url>/2024/05/25/%E5%9C%A8%E7%B3%9F%E7%B3%95%E7%9A%84%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%BF%9D%E6%8C%81%E5%BF%83%E7%81%B5%E7%9A%84%E5%AE%81%E9%9D%99/</url>
-    <content><![CDATA[<p>爱比克泰德有一个重要观点：自由意志不可剥夺。他说的自由意志，是指人在自己可支配的领域里进行选择、做决定和采取行动的能力。所以，必须分清什么是可支配的，什么是不可支配的。可支配的是道德和心灵生活，在这个领域里，人有自由意志，要负起自己的责任。不可支配的是外部事物、外在遭遇以及一切其他人，在这个领域里，人没有自由意志，应该抱顺其自然的态度。<strong>明确了这个区分，在内在方面努力，在外在方面超脱，就能够保持心灵的宁静。</strong></p>
-<h2 id="1-分清可支配的和不可支配的"><a href="#1-分清可支配的和不可支配的" class="headerlink" title="1. 分清可支配的和不可支配的"></a>1. 分清可支配的和不可支配的</h2><p>人可以支配自己的道德和心灵生活。你怎样做人，是行善还是作恶，做好人还是坏人；你有怎样的心灵品质，是优秀还是平庸，这是你自己可以做主的，任何外部的力量都不能剥夺你的主权。也只有在这个范围内，才存在善和恶、好和坏的区别与选择。  </p>
-<p>超出这个范围的事物，既然是你不能支配的，对你来说也就无所谓善和恶、好和坏，你不要去做善恶好坏的判断，顺其自然就是了。</p>
-<p>在你可支配的范围内，好好地运用你的自由意志，读书、写作、学习，提高自己，让自己成为心灵丰富、品德高尚的人。这个范围之外的事情，你都把它们看作与己无关，不去关心和追求。  </p>
-<p>如果这样，你的心怎么会不宁静呢？专注于自由意志范围之内的事情，这是获得宁静的唯一途径。相反，“请记住，如果你看重自由意志范围之外的东西，你就会毁了你的自由意志”。<br>爱比克泰德反复地讲这个道理。凡是看重自己不能支配的东西的人，就会失去自由，成为这些东西——以及能够控制这些东西的人——的奴隶，受它们奴役，被它们抛来抛去。你想要得到那些你以为的好东西，你就会渴望、嫉妒、奉承、心神不安。你想要躲避那些你以为的坏事情，你就会恐惧、焦虑、屈服、悲伤。<br>神规定了可支配和不可支配的界限，你却不服从，这些精神的痛苦都是对你不服从神意的惩罚。</p>
-<p>一个人处在焦虑不安之中，就一定是出了问题。如果他没有想要得到不在他可支配范围内的东西，他是不会焦虑不安的。琴师独自演奏的时候，总是不慌不忙，可是到了舞台上，尽管琴艺高超，他仍然会慌张，因为这时他想要的不只是演奏得好，还想博得掌声，而这就不是他能够支配的了。</p>
-<p>人活在世上，感官会从外界接受许多表象，你不可以受它们控制，而应该要用理性加以分析。对那些按照自己的每一种感官表象行事的人应该怎么称呼呢？爱比克泰德回答说：“一群疯子。</p>
-<p><strong>外部世界很强大，但是一个能够正确运用自由意志的人比外部世界更强大。”知道自己可以支配什么东西，热爱这些东西，并且知道你的这些东西是任何别人无权支配的，你就会无所畏惧，获得宁静和自由。</strong></p>
-<p><img src="https://s3.bmp.ovh/imgs/2024/06/07/98f88df09b005296.jpg"></p>
-<h2 id="2-错误的判断导致痛苦"><a href="#2-错误的判断导致痛苦" class="headerlink" title="2.错误的判断导致痛苦"></a>2.错误的判断导致痛苦</h2><p>你要把自己可支配领域里的事情做好，同时正确对待自己不可支配领域里的事情。这个正确对待，按照爱比克泰德的说法，</p>
-<p>就是不要做好坏的判断。因为那些事情不是你可以支配的，你不必对它们负责，对于你就不存在好坏的区别，而只要你做了好坏的判断，就一定是错误判断。</p>
-<p>正是由于对不可支配的事情做好坏的判断，造成了一切痛苦。“哭泣与叹息是什么？一个判断。不幸是什么？一个判断。冲突、争执、吹毛求疵、非难、不敬、愚蠢，这些是什么？它们都是判断，是对在自由意志领域之外的事物所下的判断，认为它们是好的或坏的。”破坏我们灵魂安宁的东西，不是事情本身，而是我们对它们做的判断。</p>
-<p>然而，这种做好坏判断的习惯是根深蒂固的，在我们幼年时代就开始形成了。一个小孩撞上了一块石头，正打算号啕大哭，这个时候，看护者不是批评小孩，反而是去打那块石头。爱比克泰德问道：“怎么，石头做了什么？难道因为你幼稚无知，石头就必须离开它所在的位置吗？”成年人遇到不顺心的事情，因此而怪罪事情本身，遵循的是同样的逻辑。</p>
-<p>什么东西属于不可支配的领域？大致有三类：一是身外之物；二是外在遭遇；三是他人的品性和行为。在这三个方面，你都不要做好坏的判断，都要淡然处之。</p>
-<h2 id="3-不受制于身外之物"><a href="#3-不受制于身外之物" class="headerlink" title="3. 不受制于身外之物"></a>3. 不受制于身外之物</h2><p>凡是拥有或不拥有都不在你的支配之下的事物，和你只能在某种程度上或某种条件下拥有的事物，都不是真正属于你的，都是身外之物。你要控制自己的欲望，不要对它们产生羡慕和迷恋，  </p>
-<p>否则你就会受它们奴役，被它们控制。对任何身外之物的拥有都受命运的支配，今天得到，明天就可能失去。更为根本的是，一切身外之物都有生有灭，会被时间夺走。所以，你要按照事物当初被给予你时附带的条件来持有它们，只保留它们到所给予你的时限为止。神既给予，也拿回，你为什么要反抗呢？  </p>
-<p>那么，哪些东西属于身外之物呢？一切在我们的心灵之外和我们发生联系的事物，包括财产、地位、名声，包括亲人和各种社会关系，也包括你的身体和生命，因为所有这些都不是你的自由意志能够支配的。  </p>
-<p>财产显然是身外之物。但是，受制于财产是人世间最普遍的现象。爱比克泰德说：“我以神的名义命令你，终止对物的崇拜，<br>因为这种崇拜会使你成为物的奴隶，并且成为那些既能让你得到财产也能拿走你的财产的人的奴隶。”   </p>
-<p>父母、兄弟、孩子也是身外之物。各人都有自己的人生之路，也都可能犯错误，那是你不能支配的，神并没有要你为之负责。  </p>
-<p>你爱的人也都终有一死，并非与你不可分离，你要接受这个事实。你的身体及其各个部分也是身外之物，你不能完全控制自己的健康，保证自己不生病。当然，你也终有一死，所以生命也是你不可支配的身外之物。  </p>
-<p>对于一切身外之物，你都不要说：我失去了它。你应该说：我把它归还了。你有丧子之痛吗？孩子被收回去了。你有丧妻之哀吗？妻子被收回去了。你的钱财被抢走了？这也不过是被收回去了。神的法律是，凡是给你的东西，你要当作托付给你的东西好好照料，而一旦被拿走了，你要欣然地归还，而且为你拥有使用权的那段时间心存感激。</p>
-]]></content>
-      <categories>
-        <category>感受</category>
-      </categories>
-      <tags>
-        <tag>感想</tag>
-        <tag>哲思</tag>
-        <tag>周国平</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git入门使用完整流程</title>
-    <url>/2024/06/07/git%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="git入门-完整流程"><a href="#git入门-完整流程" class="headerlink" title="git入门-完整流程"></a>git入门-完整流程</h1><h2 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h2><p>创建新文件夹，打开，然后执行<code>git init</code>，以创建新的 git 仓库。</p>
-<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><p>执行<code>git clone</code>以创建仓库的克隆版本。</p>
-<h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>本地仓库由 git 维护的三棵“树”组成。第一个是你的 <strong>工作目录</strong>，它持有实际文件；第二个是 <strong>暂存区（Index）</strong>，它像个缓存区域，临时保存你的改动；最后是 <strong>HEAD</strong>，它指向你最后一次提交的结果。</p>
-<p><img src="https://www.runoob.com/manual/git-guide/img/trees.png" alt="https://www.runoob.com/manual/git-guide/img/trees.png"></p>
-<h2 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h2><p>你可以提出更改（把它们添加到暂存区），使用如下命令： </p>
-<pre><code class="python">git add &lt;filename&gt; 
-</code></pre>
-<p>或者添加目录下面所有文件</p>
-<pre><code class="python">git add .
-</code></pre>
-<p> 这是 git 基本工作流程的第一步；使用如下命令以实际提交改动：</p>
-<pre><code class="python"> git commit -m &quot;代码提交信息&quot; 
-</code></pre>
-<p>现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库。</p>
-<h2 id="推送改动"><a href="#推送改动" class="headerlink" title="推送改动"></a>推送改动</h2><p>你的改动现在已经在本地仓库的 HEAD 中了。执行如下命令以将这些改动提交到远端仓库：</p>
-<pre><code class="python"> git push origin master 
-</code></pre>
-<p>可以把 master 换成你想要推送的任何分支。 </p>
-<p>如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加： </p>
-<pre><code class="python">git remote add origin &lt;server&gt;
-</code></pre>
-<p> 如此你就能够将你的改动推送到所添加的服务器上去了。</p>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候，<em>master</em> 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。</p>
-<p><img src="https://www.runoob.com/manual/git-guide/img/branches.png" alt="https://www.runoob.com/manual/git-guide/img/branches.png"></p>
-<p>创建一个叫做“feature_x”的分支，并切换过去：</p>
-<pre><code class="python">git checkout -b feature_x
-</code></pre>
-<p>切换回主分支：</p>
-<pre><code class="python">git checkout master
-</code></pre>
-<p>再把新建的分支删掉：</p>
-<pre><code class="python">git branch -d feature_x
-</code></pre>
-<p>除非你将分支推送到远端仓库，不然该分支就是 <strong><em>不为他人所见的</em>：</strong></p>
-<pre><code class="python">git push origin &lt;branch&gt;
-</code></pre>
-<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2><p>要更新你的本地仓库至最新改动，执行：</p>
-<pre><code class="python">git pull
-</code></pre>
-<p>以在你的工作目录中 <em>获取（fetch）</em> 并 <em>合并（merge）</em> 远端的改动。</p>
-<p>要合并其他分支到你的当前分支（例如 master），执行：</p>
-<pre><code class="python">git merge &lt;branch&gt;
-</code></pre>
-<p>在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现<em>冲突（conflicts）</em>。 这时候就需要你修改这些文件来手动合并这些<em>冲突（conflicts）</em>。改完之后，你需要执行如下命令以将它们标记为合并成功：</p>
-<pre><code class="python">git add &lt;filename&gt;
-</code></pre>
-<p>在合并改动之前，你可以使用如下命令预览差异：</p>
-<pre><code class="python">git diff &lt;source_branch&gt; &lt;target_branch&gt;
-</code></pre>
-<h2 id="实践——向gitea上传仓库"><a href="#实践——向gitea上传仓库" class="headerlink" title="实践——向gitea上传仓库"></a>实践——向gitea上传仓库</h2><p><strong>基本流程:add-&gt;commit-&gt;push。</strong></p>
-<h3 id="一、init"><a href="#一、init" class="headerlink" title="一、init"></a>一、init</h3><pre><code class="python">git init
-</code></pre>
-<h3 id="二、add"><a href="#二、add" class="headerlink" title="二、add"></a>二、add</h3><p>注意:add有多种形式，可以add某个文件，某个文件夹，或直接add当前仓库下所有文件</p>
-<pre><code class="python">git add 单个文件
-git add 文件夹1/ 文件夹2/ ……多个文件夹之间空格隔开
-git add .
-</code></pre>
-<h3 id="三、commit"><a href="#三、commit" class="headerlink" title="三、commit"></a><strong>三、commit</strong></h3><pre><code>git commit -m “注释”
-</code></pre>
-<h3 id="四、push"><a href="#四、push" class="headerlink" title="四、push"></a><strong>四、push</strong></h3><pre><code>git push -u origin master
+    <title>逆序输出数字</title>
+    <url>/2023/09/06/%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<p><strong>输入一个数字后逆序输出之。</strong><br>用数列吗？也可以。</p>
+<p>更为巧妙的是，利用了取余运算。<br>因为整数取余给整型，仍会强制转换为整型，因此不断除以10并取余。</p>
+<pre><code>#include&lt;stdio.h&gt;
+
+int main()&#123;
+    int inp = 0;
+    scanf(&quot;%d&quot;,&amp;inp);
+
+    while(inp%10!=0)&#123;
+            printf(&quot;%d&quot;,inp%10);
+            inp = inp/10;
+    &#125;
+    return 0;
+&#125;
 </code></pre>
 ]]></content>
       <categories>
-        <category>技术</category>
+        <category>C语言</category>
       </categories>
       <tags>
-        <tag>git</tag>
-        <tag>学习笔记</tag>
+        <tag>C语言</tag>
+        <tag>算法</tag>
+        <tag>基础算法</tag>
+        <tag>取余</tag>
       </tags>
   </entry>
 </search>
