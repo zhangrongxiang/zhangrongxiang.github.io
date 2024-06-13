@@ -6,7 +6,7 @@
   <link href="https://www.jkzhang.ml/atom.xml" rel="self"/>
   
   <link href="https://www.jkzhang.ml/"/>
-  <updated>2024-06-07T14:28:07.342Z</updated>
+  <updated>2024-06-13T09:36:43.100Z</updated>
   <id>https://www.jkzhang.ml/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux目录结构</title>
+    <link href="https://www.jkzhang.ml/2024/06/13/Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/"/>
+    <id>https://www.jkzhang.ml/2024/06/13/Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</id>
+    <published>2024-06-13T09:29:01.000Z</published>
+    <updated>2024-06-13T09:36:43.100Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h1><p>登录系统后，在当前命令窗口下输入命令：</p><pre><code class="docker"> ls /</code></pre><p>树状图结构：<br><img src="https://s3.bmp.ovh/imgs/2024/06/13/f7eb55e2cc51da69.jpg"></p><h3 id="系统启动必须："><a href="#系统启动必须：" class="headerlink" title="系统启动必须："></a><strong>系统启动必须：</strong></h3><ul><li><strong>/boot：</strong>存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。</li><li><strong>/etc：</strong>存放<strong>所有</strong>的系统需要的<strong>配置文件</strong>和<strong>子目录列表，</strong>更改目录下的文件可能会导致系统不能启动。</li><li><strong>/lib</strong>：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</li><li><strong>/sys</strong>： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。sysfs文件系统集成了下面3种文件系统的信息：针对进程信息的proc文件系统、针对设备的devfs文件系统以及针对伪终端的devpts文件系统。该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中</li></ul><h3 id="指令集合："><a href="#指令集合：" class="headerlink" title="指令集合："></a><strong>指令集合：</strong></h3><ul><li><strong>/bin：</strong>存放着最常用的程序和指令</li><li><strong>/sbin：</strong>只有系统管理员能使用的程序和指令。</li></ul><h3 id="外部文件管理："><a href="#外部文件管理：" class="headerlink" title="外部文件管理："></a><strong>外部文件管理：</strong></h3><ul><li><strong>/dev ：</strong>Device(设备)的缩写, 存放的是Linux的外部设备。<strong>注意：</strong>在Linux中访问设备和访问文件的方式是相同的。</li><li><strong>/media</strong>：类windows的<strong>其他设备，</strong>例如U盘、光驱等等，识别后linux会把设备放到这个目录下。</li><li><strong>/mnt</strong>：临时挂载别的文件系统的，我们可以将光驱挂载在/mnt/上，然后进入该目录就可以查看光驱里的内容了。</li></ul><h3 id="临时文件："><a href="#临时文件：" class="headerlink" title="临时文件："></a><strong>临时文件：</strong></h3><ul><li><strong>/run</strong>：是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。如果你的系统上有 /var/run 目录，应该让它指向 run。</li><li><strong>/lost+found</strong>：一般情况下为空的，系统非法关机后，这里就存放一些文件。</li><li><strong>/tmp</strong>：这个目录是用来存放一些临时文件的。</li></ul><h3 id="账户："><a href="#账户：" class="headerlink" title="账户："></a><strong>账户：</strong></h3><ul><li><strong>/root</strong>：系统管理员的用户主目录。</li><li><strong>/home</strong>：用户的主目录，以用户的账号命名的。</li><li><strong>/usr</strong>：用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</li><li><strong>/usr/bin：</strong>系统用户使用的应用程序与指令。</li><li><strong>/usr/sbin：</strong>超级用户使用的比较高级的管理程序和系统守护程序。</li><li><strong>/usr/src：</strong>内核源代码默认的放置目录。</li></ul><h3 id="运行过程中要用："><a href="#运行过程中要用：" class="headerlink" title="运行过程中要用："></a><strong>运行过程中要用：</strong></h3><ul><li><strong>/var</strong>：存放经常修改的数据，比如程序运行的日志文件（/var/log 目录下）。</li><li><strong>/proc</strong>：管理<strong>内存空间！</strong>虚拟的目录，是系统内存的映射，我们可以直接访问这个目录来，获取系统信息。这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件来做修改。</li></ul><h3 id="扩展用的："><a href="#扩展用的：" class="headerlink" title="扩展用的："></a><strong>扩展用的：</strong></h3><ul><li><strong>/opt</strong>：默认是空的，我们安装额外软件可以放在这个里面。</li><li><strong>/srv</strong>：存放服务启动后需要提取的数据<strong>（不用服务器就是空）</strong></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Linux目录结构&quot;&gt;&lt;a href=&quot;#Linux目录结构&quot; class=&quot;headerlink&quot; title=&quot;Linux目录结构&quot;&gt;&lt;/a&gt;Linux目录结构&lt;/h1&gt;&lt;p&gt;登录系统后，在当前命令窗口下输入命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://www.jkzhang.ml/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="技术" scheme="https://www.jkzhang.ml/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="Linux" scheme="https://www.jkzhang.ml/tags/Linux/"/>
+    
+    <category term="操作系统" scheme="https://www.jkzhang.ml/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="计算机" scheme="https://www.jkzhang.ml/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="目录结构" scheme="https://www.jkzhang.ml/tags/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>git入门使用完整流程</title>
@@ -528,29 +561,6 @@
     <category term="震撼" scheme="https://www.jkzhang.ml/tags/%E9%9C%87%E6%92%BC/"/>
     
     <category term="哲理" scheme="https://www.jkzhang.ml/tags/%E5%93%B2%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【素材】平凡的世界好句</title>
-    <link href="https://www.jkzhang.ml/2019/10/13/%E3%80%90%E7%B4%A0%E6%9D%90%E3%80%91%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E5%A5%BD%E5%8F%A5/"/>
-    <id>https://www.jkzhang.ml/2019/10/13/%E3%80%90%E7%B4%A0%E6%9D%90%E3%80%91%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E5%A5%BD%E5%8F%A5/</id>
-    <published>2019-10-13T12:43:46.000Z</published>
-    <updated>2024-05-17T14:48:35.114Z</updated>
-    
-    <content type="html"><![CDATA[<p>只有自己诚心待人，别人才有可能对自己以诚相待。</p><a id="more"></a><p>只要春天不死，就有迎春的花朵年年岁岁开放，生命讲涅磐，生生不息，并会以另一种形式永存。</p><p>在我们短促而又漫长的一生中，我们在苦苦地寻找人生的幸福，可幸福往往又与我们失之交臂。当我们为此而耗尽宝贵的青春年华，皱纹也悄悄地爬上了眼角的时候，我们或许才能稍稍懂得生活实际上意味着什么。</p><p>有了希望，人就会产生激情，并可以义无反顾地为之而付出代价；在这样的过程中，才能真正体会到人生的意义。什么是人生？人生就是永无休止的奋斗！只有决定了目标并在奋斗中，感到自己的努力没有虚掷，这样的生活才是充实的，精神也会永远年轻。</p><p>在一个人的思想还没有强大到自己能完全把握自己的时候，就需要在精神上依托另一个比自己更强的人。也许有一天，学生会变成自己老师的老师——这是常常会有的——但人在壮大过程中的每一个阶段，都需要求得当时比自己的认识更高明的指教。<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=117801519,1704045645&fm=26&gp=0.jpg"><br>人之所以痛苦，在于追求错误的东西。如果你不给自己烦恼，别人也永远不可能给你烦恼。因为你自己的内心，你放不下。好好的管教你自己，不要管别人。</p><p>人生啊，是这样不可预测，没有永恒的痛苦，也没有永恒的幸福，生活像流水一般，有时是那么平展，有时又是那么曲折。</p><p>人们宁愿去关心一个蹩脚电影演员的吃喝拉撒和鸡毛蒜皮，而不愿了解一个普通人波涛汹涌的内心世界……</p><p>生活不能等待别人来安排，要自已去争取和奋斗；而不论其结果是喜是悲，但可以慰藉的是，你总不枉在这世界上活了一场。有了这样的认识，你就会珍重生活，而不会玩世不恭；同时，也会给人自身注入一种强大的内在力量。</p><p>其实我们每个人的生活都是一个世界，即使最平凡的人也要为他生活的那个世界而奋斗。</p><p>普通并不等于庸俗。在许许多多普普通通的事情中，应该表现出不平常的看法和做法来。</p><p>年轻是一个中性词，它代表着很多缺点：缺乏经验、少不更事、容易冲动。但是也有很多优点，其中之一就是有大把的时间去遗忘那些不该记住的事情。</p><p>你知道，幸福不仅仅是吃饱穿暖，而是勇敢的战胜困难。</p><p>命运总是不如愿。但往往是在无数的痛苦中，在重重的矛盾和艰难中，才使人成熟起来，坚强起来；虽然这些东西在实际感受中给人带来的并不都是欢乐。</p><p>美丽的花朵凋谢了也是美丽的。<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3737405160,276266928&fm=26&gp=0.jpg"><br>每一分钟都有新的生命欣喜地降生到这个世界，同时也把另一些人送进坟墓。这边万里无云，阳光灿烂；那边就可能风云骤起，地裂山崩。世界没有一天是平静的。</p><p>即使有一天我要远走他乡，但愿我还能在梦中再回到这里来…</p><p>即使没有月亮，心中也是一片皎洁。</p><p>多少美好的东西消失和毁灭了，世界还像什么事也没有发生。是的，生活在继续着。可是，生活中的每一个人却在不断地失去自己最珍贵的东西。</p><p>对于生活的理想，应该像宗教徒一样充满虔诚与热情！遥远的撒哈拉大沙漠里，衣衫褴褛、蓬头垢面、一步一跪的教徒们，眼睛里闪烁着超凡脱俗的光芒，艰难地爬沿着走向圣地麦加……</p><p>一个平凡而普通的人，时时都会感到被生活的波涛巨浪所淹没。你会被淹没吗？除非你甘心就此而沉沦！！</p><p>死去的只是躯壳，生命将涅槃生生不息并以另一种形式存在。</p><p>生活中真正的勇士向来默默无闻，喧哗不止的永远是自视高贵的一群。不要怕苦难！如果能深刻理解苦难，苦难就会给你带来崇高感。如果生活需要你忍受苦难，你一定要咬紧牙关坚持下去，有位了不起的人说过：痛苦难道是白受的吗？它应该使我们伟大！</p><p>时光静悄悄地流逝。世界上有些人因为忙而感到生活的沉重，而有些人因为闲而活得压抑。</p><p>生命里有着多少的无奈和惋惜，又有着怎样的愁苦和感伤？雨浸风蚀的落寞与苍楚一定是水，静静地流过青春奋斗的日子和触摸理想的岁月。</p><p>什么是人生？人生就是用不休止的奋斗！只有选定了目标并在奋斗中感到自己的努力没有虚掷，这样的生活才是充实的，精神也会永远年轻！<br><img src="https://images.pexels.com/photos/64022/joan-of-arc-golden-sculpture-golden-statue-64022.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;只有自己诚心待人，别人才有可能对自己以诚相待。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="作文" scheme="https://www.jkzhang.ml/categories/%E4%BD%9C%E6%96%87/"/>
-    
-    
-    <category term="作文素材" scheme="https://www.jkzhang.ml/tags/%E4%BD%9C%E6%96%87%E7%B4%A0%E6%9D%90/"/>
-    
-    <category term="好句" scheme="https://www.jkzhang.ml/tags/%E5%A5%BD%E5%8F%A5/"/>
     
   </entry>
   
