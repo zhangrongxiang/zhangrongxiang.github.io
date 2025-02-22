@@ -403,7 +403,7 @@ w.to_file(&quot;pic.png&quot;)
   <entry>
     <title>图表写作词句</title>
     <url>/2021/08/15/%E5%9B%BE%E8%A1%A8%E5%86%99%E4%BD%9C%E8%AF%8D%E5%8F%A5/</url>
-    <content><![CDATA[<h1 id="波动"><a href="#波动" class="headerlink" title="波动"></a>波动</h1><p>change, seesaw, fluctuate, fluctuation(s), rise(s) and fall(s), peak(s) and trough(s)</p>
+    <content><![CDATA[<h1 id="波动"><a href="#波动" class="headerlink" title="波动"></a>波动</h1><p>xxxxxxxxxx # include&lt;stdio.h&gt;​int max(int A,int B, int C){​    return (A &gt; B) ? (A &gt; C ? A : C) : (B &gt; C ? B : C);​}// 改进版暴力搜索int maxSubArray(int arr[],int n){       int ultimate_max=0;    for(int i=0;i&lt;n;i++){         int this_max=0;        for(int j=i;j&lt;n;j++){            this_max += arr[j]; //直接加即可            if(this_max&gt;ultimate_max){                ultimate_max=this_max;            }        }    }    return ultimate_max;}​/<em>分治法球List[left]到List[right]的最大子列和，复杂度O(nlog2n)</em>/int DivideAndConquer ( int List[], int left, int right ) {    int MaxLeftSum, MaxRightSum;    //存放左右子问题的解。    int MaxLeftBorderSum, MaxRightBorderSum;    //存放跨分界线的结果。        int LeftBorderSum, RightBorderSum;    int center, i;        /<em>递归的终止条件，子列只有1个数字</em>/    if ( left == right ) {        if ( List[left] &gt; 0 )   return List[left];        else return 0;    }        /* “分”的过程 */    center = ( left + right ) / 2;    //找到中分点。    MaxLeftSum = DivideAndConquer ( List, left, center );    //递归求左子列和。    MaxRightSum = DivideAndConquer ( List, center+1, right );    //递归求右子列和。        /<em>求跨分界线的最大子列和</em>/    MaxLeftBorderSum = 0;   LeftBorderSum = 0;    for ( i = center; i &gt;= left; i– ) {        LeftBorderSum += List[i];        if ( LeftBorderSum &gt; MaxLeftBorderSum )            MaxLeftBorderSum = LeftBorderSum;    }//左边扫描结束。        MaxRightBorderSum = 0;  RightBorderSum = 0;    for ( i = center+1; i &lt;= right; i++ ) {        RightBorderSum += List[i];        if ( RightBorderSum &gt; MaxRightBorderSum )            MaxRightBorderSum = RightBorderSum;    }//右边扫描结束。        /<em>返回“治”的结果</em>/    return max ( MaxLeftSum, MaxRightSum, MaxLeftBorderSum + MaxRightBorderSum );}/<em>此函数用于保持接口相同</em>/int maxSubArray3 ( int List[], int N ) {    return DivideAndConquer ( List, 0, N-1 );}​//在线处理法int maxSubArray2(int arr[],int n){    int this_max=0;    int ultimate_max=0;    for(int i=0;i&lt;n;i++){        this_max += arr[i];        if(this_max&gt;ultimate_max){            ultimate_max=this_max;        }else if(this_max &lt; 0){            this_max = 0;        }    }    return ultimate_max;}​int main(){    int n=0;    int array[1000];    scanf(“%d”,&amp;n);    for(int i=0;i&lt;n;i++){        scanf(“%d”,&amp;array[i]);    }    printf(“OK.”);    getchar();    printf(“%d”,maxSubArray3(array,n));}c</p>
 <h1 id="保持不变"><a href="#保持不变" class="headerlink" title="保持不变"></a>保持不变</h1><p>remain/keep/stay stable/steady/unchanged</p>
 <h1 id="修饰词"><a href="#修饰词" class="headerlink" title="修饰词"></a>修饰词</h1><h2 id="剧烈"><a href="#剧烈" class="headerlink" title="剧烈"></a>剧烈</h2><h3 id="副词"><a href="#副词" class="headerlink" title="副词"></a>副词</h3><p>dramatically, drastically, sharply, considerably, rapidly, suddenly, greatly, alarmingly, significantly, enormously, steeply, massively, incredibly, hugely, amazingly, substantially, markedly</p>
 <h3 id="词组"><a href="#词组" class="headerlink" title="词组"></a>词组</h3><p>at an alarming rate, by leaps and bounds, in big leaps, by a massive leap, be a wide margin</p>
@@ -1039,6 +1039,697 @@ int main()&#123;
         <tag>操作系统</tag>
         <tag>计算机</tag>
         <tag>目录结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/02/22/reward-to-go/</url>
+    <content><![CDATA[<hr>
+<p>title:Reward-to-go 数学推导<br>date: 2025-02-19 17:29:01<br>tags:</p>
+<ul>
+<li>强化学习</li>
+<li>人工智能</li>
+<li>技术</li>
+<li>计算机</li>
+<li>目录结构<br>categories: 技术<br>cover: <a href="https://s3.bmp.ovh/imgs/2024/06/13/e2aa614f45568c02.jpg">https://s3.bmp.ovh/imgs/2024/06/13/e2aa614f45568c02.jpg</a></li>
+</ul>
+<hr>
+<h3 id="直观理解"><a href="#直观理解" class="headerlink" title="直观理解"></a>直观理解</h3><p>回顾一下原始的期望回报：</p>
+<p><img src="https://spinningup.openai.com/en/latest/_images/math/e8b721fa0eb7fa2aa4b088106518b3ee88ff7707.svg"></p>
+<p>我们的agent应该只根据某一action的<strong>后果来强化行动</strong>，因此<strong>采取行动之前获得的奖励与该行动的好坏无关：只与之后的奖励有关。</strong></p>
+<p>从这一直觉出发，可以有：<br>$$<br>\nabla_{\boldsymbol{\theta}} J(\boldsymbol{\theta}) = \sum_{t=1}^T \mathbb{E}<em>{\tau \sim p</em>{\boldsymbol{\theta}}(\tau)} \left[ \nabla_{\boldsymbol{\theta}} \log \pi_{\boldsymbol{\theta}} (\mathbf{a}<em>t \mid \mathbf{s}<em>t) ,\sum</em>{t’=t}^T  r(\mathbf{s}</em>{t’}, \mathbf{a}_{t’}) \right]<br>$$</p>
+<p>下面我们用数学语言严格证明一下。</p>
+<h3 id="EGLP引理"><a href="#EGLP引理" class="headerlink" title="EGLP引理"></a>EGLP引理</h3><p>先介绍一个结论，即Expected Grad-Log-Prob (EGLP) lemma。<br>$$<br>\mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \nabla_{\theta} \log \pi_{\theta}(a_t \mid s_t) \right] = 0.<br>$$<br><strong>证明</strong>：</p>
+<p>由于概率积分为1：</p>
+<p><img src="https://spinningup.openai.com/en/latest/_images/math/cc70eeb5c704222ca73cf6d2a7b28b8ae2f2e2aa.svg"></p>
+<p>两边取梯度：</p>
+<p><img src="https://spinningup.openai.com/en/latest/_images/math/acde4d18e221ccd91e93e6ca4e25ae84d05f29d8.svg" alt="https://spinningup.openai.com/en/latest/_images/math/acde4d18e221ccd91e93e6ca4e25ae84d05f29d8.svg"></p>
+<p>接着运用很常见的技巧（对数梯度）：</p>
+<p><img src="https://spinningup.openai.com/en/latest/_images/math/479e34ecc40103079f87e46e47837f3c066d30bd.svg"></p>
+<h2 id="reward-to-go证明"><a href="#reward-to-go证明" class="headerlink" title="reward-to-go证明"></a>reward-to-go证明</h2><p>展开表达式：<br>$$<br>\begin{aligned}<br>\nabla_{\theta} J(\theta) &amp;= \mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \left( \sum_{t=1}^T \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \right) \left( \sum_{t=1}^T r(s_t, a_t) \right) \right] \<br>%<br>&amp;= \sum_{t=1}^T \mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \sum_{t’=1}^T r(s_{t’}, a_{t’}) \right] \<br>%<br>&amp;= \sum_{t=1}^T \mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \sum_{t’=1}^{t-1} r(s_{t’}, a_{t’}) + \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \sum_{t’=t}^T r(s_{t’}, a_{t’}) \right] \<br>%<br>&amp;= \sum_{t=1}^T \left( \mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \sum_{t’=1}^{t-1} r(s_{t’}, a_{t’}) \right] \</p>
+<ul>
+<li>\mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \sum_{t’=t}^T r(s_{t’}, a_{t’}) \right] \right) \<br>\end{aligned}<br>$$<br>在第$t$轮中，由于Markov假设，1~t-1时刻的奖励和$\nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t)$是独立的。因为action只和当前状态有关。</li>
+</ul>
+<p>于是就可以分离开：<br>$$<br>\nabla_{\theta} J(\theta) = \sum_{t=1}^T \left( \mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \sum_{t’=1}^{t-1} r(s_{t’}, a_{t’}) \right] \mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \right] \</p>
+<ul>
+<li>\mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \sum_{t’=t}^T r(s_{t’}, a_{t’}) \right] \right)<br>$$</li>
+</ul>
+<p>第一项根据EGLP引理可以变为0.从而只留下最后一项。<br>$$<br>\begin{aligned}<br>\nabla_{\theta} J(\theta)<br>%<br>&amp;= \sum_{t=1}^T \mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \left[ \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \sum_{t’=t}^T r(s_{t’}, a_{t’}) \right]  \<br>%<br>&amp;= \mathbb{E}<em>{\tau \sim \pi</em>{\theta}(\tau)} \sum_{t=1}^T \nabla_{\theta} \log \pi_{\theta} (a_t \mid s_t) \left( \sum_{t’=t}^T r(s_{t’}, a_{t’}) \right). \<br>\end{aligned}<br>$$</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/02/22/#%20%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%96%B9%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="贝尔曼方程"><a href="#贝尔曼方程" class="headerlink" title="贝尔曼方程"></a>贝尔曼方程</h1><p>在一个马尔可夫奖励过程中，从第t时刻状态开始，直到终止状态T时，所有奖励的衰减之和称为<strong>回报</strong>（Return），公式如下：<br>$$<br>G_{t}=r_{t+1}+\gamma r_{t+2}+\gamma^{2} r_{t+3}+\gamma^{3} r_{t+4}+\ldots+\gamma^{T-t-1} r_{T}<br>$$<br>其中，$T$是最终时刻，$\gamma$ 是折扣因子，越往后得到的奖励，折扣越多。关于折扣因子的必要性，以前的笔记已经介绍过。</p>
+<p>如果提取一个$\gamma$，还可以得到一个递推式：<br>$$<br>G_{t}=r_{t+1}+\gamma G_{t+1}<br>$$<br>这个意思是，此时的计算只需要关注这一步的奖励，加折扣因子乘以下一步的回报即可。这个式子推导贝尔曼方程时极其有用。</p>
+<p>接下来定义价值函数：<br>$$<br>\begin{aligned}<br>    V_{\pi}(s) &amp;=\mathbb{E}\left[G_{t} \mid s_{t}=s\right] \<br>    &amp;=\mathbb{E}\left[r_{t+1}+\gamma r_{t+2}+\gamma^{2} r_{t+3}+\ldots+\gamma^{T-t-1} r_{T} \mid s_{t}=s\right]<br>\end{aligned}<br>$$<br>其中，$G_t$ 是之前定义的<strong>折扣回报（discounted return）</strong>。我们对$G_t$取了一个期望，期望就是从这个状态开始，我们可能获得多大的价值。所以期望也可以看成未来可能获得奖励的当前价值的表现，就是当我们进入某一个状态后，我们现在有多大的价值。</p>
+<p>可以看到价值函数有一个下标$\pi$，这是因为价值函数除了与s有关，也与策略$\pi$有关，不同的策略价值函数自然也不一样。并且价值函数越大，说明这个策略越好。因此价值函数可以评估策略的优劣。</p>
+<p>我们利用价值函数表示出<strong>贝尔曼方程（Bellman equation）</strong><br>$$<br>V(s)=\underbrace{R(s)}<em>{\text {即时奖励}}+\underbrace{\gamma \sum</em>{s^{\prime} \in S} p\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)}_{\text {未来奖励的折扣总和}}<br>$$<br>其中，</p>
+<ul>
+<li>$s’$ 可以看成未来的所有状态，</li>
+<li>$p(s’|s)$  是指从当前状态转移到未来状态的概率。</li>
+<li>$V(s’)$ 代表的是未来某一个状态的价值。我们从当前状态开始，有一定的概率去到未来的所有状态，所以我们要把 $p\left(s^{\prime} \mid s\right)$ 写上去。我们得到了未来状态后，乘一个 $\gamma$，这样就可以把未来的奖励打折扣。</li>
+<li>$\gamma \sum_{s^{\prime} \in S} p\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)$ 可以看成未来奖励的折扣总和（discounted sum of future reward）。</li>
+</ul>
+<p>贝尔曼方程的推导过程如下：</p>
+<p>由于$V_{\pi}(s) =\mathbb{E}\left[G_{t} \mid s_{t}=s\right]$，再把$G_{t}=r_{t+1}+\gamma G_{t+1}$代入，其中<br>$$<br>\begin{aligned}\mathbb{E}[G_{t+1}|S_{t}=s]&amp;\begin{aligned} =\sum_{s^{\prime}\in\mathcal{S}}\mathbb{E}[G_{t+1}|S_t=s,S_{t+1}=s^{\prime}]p(s^{\prime}|s)\end{aligned}\&amp;\begin{aligned}&amp;=\sum_{s^{\prime}\in\mathcal{S}}\mathbb{E}[G_{t+1}|S_{t+1}=s^{\prime}]p(s^{\prime}|s)&amp;&amp;\text{(due to the Markov property)}\end{aligned}\&amp;\begin{aligned}=\sum_{s^{\prime}\in\mathcal{S}}v_\pi(s^{\prime})p(s^{\prime}|s)\end{aligned}\&amp;\begin{aligned}&amp;=\sum_{s^{\prime}\in\mathcal{S}}v_{\pi}(s^{\prime})\sum_{a\in\mathcal{A}}p(s^{\prime}|s,a)\pi(a|s).\end{aligned}\end{aligned}<br>$$</p>
+<p>接下来我们可以求期望了：</p>
+<p>$$<br>\begin{aligned}<br>    V(s)&amp;=\mathbb{E}\left[G_{t} \mid s_{t}=s\right]\<br>    &amp;=\mathbb{E}\left[r_{t+1}+\gamma r_{t+2}+\gamma^{2} r_{t+3}+\ldots \mid s_{t}=s\right]  \</p>
+<pre><code>&amp;=R(s)+\gamma \mathbb&#123;E&#125;[G_&#123;t+1&#125;|s_t=s] \\
+
+&amp;=R(s)+\gamma \sum_&#123;s^&#123;\prime&#125; \in S&#125; p\left(s^&#123;\prime&#125; \mid s\right) V\left(s^&#123;\prime&#125;\right)
+\end&#123;aligned&#125;
+</code></pre>
+<p>$$<br>再进一步探究：<br>$$<br>\begin{aligned}v_{\pi}(s)&amp;=\mathbb{E}[R_{t+1}|S_{t}=s]+\gamma\mathbb{E}[G_{t+1}|S_{t}=s],\&amp;=\underbrace{\sum_a\pi(a|s)\sum_rp(r|s,a)r}<em>{\text{mean of immediate rewards}}+\underbrace{\gamma\sum_a\pi(a|s)\sum_{s^{\prime}}p(s^{\prime}|s,a)v_\pi(s^{\prime})}_{\text{mean of future rewards}},\&amp;=\sum</em>{a}\underbrace{\pi(a|s)}\left[\sum_{r}\underbrace{p(r|s,a)r}<em>{}+\gamma\sum</em>{s^{\prime}}\underbrace{p(s^{\prime}|s,a)}<em>{}\underbrace{v</em>{\pi}(s^{\prime})}_{}\right],\quad\forall s\in\mathcal{S}.\end{aligned}<br>$$<br>得到了关于$\pi$的表达式，这就说明了策略$\pi$与状态函数的关系，这为policy evaluation提供了工具！</p>
+<p>我们可以把贝尔曼方程写成矩阵的形式：<br>$$<br>  \left(\begin{array}{c}<br>    V\left(s_{1}\right) \<br>    V\left(s_{2}\right) \<br>    \vdots \<br>    V\left(s_{N}\right)<br>    \end{array}\right)=\left(\begin{array}{c}<br>    R\left(s_{1}\right) \<br>    R\left(s_{2}\right) \<br>    \vdots \<br>    R\left(s_{N}\right)<br>    \end{array}\right)+\gamma\left(\begin{array}{cccc}<br>    p\left(s_{1} \mid s_{1}\right) &amp; p\left(s_{2} \mid s_{1}\right) &amp; \ldots &amp; p\left(s_{N} \mid s_{1}\right) \<br>    p\left(s_{1} \mid s_{2}\right) &amp; p\left(s_{2} \mid s_{2}\right) &amp; \ldots &amp; p\left(s_{N} \mid s_{2}\right) \<br>    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>    p\left(s_{1} \mid s_{N}\right) &amp; p\left(s_{2} \mid s_{N}\right) &amp; \ldots &amp; p\left(s_{N} \mid s_{N}\right)<br>    \end{array}\right)\left(\begin{array}{c}<br>    V\left(s_{1}\right) \<br>    V\left(s_{2}\right) \<br>    \vdots \<br>    V\left(s_{N}\right)<br>    \end{array}\right)<br>$$</p>
+<p>我们当前的状态是向量$[V(s_1),V(s_2),\cdots,V(s_N)]^\mathrm{T}$。每一行来看，向量$\boldsymbol{V}$乘状态转移矩阵里面的某一行，再加上它当前可以得到的奖励，就会得到它当前的价值。</p>
+<p>当我们把贝尔曼方程写成矩阵形式后，可以直接求解：<br>$$<br>\begin{aligned}<br>    \boldsymbol{V} &amp;= \boldsymbol{\boldsymbol{R}}+ \gamma \boldsymbol{P}\boldsymbol{V} \<br>    \boldsymbol{I}\boldsymbol{V} &amp;= \boldsymbol{R}+ \gamma \boldsymbol{P}\boldsymbol{V} \<br>    (\boldsymbol{I}-\gamma \boldsymbol{P})\boldsymbol{V}&amp;=\boldsymbol{R} \<br>    \boldsymbol{V}&amp;=(\boldsymbol{I}-\gamma \boldsymbol{P})^{-1}\boldsymbol{R}<br>    \end{aligned}<br>$$</p>
+<p>我们可以直接得到<strong>解析解（analytic solution）</strong>：<br>$$<br>  \boldsymbol{V}=(\boldsymbol{I}-\gamma \boldsymbol{P})^{-1} \boldsymbol{R}<br>$$</p>
+<p>我们可以通过矩阵求逆把 $\boldsymbol{V}$ 的价值直接求出来。但是一个问题是这个矩阵求逆的过程的复杂度是 $O(N^3)$。所以当状态非常多的时候，比如从10个状态到1000个状态，或者到100万个状态，当我们有100万个状态的时候，状态转移矩阵就会是一个100万乘100万的矩阵，对这样一个大矩阵求逆是非常困难的。所以这种通过解析解去求解的方法只适用于很小量的马尔可夫奖励过程。</p>
+<p><img src="C:\Users\24376\AppData\Roaming\Typora\typora-user-images\image-20250115181203944.png" alt="image-20250115181203944"></p>
+<p>这个解法利用了<strong>不动点思想：</strong>假设代数方程</p>
+<p><img src="https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/ad27e68aee3a027d0a5bace0c55dd79250239c47" alt="{\displaystyle f(x)=0}"></p>
+<p>可以等价写成</p>
+<p><img src="https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/c1944e08d22cd6b68dcb809cdc1804d0df3b5458" alt="{\displaystyle x=\varphi (x).}"></p>
+<p>我们称满足<img src="https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/b598d12079d102bda91773a160b7c99540c36d9c" alt="{\displaystyle x^{*}=\varphi (x^{*})}">的<img src="https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/0c3d92911742787872be53f047783d16d9737ea0" alt="{\displaystyle x^{*}}">为<img src="https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/87792d8065e427aa737caaf609bbdf9da8cd6a3e" alt="{\displaystyle \varphi (x)}">的<strong>不动点</strong>，设计如下迭代格式</p>
+<p><img src="https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/1300b775de9924f6d1d0cdda71d12b8d29ec7541" alt="{\displaystyle x_{k+1}=\varphi (x_{k}),\quad k=0,1,\cdots .}"></p>
+<p>如果该格式收敛，那么它可用于求解<img src="https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/ad27e68aee3a027d0a5bace0c55dd79250239c47" alt="{\displaystyle f(x)=0}">的问题，这种方法就是不动点迭代法。 至于这个迭代格式是否收敛，则需要利用不动点定理作进一步分析。</p>
+<p><img src="C:\Users\24376\AppData\Roaming\Typora\typora-user-images\image-20250115181634889.png" alt="image-20250115181634889"></p>
+<p>对于MDP，我们在第一节里已经讲到了它的价值函数$v_\pi(s)$的表达式。但是这个表达式没有考虑到所采用的动作<em>a</em>带来的价值影响，因此我们除了这个$v_\pi(s)$状态价值函数外，还有一个动作价值函数$q_\pi(s,a)$，即：<br>$$<br>q_{\pi}(s, a)=\mathbb{E}<em>{\pi}\left[G</em>{t} \mid s_{t}=s, a_{t}=a\right] \tag{2.4}<br>$$<br>使用$q_\pi(s)$可以表示状态价值函数，即：<br>$$<br>v_{\pi}(s)=\sum_{a \in A} \pi(a \mid s)q_{\pi}(s, a)<br>\tag{2.5}<br>$$<br>另外，我们给出 Q 函数的贝尔曼方程</p>
+<p>$$<br>Q(s, a)=R(s, a)+\gamma \sum_{s^{\prime} \in S} p\left(s^{\prime} \mid s, a\right) V\left(s^{\prime}\right) \tag{2.21}<br>$$<br>根据和的关系，我们可以得到贝尔曼最优方程（Bellman optimality equation）：<br>$$<br>V^*(s)=\max_{a\in\mathcal{A}}{r(s,a)+\gamma\sum_{s^{\prime}\in\mathcal{S}}p(s^{\prime}|s,a)V^*(s^{\prime})}<br>$$</p>
+<p>$$<br>Q^*(s,a)=r(s,a)+\gamma\sum_{s^{\prime}\in\mathcal{S}}p(s^{\prime}|s,a)\max_{a^{\prime}\in\mathcal{A}}Q^*(s^{\prime},a^{\prime})<br>$$</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/02/22/%E6%94%B9%E5%8A%A8/</url>
+    <content><![CDATA[<p>基于网站《动手学强化学习》，其中的代码是几年前的，而名为 Gym Lib 的 Lib 已经过时了。因此，需要更改的地方，这是 DQN 和其他变体的完整新代码。 如果您只想实现 DQN，则只需下载它。<strong>但是，在 hands_on_RL 中使用 gym 的其他算法上需要更改的部分是相同的。因此，在这里我们展示需要更改的部分，以帮助您更改其他算法</strong></p>
+<h2 id="需要更改"><a href="#需要更改" class="headerlink" title="需要更改"></a>需要更改</h2><h3 id="1-环境-‘env-name-v0’-已过期。您应该考虑升级到版本v1"><a href="#1-环境-‘env-name-v0’-已过期。您应该考虑升级到版本v1" class="headerlink" title="1. 环境 ‘env_name-v0’ 已过期。您应该考虑升级到版本v1"></a>1. 环境 ‘env_name-v0’ 已过期。您应该考虑升级到版本<code>v1</code></h3><pre><code>env_name = &#39;CartPole-v1&#39;
+env = gym.make(env_name, render_mode=&#39;human&#39;)
+</code></pre>
+<h3 id="2-env-seed（0）-没有被使用，你应该改到那里，并在后面加上-‘-0-’"><a href="#2-env-seed（0）-没有被使用，你应该改到那里，并在后面加上-‘-0-’" class="headerlink" title="2. env.seed（0） 没有被使用，你应该改到那里，并在后面加上 ‘[0]’"></a>2. env.seed（0） 没有被使用，你应该改到那里，并在后面加上 ‘[0]’</h3><pre><code>state = env.reset(seed = 0)[0]
+</code></pre>
+<h3 id="3-需要解包的值太多（预期为-4）：next-state、reward、done、-env-step（action）"><a href="#3-需要解包的值太多（预期为-4）：next-state、reward、done、-env-step（action）" class="headerlink" title="3. 需要解包的值太多（预期为 4）：next_state、reward、done、_ = env.step（action）"></a>3. 需要解包的值太多（预期为 4）：next_state、reward、done、_ = env.step（action）</h3><p>添加返回值</p>
+<pre><code>next_state, reward, done, _, __ = env.step(action)
+</code></pre>
+<h3 id="4-从-numpy-ndarrays-列表创建张量非常慢。请考虑使用-numpy-array（）-将列表转换为单个-numpy-ndarray"><a href="#4-从-numpy-ndarrays-列表创建张量非常慢。请考虑使用-numpy-array（）-将列表转换为单个-numpy-ndarray" class="headerlink" title="4. 从 numpy.ndarrays 列表创建张量非常慢。请考虑使用 numpy.array（） 将列表转换为单个 numpy.ndarray"></a>4. 从 numpy.ndarrays 列表创建张量非常慢。请考虑使用 numpy.array（） 将列表转换为单个 numpy.ndarray</h3><pre><code>def take_action(self. state)
+    ....
+    &#39;state = torch.tensor(np.array([state]), dtype=torch.float).to(self.device)&#39;
+    ....
+</code></pre>
+<h3 id="5-新版本-env-无法自动停止，因此我们需要添加一个计数器"><a href="#5-新版本-env-无法自动停止，因此我们需要添加一个计数器" class="headerlink" title="5. 新版本 env 无法自动停止，因此我们需要添加一个计数器"></a>5. 新版本 env 无法自动停止，因此我们需要添加一个计数器</h3><pre><code>....
+    for i_episode in range(int(num_episodes / 10)):
+        episode_return = 0
+        state = env.reset(seed=0)[0]
+        done = False
+        &#39;steps = 0&#39;
+        while not done &#39;and steps &lt; 200&#39;:
+            &#39;steps += 1&#39;
+            ....
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/02/22/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E8%84%89%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="强化学习基本脉络"><a href="#强化学习基本脉络" class="headerlink" title="强化学习基本脉络"></a>强化学习基本脉络</h1><p><img src="C:\Users\24376\AppData\Roaming\Typora\typora-user-images\image-20250109094839938.png" alt="image-20250109094839938"></p>
+<p>这张图包括<strong>基本工具</strong>和<strong>算法/方法</strong>两部分，基本工具包括贝尔曼方程等概念。算法包括价值迭代、蒙特卡罗方法等。</p>
+<h2 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h2><p>两个基本概念：</p>
+<ul>
+<li><p>One Concept: State Value<br>$$<br>V_{\pi}(s) \doteq \mathbb{E}<em>{\pi}\left[G</em>{t} \mid s_{t}=s\right]=\mathbb{E}<em>{\pi}\left[\sum</em>{k=0}^{\infty} \gamma^{k} r_{t+k+1} \mid s_{t}=s\right], \text{对于所有的} s \in S<br>$$<br>state value代表了奖励的平均值。状态值越高，说明策略越好。可以用来评价策略好还是不好。那么如何分析状态值呢，就要用一个工具：贝尔曼公式。</p>
+</li>
+<li><p>One Tool: Bellman Equation<br>$$<br>v_\pi=r_\pi+\gamma P_\pi v_\pi<br>$$<br>用一句话描述，他描述了状态与状态值的关系，可以给定一个策略，求出他的状态值。</p>
+</li>
+<li><p>policy evaluation: 后期广泛使用</p>
+</li>
+</ul>
+<h2 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h2><p>贝尔曼最优公式：贝尔曼公式的特殊情况。它和最优策略有关。我们知道，强化学习的最终目标就是<strong>求解最优策略</strong>。所以第三章非常重要。我们要把握</p>
+<ul>
+<li><p>Two concepts</p>
+<p>最优策略$\pi^*$和最优状态值</p>
+</li>
+<li><p>一个工具</p>
+<p>贝尔曼最优公式<br>$$<br>v=\max_\pi{r_\pi+\gamma P_\pi v}=f(v)<br>$$<br>应用不动点原理分析，论证了一系列基础问题，例如最优策略的存在性，最优策略不一定是惟一的，但最优状态值是唯一的。</p>
+</li>
+</ul>
+<h2 id="Chapter-4"><a href="#Chapter-4" class="headerlink" title="Chapter 4"></a>Chapter 4</h2><p>至此进入Algorithm/methods模块。</p>
+<ul>
+<li>Three Algorithms<ol>
+<li>Value Iteration</li>
+<li>Policy Iteration</li>
+<li>Truncated Policy Iteration。他是前两种算法的统一描述。</li>
+</ol>
+</li>
+</ul>
+<p>这三个算法都有共同点：就是都是迭代算法。</p>
+<p>分别用Policy Update和Value Update这两个步骤进行迭代。后面的蒙特卡洛算法等也都是基于这些步骤。</p>
+<h2 id="Chapter-5"><a href="#Chapter-5" class="headerlink" title="Chapter 5"></a>Chapter 5</h2><p>**Gap: How to do model-free learning?**没有模型，该怎么学习呢？又要学习什么呢？我们要学习随机变量的期望值：<br>$$<br>E(X)=\bar{x}<br>$$</p>
+<p>我们就学习了第一个不需要模型的强化学习算法。</p>
+<ul>
+<li>Algorithms<ol>
+<li>MC Basic</li>
+<li>MC Exploring Starts</li>
+<li>MC $\epsilon$-greedy</li>
+</ol>
+</li>
+</ul>
+<p>第一个算法效率很低，但他是最核心的东西，学习这个算法，是为了把复杂的东西与简单的东西分离开，明白一些复杂的算法，核心是很简单的。<br>我们也能感受到强化学习一环扣一环，要学蒙特卡洛方法，就要先学policy iteration，要学policy iteration就要学value iteration</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/02/22/##%20%E5%80%BC%E8%BF%AD%E4%BB%A3%20%20Value%20Iteration/</url>
+    <content><![CDATA[<h2 id="值迭代-Value-Iteration"><a href="#值迭代-Value-Iteration" class="headerlink" title="值迭代 | Value Iteration"></a>值迭代 | Value Iteration</h2><p><strong>值迭代</strong>（Value Iteration）直接利用递归性，通过不断迭代逼近最优状态值函数 $v^{*}(s)$。整个算法可以概括为：<br>$$<br>v^{(k+1)}=f\left(v^{(k)}\right)=\max _\pi\left(r_\pi+\gamma P_\pi v^{(k)}\right), \quad k=1,2,3 \ldots<br>$$<br>因此这个算法理论上需要包含两个主要步骤：</p>
+<ol>
+<li><p><strong>策略更新（PU）</strong>：$\pi^{(k+1)} = \arg\max _\pi\left(r_\pi+\gamma P_\pi v^{(k)}\right)$</p>
+<p>现在我求出了$\pi^{(k+1)}$，我就可以再代入下面的式子，再去求解$v^{(k+1)}$，他们有一个前后顺序！</p>
+</li>
+<li><p><strong>状态更新（VU）</strong>：$v^{(k+1)}=r_{\pi^{(k+1)}}+\gamma P_{\pi^{(k+1)}} v^{(k)}$</p>
+</li>
+</ol>
+<p><strong>注意！此处的$v_k$并不是state value!因为step 2这个方程不是贝尔曼方程，是一个迭代式。对比一下贝尔曼方程的matrix-vector形式，你会看见方程左右应该是同一个$v_k$</strong></p>
+<p>而策略 π 更新的时候由于使用了贪心选择，这两个步骤可以合并简化，<strong>直接使用最优的动作价值去更新状态价值</strong>：<br>$$<br>v^{(k+1)}(s) = \max_a q^{(k+1)}(s,a)<br>$$</p>
+<blockquote>
+<p>值得一提的是，贪心更新策略 π 也带来了一个有趣的现象：<strong>越靠近目标区域的状态越先变好</strong>。直观上就是因为 π 依赖于其他状态，而当其他状态都不好的时候无从更新，只有接近目标区域的状态有明确的优化方向。</p>
+</blockquote>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ol>
+<li><p><strong>初始化值函数</strong>：设定初始值 $v^{(0)}(s)$，通常初始化为全零或任意常数。</p>
+</li>
+<li><p><strong>迭代更新值函数</strong>： 对于每个状态 s，根据贝尔曼最优公式更新<br>$$<br>v^{(k+1)}(s) = \max_a \left[ \sum_r p(r \mid s, a) r + \gamma \sum_{s’} p(s’ \mid s, a) v^{(k)}(s’) \right]<br>$$</p>
+</li>
+<li><p><strong>判断收敛</strong>： 检查值函数更新是否足够小（例如$\lVert v^{(k+1)} - v^{(k)} \rVert_\infty &lt; \epsilon$），若收敛则停止迭代并输出 v(k+1)。</p>
+</li>
+<li><p><strong>推导策略</strong>： 一旦得到收敛的值函数 v∗(s)，通过以下方式获得对应的最优策略 π∗：</p>
+</li>
+</ol>
+<p>$$<br>\pi^*(s) = \arg\max_a \left[ \sum_r p(r \mid s, a) r + \gamma \sum_{s’} p(s’ \mid s, a) v_*(s’) \right]<br>$$<br>假设我们有一个3 x 3的棋盘：</p>
+<ul>
+<li>有一个单元格是超级玛丽，每回合可以往上、下、左、右四个方向移动</li>
+<li>有一个单元格是宝藏，<a href="https://zhida.zhihu.com/search?content_id=5792339&content_type=Article&match_order=2&q=%E8%B6%85%E7%BA%A7%E7%8E%9B%E4%B8%BD&zhida_source=entity">超级玛丽</a>找到宝藏则游戏结束，目标是让超级玛丽以最快的速度找到宝藏</li>
+<li>假设游戏开始时，宝藏的位置一定是(1, 2)</li>
+</ul>
+<p><img src="https://pic2.zhimg.com/v2-9f91c909194ebcc7a62e0e2d2e2e8837_1440w.jpg"></p>
+<p>这个一个标准的马尔科夫决策过程(MDP)：</p>
+<ul>
+<li><strong><a href="https://zhida.zhihu.com/search?content_id=5792339&content_type=Article&match_order=1&q=%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4&zhida_source=entity">状态空间</a>State</strong>：超级玛丽当前的坐标</li>
+<li><strong>决策空间Action</strong>: 上、下、左、右四个动作</li>
+<li>**Action对State的影响和回报 P(State’, Reward | State, Action)**：本文认为该关系是已知的<ul>
+<li>超级玛丽每移动一步，reward = -1</li>
+<li>超级玛丽得到宝箱，reward = 0并且游戏结束</li>
+</ul>
+</li>
+</ul>
+<p>结合上图可以非常简单的理解价值迭代：</p>
+<ul>
+<li><p><strong>初始化</strong>：所有state的价值V(s) = 0</p>
+</li>
+<li><p>第一轮迭代：对于每个state，逐一尝试上、下、左、右四个Action</p>
+<ul>
+<li>记录Action带来的Reward、以及新状态 V(s’)</li>
+<li>选择最优的Action，更新V(s) = Reward + V(s’) = -1 + 0</li>
+<li>第一轮结束后，所有状态都有V(s) = -1，即从当前位置出发走一步获得Reward=-1</li>
+</ul>
+</li>
+<li><p>第二轮迭代：对于每个state，逐一尝试上、下、左、右四个Action</p>
+<ul>
+<li>记录Action带来的Reward、以及新状态 V(s’)</li>
+<li>选择最优的Action，更新V(s) = Reward + V(s’)<ul>
+<li>对于宝箱周围的State，最优的Action是一步到达宝箱，V(s) = Reward + V(s’) = -1 + 0</li>
+<li>对于其他State，所有的Action都是一样的，V(s) = Reward + V(s’) = -1 + -1</li>
+</ul>
+</li>
+<li>第二轮结束后，宝箱周围的State的价值保持不变 V(s) = -1，其他State的价值 V(s) = -2</li>
+</ul>
+</li>
+<li><p>第三轮迭代：对于每个state，逐一尝试上、下、左、右四个Action</p>
+<ul>
+<li>记录Action带来的Reward、以及新状态 V(s’)</li>
+<li>选择最优的Action，更新V(s) = Reward + V(s’)<ul>
+<li>对于宝箱周围的State，最优的Action是一步到达宝箱，V(s) = Reward + V(s’) = -1 + 0</li>
+<li>对于宝箱两步距离的State，最优的Action是先一步到达宝箱周边的State，V(s) = Reward + V(s’) = -1 + -1</li>
+<li>对于宝箱三步距离的State，所有Action都是一样的，V(s) = Reward + V(s’) = -1 + -2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>第四轮迭代：对于每个state，逐一尝试上、下、左、右四个Action</p>
+<ul>
+<li><p>记录Action带来的Reward、以及新状态 V(s’)</p>
+</li>
+<li><p>选择最优的Action，更新V(s) = Reward + V(s’)</p>
+<ul>
+<li>对于宝箱周围的State，最优的Action是一步到达宝箱，V(s) = Reward + V(s’) = -1 + 0</li>
+<li>对于宝箱两步距离的State，最优的Action是先一步到达宝箱周边的State，V(s) = Reward + V(s’) = -1 + -1</li>
+<li>对于宝箱三步距离的State，最优的Action是所有Action都是一样的，V(s) = Reward + V(s’) = -1 + -2</li>
+</ul>
+</li>
+<li><p>在第四轮迭代中，所有V(s)更新前后都没有任何变化，价值迭代已经找到了最优策略。、</p>
+<p><img src="https://picx.zhimg.com/v2-3308c12abd8f521cfd6b30d0eaaf0b81_1440w.jpg"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="策略迭代-Policy-Iteration"><a href="#策略迭代-Policy-Iteration" class="headerlink" title="策略迭代 | Policy Iteration"></a>策略迭代 | Policy Iteration</h2><p>策略迭代是另一种求解 BOE 的方法，核心思想是交替优化策略和状态值函数，直到收敛到最优策略 π∗。</p>
+<p>与值迭代不同的是，策略迭代先初始化一个<strong>随机策略</strong>，再交替进行以下两个主要步骤：</p>
+<ul>
+<li>策略评估（PE）：$v_{\pi^{(k)}}=r_{\pi^{(k)}}+\gamma P_{\pi^{(k)}} v_{\pi^{(k)}}$</li>
+<li>策略改进（PI）：$\pi^{(k+1)} = \arg\max <em>\pi\left(r_\pi+\gamma P_\pi v</em>{\pi^{(k)}}\right)$</li>
+</ul>
+<p>这个算法按照如下顺序</p>
+<p>$$<br>{\pi_0}\xrightarrow{PE}{v_{\pi_0}}\xrightarrow{PI}\pi_1\xrightarrow{PE}{v_{\pi_1}}\xrightarrow{PI}\pi_2\xrightarrow{PE}v_{\pi_2}\xrightarrow{PI}\ldots<br>$$</p>
+<p>PE=policy evaluation, PI=policy improvement</p>
+<ol>
+<li><p>初始化策略：随机初始化一个初始策略$\pi^{(0)}$。</p>
+</li>
+<li><p>策略评估：在当前策略$\pi^{(k)}$下，通过求解以下线性方程组来获得状态</p>
+</li>
+</ol>
+<p>值函数$v_{\pi^{(k)}}(s):$</p>
+<p>$$<br>v_{\pi^{(k)}}(s)=\sum_a\pi^{(k)}(a\mid s)\left[\sum_rp(r\mid s,a)r+\gamma\sum_{s^{\prime}}p(s^{\prime}\mid s,a)v_{\pi^{(k)}}(s^{\prime})\right]<br>$$</p>
+<p>​    $\circ$当状态空间较小时，可以直接解线性方程组，</p>
+<p>​    $\circ$对于较大的问题，可以使用 Bootstrap 迭代逼近的方法。这个算法过程如下：首先把所有的$V_0(s)$都初始化成0，然后根据V0计算V1，…，一直继续下去直到收敛。根据$V_k(s)$计算$V_{k+1}(s)$的公式如下：<br>$$<br>V_{k+1}(s)=\sum_a\pi(a|s)\sum_{s’,r}p(s’,r|s,a)[r+\gamma V_k(s’)]<br>$$<br>我们可以看一下收敛的时候，Vk+1=Vk，Δ=0，那么上面的迭代公式正好就是贝尔曼方程！有了上面的迭代算法，任何给定的策略ππ，我们都可以计算出它的价值函数。</p>
+<ol start="3">
+<li>策略改进：基于更新后的值函数$v_{\pi^{(k)}}$,贪心更新策略：</li>
+</ol>
+<p>$$<br>\pi^{(k+1)}(s)=\arg\max_a\left[\sum_rp(r\mid s,a)r+\gamma\sum_{s’}p(s’\mid s,a)v_{\pi^{(k)}}(s’)\right]<br>$$</p>
+<ol start="4">
+<li><p>检查收敛：如果策略不再变化，即$\pi^{(k+1)}=\pi^{(k)}$,则算法结束，$\pi^{(k)}$<br>即为最优策略；否则返回步骤 2。</p>
+<p><img src="C:\Users\24376\AppData\Roaming\Typora\typora-user-images\image-20250115181005916.png" alt="image-20250115181005916"></p>
+</li>
+</ol>
+<p><img src="C:\Users\24376\AppData\Roaming\Typora\typora-user-images\image-20250115181032097.png" alt="image-20250115181032097"></p>
+<h2 id="策略提升定理"><a href="#策略提升定理" class="headerlink" title="策略提升定理"></a>策略提升定理</h2><p>假设$\pi$和$\pi^\prime$是两个确定的策略(一个状态s下只有一个行为a的概率是1，其余是0),如果对于所有的<br>$s\in\mathcal{S}_\text{都有：}$</p>
+<p>$$<br>q_\pi(s,\pi^{\prime}(s))\geq v_\pi(s)<br>$$</p>
+<p>那么策略$\pi^{\prime}$比$\pi$要“好”,也就是对于所有的$s\in\mathcal{S}:$</p>
+<p>$$v_{\pi^{\prime}}(s)\geq v_\pi(s)$$</p>
+<p>并且如果第一个不等式是严格大于，那么第二个不等式也是严格大于，也就是$\pi^{\prime}$一定比$\pi$更好(而不<br>是一样)。</p>
+<p>如果这个定理成立，那就证明了我们前面结论，因为我们新的策略在s的时候采取的满足<br>$q_\pi(s,a)\geq v_\pi(s)$,而其它的状态s’都是一样的，因此新的策略会更好。当然上面的新策略是随便选择一个满足条件的行为a，但更好的办法是从所有可能的a里选择$q_\pi(s,a)$最大的那个a，此外我们可以改变所有s的策略，而不是一个s，这个改进版本就是我们最终用到的策略提升算法。如果所有的状态，当前的a已经是$q_\pi(s,a)$中最大的那个呢？那说明当前策略已经是最优的策略了。下面我们来证明这个定理：<br>$$<br>\begin{aligned}&amp;v_{\pi}(s)\leq q_{\pi}(s,\pi^{\prime}(s))\&amp;\text{t时刻使用策略}\pi^{\prime},\text{t+1时刻之后还是用策略}\pi\&amp;=\mathbb{E}<em>{\pi^{\prime}}[R</em>{t+1}+\gamma v_{\pi}(S_{t+1})|S_{t}=s]\&amp;\text{用前面的假设}\&amp;\leq\mathbb{E}<em>{\pi^{\prime}}[R</em>{t+1}+\gamma q_{\pi}(S_{t+1},\pi^{\prime}(S_{t+1}))|S_{t}=s]\&amp;=\mathbb{E}<em>{\pi^{\prime}}[R</em>{t+1}+\gamma\mathbb{E}<em>{\pi^{\prime}}[R</em>{t+2}+\gamma v_{\pi}(S_{t+2})]|S_{t}=s]\&amp;=\mathbb{E}<em>{\pi^{\prime}}[R</em>{t+1}+\gamma R_{t+2}+\gamma^{2}v_{\pi}(S_{t+2})|S_{t}=s]\&amp;\leq\mathbb{E}<em>{\pi^{\prime}}[R</em>{t+1}+\gamma R_{t+2}+\gamma^{2}R_{t+3}+\gamma^{3}v_{\pi}(S_{t+3})|S_{t}=s]\&amp;\ldots\&amp;\leq\mathbb{E}<em>{\pi^{\prime}}[R</em>{t+1}+\gamma R_{t+2}+\gamma^{2}R_{t+3}+\gamma^{3}R_{t+4}\ldots+|S_{t}=s]\&amp;=v_{\pi^{\prime}}(s)\end{aligned}<br>$$</p>
+<p>上面的证明就是不停的应用假设条件，里面有一点就是$E_\pi E_\pi X=E_\pi X$,因为求一次期望之后就和</p>
+<p>$\pi$无关了，可以认为是常量了。</p>
+<p>我们最终使用的策略是“贪心”的策略，对于所有的s，我们都选择qπ(s,a)最大的那个a。</p>
+<table>
+<thead>
+<tr>
+<th><strong>算法</strong></th>
+<th><strong>优点</strong></th>
+<th><strong>缺点</strong></th>
+<th><strong>适用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值迭代</td>
+<td>通过单个过程即可直接逼近最优值函数，简单、直接，适用于小规模问题</td>
+<td>收敛速度较慢，尤其是当状态空间较大或 γ 接近 1 时，每次迭代的更新量可能变得很小</td>
+<td>状态空间较小、对精度要求较高</td>
+</tr>
+<tr>
+<td>策略迭代</td>
+<td>收敛速度快，通常只需几轮策略更新即可收敛</td>
+<td>每轮策略评估计算量大，尤其是在状态空间很大时，可能成为瓶颈</td>
+<td>中小规模问题、对速度要求较高</td>
+</tr>
+<tr>
+<td>截断策略迭代</td>
+<td>权衡了值迭代和策略迭代的优缺点，减少了策略评估的计算开销，相较于策略迭代更高效</td>
+<td>收敛速度可能略低于完整的策略迭代</td>
+<td>大规模问题、需要减少计算开销</td>
+</tr>
+</tbody></table>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/02/22/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="蒙特卡洛方法"><a href="#蒙特卡洛方法" class="headerlink" title="蒙特卡洛方法"></a>蒙特卡洛方法</h1><p>在上一节中，我们介绍了策略迭代，它依赖于明确的环境模型（model-based）来进行策略评估和改进。然而，在许多现实问题中，环境模型不可用，或者我们无法轻易获得完整的转移概率 T 和奖励函数 R。这时，<strong>蒙特卡洛学习算法</strong>（Monte Carlo Learning）作为一种<strong>无模型</strong>（model-free）方法，提供了一种通过样本进行策略优化的途径。</p>
+<p>蒙特卡洛方法的核心思想是：通过对环境的采样，基于多次模拟的经验回报，<strong>估计</strong>状态值函数或状态-动作值函数（Monte Carlo Estimation）。其依据就是经典的<strong>大数定律</strong>。</p>
+<p>蒙特卡洛学习主要依赖以下几个关键特性：</p>
+<ol>
+<li><strong>基于样本</strong>：直接使用采样的经验（例如状态序列、奖励序列）进行学习。</li>
+<li><strong>延迟更新</strong>：直到采样结束后，才对策略或值函数进行更新。</li>
+<li><strong>无需环境模型</strong>：完全基于与环境的交互，适用于复杂环境。</li>
+</ol>
+<h2 id="蒙特卡罗算法"><a href="#蒙特卡罗算法" class="headerlink" title="蒙特卡罗算法"></a>蒙特卡罗算法</h2><p>与策略迭代类似，蒙特卡洛方法需要基于一个固定策略$\pi$。我们知道策略迭代包含两个主要步骤：</p>
+<ul>
+<li>策略评估 (PE): $v_{\pi^{(k)}}=r_{\pi^{(k)}}+\gamma P_{\pi^{(k)}}v_{\pi^{(k)}}$</li>
+<li>策略改进(Pl):$\pi^{(k+1)}=\arg\max_{\pi}\left(r_{\pi}+\gamma P_{\pi}v_{\pi^{(k)}}\right)$</li>
+</ul>
+<p>这里面最核心的地方就是状态值$v_{\pi^{(k)}}$的求解，此时有两种办法：</p>
+<ol>
+<li>基于模型$T$和$R$,使用迭代法求解：</li>
+</ol>
+<p>$$<br>v_{\pi^{(k)}}(s)=\sum_a\pi^{(k)}(a\mid s)\left[\sum_rp(r\mid s,a)r+\gamma\sum_{s’}p(s’\mid s,a)v_{\pi^{(k)}}(s’)\right]<br>$$</p>
+<ol start="2">
+<li>免模型求解，回归状态值的原始定义：</li>
+</ol>
+<p>$$<br>v_\pi(s)=\mathbb{E}_\pi\left[G_t\mid S_t=s\right]<br>$$</p>
+<p>换句话说，我们可以从任意状态$s$出发，随机采样若干轨迹${\tau}$,使用这些轨迹的累计回报${g_t}$的平均<br>值来估计$s$的期望累计回报：<br>$$<br>v_\pi(s)=\mathbb{E}<em>\pi\left[G_t\mid S_t=s\right]\approx\frac{1}{N}\sum</em>{i=1}^Ng^{(i)}(s)<br>$$<br>同理，也可以估计动作$a$的期望累计回报：</p>
+<p>$$<br>q_\pi(s,a)=\mathbb{E}_\pi\left[G_t\mid S_t=s,A_t=a\right]\approx\frac{1}{N}\sum_{i=1}^Ng^{(i)}(s,a)<br>$$<br>总之就是一句话：<strong>没有模型时，就得有数据！</strong>这里采样到的轨迹在统计学或概率学上会称为样本<br>(Sample),而在强化学习中则称为经验(Experience)。</p>
+<p>具体步骤如下：</p>
+<p>1.采样：从待求解状态$s_t$和动作$a_t$出发，基于策略$\pi$生成多条完整的轨迹，每条轨迹由状态、动作，<br>奖励序列组成，例如：</p>
+<p>$$<br>\tau={s_t,a_t,r_{t+1},s_{t+1},a_{t+1},r_{t+2},\ldots,s_T}<br>$$</p>
+<p>其中$T$ 是终止时刻。</p>
+<p>2.回报计算：对于每个轨迹，计算累计回报(Return):<br>$$<br>g_t=\sum_{k=t}^T\gamma^{k-t}r_{k+1}<br>$$</p>
+<p>3.更新：通过多次采样得到的回报${g_t}$,对动作价值函数进行更新：</p>
+<p>$$<br>q_\pi(s_t,a_t)\leftarrow\frac{\text{累计回报和}}{\text{访问次数}}<br>$$</p>
+<p>之后在策略改进 (PI)步骤中，依旧是贪心选择最大动作价值来更新策略。</p>
+<p>有趣的现象——回合（Episode）的长度：</p>
+<ul>
+<li>为了 Gt 估计的准确性，我们希望每次采样到的 gt 都尽量精确，因此 Episode 也是<strong>越长越好</strong>。</li>
+<li>如果 Episode 长度很短，例如 1，即模型只会探索一个步骤，最终只有目标周围一步的状态值会得到准确估计，其他地方均为 0，因为无法得到最终奖励。</li>
+<li>推广开来，只有当 Episode 长度超过一个状态距离目标状态的最短路径时，该状态值才能得到更新；并且<strong>超过得越多，这个估计状态值就离真实值越接近</strong>。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Attention is all I need：Transformer的原理和代码详解</title>
+    <url>/2025/02/20/%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%9C%80%E4%BC%98%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>Transformer可运行的代码发布在<a href="https://github.com/JinHanLei/Transformers_tutorial">GitHub</a><br>{: .prompt-tip }</p>
+</blockquote>
+<p>提到ChatGPT的原理，就绕不开Transformer，Transformer中的核心思想之一便是<strong>Attention</strong>，Attention机制彻底击败了在此之前的绝对王者RNN模式，并统治各大NLP任务直到现在。正因如此，Transformer的论文不叫Transformer，而是叫做<a href="https://arxiv.org/abs/1706.03762">《Attention is all you need》</a>。本文是以我的理解，阐述Transformer是怎么想出来的，为什么这么设计。</p>
+<h2 id="Attention的思想"><a href="#Attention的思想" class="headerlink" title="Attention的思想"></a>Attention的思想</h2><p>Attention的关键在于理解$$QKV$$，即Query、Key和Value。可以将Attention机制看作一种寻址操作：存储器中存有键Key和值Value，当前产生了一个Query的查询，要查询出Value，那么首先需要匹配Query和Key的相似度。举个也许不恰当，但直观的例子，有以下Key和Value：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">段誉的招牌武功</td>
+<td align="center">六脉神剑</td>
+</tr>
+<tr>
+<td align="center">段誉的生父</td>
+<td align="center">段延庆</td>
+</tr>
+<tr>
+<td align="center">段誉的结拜兄弟</td>
+<td align="center">乔峰和虚竹</td>
+</tr>
+<tr>
+<td align="center">乔峰的招牌武功</td>
+<td align="center">降龙十八章</td>
+</tr>
+</tbody></table>
+<p>寻址流程如下：</p>
+<ol>
+<li>发起Query：“段誉的生父是谁？”</li>
+<li>与Key相似度匹配到“段誉的生父”</li>
+<li>返回Value“段延庆”</li>
+</ol>
+<p>这里的关键是相似度计算方法，通常是Query和Key的矩阵乘法，或加个缩放$$\sqrt{d_k}$$，或乘个$$W$$，如下：</p>
+<ul>
+<li>矩阵相乘：$$sim(Q,K)=QK^T$$ </li>
+<li>相乘加缩放：$$sim(Q,K)=\frac{QK^T}{\sqrt{d_k}}$$（Transformer使用，缩放使得训练可以收敛）</li>
+<li>权重+激活：$$sim(Q,K)=tanh(WQ+UK)$$</li>
+<li>权重+相乘：$$sim(Q,K)=QWK^T$$</li>
+</ul>
+<p>取出一个或者部分Value的方法叫Hard Attention，如上例只输出“段延庆”。但是，如果我问“段誉结拜兄弟的招牌武功是什么？”，Hard Attention可能匹配到“段誉的结拜兄弟”，输出“乔峰和虚竹”，这就不对了。替代方案就是Soft Attention，提供所有Value和对应的Attention权重，当$$Q=$$“段誉结拜兄弟的招牌武功是什么？”，结果可能如下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">Attention权重</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">段誉的招牌武功</td>
+<td align="center">7</td>
+<td align="center">六脉神剑</td>
+</tr>
+<tr>
+<td align="center">段誉的生父</td>
+<td align="center">1</td>
+<td align="center">段延庆</td>
+</tr>
+<tr>
+<td align="center">段誉的结拜兄弟</td>
+<td align="center">9</td>
+<td align="center">乔峰和虚竹</td>
+</tr>
+<tr>
+<td align="center">乔峰的招牌武功</td>
+<td align="center">5</td>
+<td align="center">降龙十八章</td>
+</tr>
+</tbody></table>
+<p>这样，就可以把高分答案结合，得到正确答案。当问题更宏大，需要的信息就更多，于是干脆每次都输出整张表，虽然有可能冗余，但这样得到的答案是既有重点、又完整的。</p>
+<p>以往设备限制导致计算和输出全部非常困难，但现在设备的发展使得超大规模、超长文本输入的LLM得以出现，而Transformer的self-attention保证了LLM的效率和学习能力。</p>
+<h3 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h3><p>Self-Attention说来很简单，就是$$Q=K=V$$。</p>
+<p>为什么要这么做？个人理解是让一句话先找出自己内部的关键词，再去适配下游的任务。例如$$Q=K=V=青花瓷$$，用Pytorch简单计算如下：</p>
+<pre><code class="python">from torch import nn as nn
+import torch
+# &#123;青:0, 花:1, 瓷:2&#125;
+tokens = torch.LongTensor([0, 1, 2])
+# 将3个字转换成向量，向量维度为10
+token_embedding = nn.Embedding(3, 10)
+emb = token_embedding(tokens)
+# 相似度计算
+QK = torch.mm(emb, emb.T) / torch.sqrt(torch.FloatTensor([10]))
+print(QK)
+</code></pre>
+<p>由于nn.Embedding随机初始化，所以结果会不一样，我的结果表述如下：</p>
+<p>$$<br>sim(Q,K)=<br>\begin{bmatrix}<br> 青 &amp; 花 &amp; 瓷<br>\end{bmatrix}<br>\times<br>\begin{bmatrix}<br> 青\<br> 花\<br> 瓷<br>\end{bmatrix}<br>/10<br>=<br>\begin{bmatrix}<br> 3.2897 &amp; 0.7432 &amp; -1.1652 \<br> 0.7432 &amp; 1.3647 &amp; -1.1707\<br> -1.1652 &amp; -1.1707 &amp; 5.6380<br>\end{bmatrix}<br>$$</p>
+<p>矩阵对角线表示自身的相似度，比如3.2897就表示“青”和“青”的相似度，就很大。每行代表每个字的权重。由于点积可以产生任意大的数字，这会破坏训练过程的稳定性，因此需要 $$Softmax$$。Attention的公式表示为：</p>
+<p>$$<br>\text{Attention}(Q, K, V) = \text{Softmax} \big( \frac{QK^T}{\sqrt{d_k}} \big)V<br>$$</p>
+<p>代码只须再加上：</p>
+<pre><code class="python">Attention = torch.mm(torch.softmax(QK, dim=-1), emb)
+</code></pre>
+<p>这样得到矩阵的每行就表示[青, 花, 瓷]这三个字的Attention。在训练过程中会更新这些参数，从而根据上下文和标签得到更好的向量表示。</p>
+<h3 id="Multi-head-Attention"><a href="#Multi-head-Attention" class="headerlink" title="Multi-head Attention"></a>Multi-head Attention</h3><p>为了关注到更多信息，Transformer采用Multi-head Attention机制，也就是重复n次Attention操作然后拼接，得到和原来的Attention维度相同的MultiHead，公式为：</p>
+<p>$$<br>\begin{gather}head_i = \text{Attention}(\boldsymbol{Q}\boldsymbol{W}_i^Q,\boldsymbol{K}\boldsymbol{W}_i^K,\boldsymbol{V}\boldsymbol{W}_i^V)\\text{MultiHead}(\boldsymbol{Q},\boldsymbol{K},\boldsymbol{V}) = \text{Concat}(head_1,…,head_h)\boldsymbol{W}^O\end{gather}<br>$$</p>
+<p>其中 $$\boldsymbol{W}<em>i^Q\in\mathbb{R}^{d</em>{model}\times d_k}, \boldsymbol{W}<em>i^K\in\mathbb{R}^{d</em>{model}\times d_k}, \boldsymbol{W}<em>i^V\in\mathbb{R}^{d</em>{model}\times d_v},\boldsymbol{W}^O\in\mathbb{R}^{hd_{v}\times d_{model}}$$ 。</p>
+<p>原文模型的维度$$d_{model}$$是512，我们设置$$h=8$$个注意力头，那么$$d_k=d_v=d_{model}/h=64$$。每个注意力头负责关注某一方面的语义相似性，多个头就可以让模型同时关注多个方面。不怎么严谨的代码如下，便于理解：</p>
+<pre><code class="python">from torch import nn
+import torch.nn.functional as F
+from math import sqrt
+import torch
+
+class AttentionHead(nn.Module):
+    def __init__(self, embed_dim, head_dim):
+        super().__init__()
+        self.WQ = nn.Linear(embed_dim, head_dim)
+        self.WK = nn.Linear(embed_dim, head_dim)
+        self.WV = nn.Linear(embed_dim, head_dim)
+
+    def forward(self, query, key, value):
+        QK = torch.mm(WQ(query), WK(key).T) / torch.sqrt(query.size(-1))
+        Attention = torch.mm(torch.softmax(QK, dim=-1), WV(value))
+        return Attention
+    
+class MultiHeadAttention(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        embed_dim = config.hidden_size
+        num_heads = config.num_attention_heads
+        head_dim = embed_dim // num_heads
+        self.heads = nn.ModuleList(
+            [AttentionHead(embed_dim, head_dim) for _ in range(num_heads)]
+        )
+        self.output_linear = nn.Linear(embed_dim, embed_dim)
+
+    def forward(self, query, key, value):
+        MultiHead = torch.cat([h(query, key, value) for h in self.heads], dim=-1)
+        x = self.output_linear(MultiHead)
+        return x
+</code></pre>
+<p>更多时候，为了并行效率，多头操作是先乘上$$\boldsymbol{W}\in\mathbb{R}^{d_{model}\times d_{model}}$$的权重矩阵，再将QKV切块相乘，同一个结果但是抛弃了<code>for</code>循环，<a href="https://github.com/JinHanLei/Transformers_tutorial">我的仓库</a>中就是这种做法。Transformer最核心的就是上文所述的Attention，下面介绍其他部分。</p>
+<h2 id="Encoder-Decoder"><a href="#Encoder-Decoder" class="headerlink" title="Encoder-Decoder"></a>Encoder-Decoder</h2><p>之前的博客介绍了Encoder-Decoder结构，Transformer也遵从这种结构。而Transformer“浑身都是宝”，每个部分都被开发出了作用：</p>
+<ul>
+<li><strong>Transformer的Encoder</strong>（如<a href="https://arxiv.org/abs/1810.04805">BERT</a>），又称自编码 (auto-encoding) Transformer 模型</li>
+<li><strong>Transformer的Decoder</strong>（如<a href="https://openai.com/blog/language-unsupervised/">GPT系列</a>），又称自回归 (auto-regressive) Transformer 模型</li>
+<li><strong>完整的Encoder-Decoder</strong>（例如<a href="https://arxiv.org/pdf/1910.13461">BART</a>、<a href="https://arxiv.org/pdf/1910.10683.pdf">T5</a>等）</li>
+</ul>
+<p>理解了Transformer，以上模型的上手难度会小很多，我们之后再了解。Transformer整体结构如图：</p>
+<p><img src="/imgs/transformer.jpeg" alt="transformer"></p>
+<p>左边是Encoder，右边是Decoder，可以看到两边都有：</p>
+<ul>
+<li>Positional Encoding</li>
+<li>Multi-head Attention</li>
+<li>Feed Forward</li>
+<li>Add &amp; Norm。</li>
+</ul>
+<p>Multi-head Attention已经在上文介绍了，介绍下其他几位。</p>
+<h3 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h3><p>在Attention中其实可以看出，并没有任何有关位置的特征，这样”一步两步三步四步望着天“的每一个”步“向量都是一样的，甚至把这句话变成”天着望步四步三步两步”一“，都是一样的，这显然不合理。因为每一步情绪都是递进的，而Attention无法解决前后顺序和句子内的一词多义。</p>
+<p>RNN通过记忆使得每一步不一样，而Transformer采用了<em>Positional Encoding</em>，即位置编码，其公式如下：</p>
+<p>$$<br>\begin{gather}<br>PE_{(pos,2i)}=sin(pos/10000^{2i/d_{model}})\<br>PE_{(pos,2i+1)}=cos(pos/10000^{2i/d_{model}})<br>\end{gather}<br>$$</p>
+<p>意思就是向量的偶数位置填$$sin$$，奇数位置填$$cos$$，$$pos$$指相对位置，如”青花瓷“的”青“的$$pos$$就是0。对”青花瓷“这三个10维的向量进行位置编码，简单实现代码如下：</p>
+<pre><code class="python">import math
+import torch
+
+seq_len = 3
+d_model = 10
+pe = torch.zeros(seq_len, d_model)
+position = torch.arange(0, seq_len).unsqueeze(1)
+div_term = torch.exp(torch.arange(0, d_model, 2) *
+                     -math.log(10000.0) / d_model)
+pe[:, 0::2] = torch.sin(position * div_term)
+pe[:, 1::2] = torch.cos(position * div_term)
+print(pe)
+</code></pre>
+<p>由于次方比较难算，利用$e^{lnx}=x$的性质，代码中进行了如下转换：</p>
+<p>$$<br>\frac{1}{10000^{2i/d}}<br>=e^{ln\frac{1}{10000^{2i/d}}}<br>=e^{-\frac{2i}{d}ln10000}<br>$$</p>
+<p>得到的PE矩阵用来加上原始的词向量。位置编码相当于根据位置给权重。为什么这么做？我们从0开始思考，让我设计位置编码，怎么设计？</p>
+<p>$$<br>一步两步三步四步望着天:[0,1,2,3,4,5,6,7,8,9,10]<br>$$</p>
+<p>问题在哪？跟embedding向量的数字相比，这个数字太大了，那归一化一下：</p>
+<p>$$<br>一步两步三步四步望着天:[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]<br>$$</p>
+<p>这样的问题在于无法体现位置关系，因为注意力是相乘，下面采取相乘：$0.1 \times 1=0.2 \times 0.5$，不同距离相乘居然一样，反之，相同距离相乘居然不一样。大概有头绪了，位置编码起码需要满足这些条件：SSS</p>
+<ol>
+<li>相同距离相乘一样；</li>
+<li>不同距离相乘不一样；</li>
+<li>数量不限：序列无论多长都能找到相应的位置编码表示。</li>
+</ol>
+<p>Transformer本身是加入额外的位置，词向量加上位置的<strong>绝对位置编码</strong>。另外，还有修改Attention结构的<strong>相对位置编码</strong>。而下面介绍苏神的<a href="https://arxiv.org/abs/2104.09864">Rope</a>结合了两者。</p>
+<h4 id="Rope位置编码"><a href="#Rope位置编码" class="headerlink" title="Rope位置编码"></a>Rope位置编码</h4><p>根据Transformer的位置编码公式，$pos+k$位置的编码如下：</p>
+<p>$$<br>\begin{gather}<br>PE_{(pos+k,2i)}=sin((pos+k)/10000^{2i/d_{model}})\<br>PE_{(pos+k,2i+1)}=cos((pos+k)/10000^{2i/d_{model}})<br>\end{gather}<br>$$</p>
+<p>先令$w_i=1/10000^{2i/d_{model}}$，根据：</p>
+<p>$$<br>\begin{gather}<br>sin(\alpha+\beta)=sin\alpha \cdot cos\beta+cos\alpha \cdot sin\beta\<br>cos(\alpha+\beta)=cos\alpha \cdot cos\beta-sin\alpha \cdot sin\beta<br>\end{gather}<br>$$</p>
+<p>推导出：</p>
+<p>$$<br>\begin{gather}<br>PE_{(pos+k,2i)}=sin(w_i(pos+k))=sin(w_ipos) \cdot cos(w_ik)+cos(w_ipos) \cdot sin(w_ik)\<br>PE_{(pos+k,2i+1)}=cos(w_i(pos+k))=cos(w_ipos) \cdot cos(w_ik)-sin(w_ipos) \cdot sin(w_ik)<br>\end{gather}<br>$$</p>
+<p>就是多了$k$的部分，可以表示为矩阵：</p>
+<p>$$<br>\begin{bmatrix}<br> PE_{(pos+k,2i)} \<br> PE_{(pos+k,2i+1)}<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br> cos(w_ik) &amp; sin(w_ik) \<br> -sin(w_ik) &amp; cos(w_ik)<br>\end{bmatrix}<br>\times<br>\begin{bmatrix}<br> PE_{(pos,2i)} \<br> PE_{(pos,2i+1)}<br>\end{bmatrix}<br>$$</p>
+<p>令:</p>
+<p>$$<br>R_k=<br>\begin{bmatrix}<br> cos(w_ik) &amp; sin(w_ik) \<br> -sin(w_ik) &amp; cos(w_ik)<br>\end{bmatrix}^T<br>$$</p>
+<p>根据：</p>
+<p>$$<br>\begin{gather}<br>-sinx=sin-x \<br>cosx=cos-x<br>\end{gather}<br>$$</p>
+<p>易得：</p>
+<p>$$<br>R_k = R_{-k}^T<br>$$</p>
+<p>并有如下性质，从而可以表示相对位置：</p>
+<p>$$<br>R_{k_2-k_1}=R_{k_1}^TR_{k_2}<br>$$</p>
+<p>对位置为$m$的词向量$A$和位置为$n$的$B$，对他们乘上$R_m$和$R_n$，就给Attention加上了绝对位置信息，并且具有$m-n$的相对位置信息：</p>
+<p>$$<br>AR_m(BR_n)^T=AR_mR_n^TB=AR_{n-m}B<br>$$</p>
+<p>Rope被许多大模型如<a href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/">LLaMA</a>、<a href="https://huggingface.co/tiiuae/falcon-40b-instruct">falcon</a>等采用。以往较多模型采用直接embedding+学习的方式，但是这样最开始就定死了长度，遇到长文本只能截断，而Rope改良了这一点，使得大模型具有处理超长文本的能力。更多位置编码方式，可以参考苏神的博客<a href="https://kexue.fm/archives/8130">《让研究人员绞尽脑汁的Transformer位置编码》</a>。</p>
+<h3 id="Feed-Forward"><a href="#Feed-Forward" class="headerlink" title="Feed Forward"></a>Feed Forward</h3><p>Feed Forward简称FFN，在Encoder和Decoder的压轴处都各有一层，由两个全连接和<a href="https://proceedings.mlr.press/v15/glorot11a/glorot11a.pdf">ReLU</a>激活函数组成，如下式：</p>
+<p>$$<br>FFN(X)=max(0,xW_1+b_1)W_2+b_2<br>$$</p>
+<p>这个$$max$$就是ReLU。各个激活函数如图：</p>
+<p><img src="/imgs/Activation_Functions.gif" alt="Activation"></p>
+<p>ReLU的导数只有0和1，使得计算成本很低。</p>
+<p>两层全连接把模型维度从512扩展到了2048又回到512。我找遍了原文和各个教程，都没有详细解释这一步的作用。</p>
+<p>个人理解可能是扩展到更高维度以储存更多信息，但之前这么多参数还不够？</p>
+<p>也可能是加个激活函数，但是之前也有Softmax。</p>
+<p>有加入类似层进行调参的工作：<a href="https://arxiv.org/abs/1902.00751">adapter</a>，但其真实设计意图是什么，也不得而知了。</p>
+<h3 id="Add-amp-Norm"><a href="#Add-amp-Norm" class="headerlink" title="Add &amp; Norm"></a>Add &amp; Norm</h3><p>Add &amp; Norm由Add和Norm两部分组成。</p>
+<p>Add是将箭头指过来的两者相加，包括Attention和原embedding这两个矩阵相加、以及过了FFN和没过之前的矩阵相加，这个很简单，就不细说了。</p>
+<p>Norm指标准化，Transformer中使用<a href="https://pytorch.org/docs/stable/generated/torch.nn.LayerNorm.html">LayerNorm</a>，在图像领域常使用BatchNorm，两者都是拿均值方差做标准化处理，都是下式：</p>
+<p>$$<br>y=\frac{x-E[x]}{\sqrt{Var[x]+\epsilon }}<br>$$</p>
+<p>其中$$E[x]$$为均值，$$Var[x]$$为方差，$$\epsilon$$是一个很小的常数，用于避免分母为零。区别就在于两者拿来算均值方差的数不一样，如下：</p>
+<ul>
+<li>LayerNorm的均值方差，是对单个样本的不同特征做操作，即每个词向量内部；</li>
+<li>BatchNorm是对不同样本的同一特征做操作。</li>
+</ul>
+<p>拿“青花瓷”的相似矩阵为例，手推LayerNorm：</p>
+<pre><code class="python">import torch.nn as nn
+import math
+matrix = torch.Tensor([[3.2897, 0.7432, -1.1652],
+                       [0.7432, 1.3647, -1.1707],
+                       [-1.1652, -1.1707, 5.6380]])
+# torch官方的layer_norm
+layer_norm = nn.LayerNorm(matrix.shape[-1])
+y_torch = layer_norm(matrix)
+print(y_torch)
+# 初始化一个与matrix大小相同的全0矩阵
+y_ours = torch.zeros_like(matrix)
+# 手推均值方差和LayerNorm
+for row in range(matrix.shape[0]):
+    E = sum(matrix[row]) / len(matrix[row])
+    Var = 0
+    for col in range(matrix.shape[1]):
+        Var += (matrix[row, col] - E) ** 2 / len(matrix[row])
+    for col in range(matrix.shape[1]):
+        y_ours[row, col] = (matrix[row, col] - E) / math.sqrt(Var + 1e-5)
+print(y_ours)
+</code></pre>
+<p>求得的结果是一样的。可以看到结果中，有小于0也有大于1的，因此我认为有些教程称之为“归一化”是不合理的，归一化是通过MinMax将所有数据转换至0-1范围内。而LayerNorm，明显是均值0方差1的<strong>标准化</strong>。</p>
+<p>BatchNorm的代码如下：</p>
+<pre><code class="python">import torch.nn as nn
+import math
+matrix = torch.Tensor([[3.2897, 0.7432, -1.1652],
+                       [0.7432, 1.3647, -1.1707],
+                       [-1.1652, -1.1707, 5.6380]])
+layer_norm = nn.BatchNorm1d(matrix.shape[-1])
+y_batch = layer_norm(matrix)
+print(y_batch)
+y_ours = torch.zeros_like(matrix)
+# 手动求均值方差和norm
+for col in range(matrix.shape[1]):
+    E = sum(matrix[:, col]) / len(matrix[:, col])
+    Var = 0
+    for row in range(matrix.shape[0]):
+        Var += (matrix[row, col] - E) ** 2 / len(matrix[row])
+    for row in range(matrix.shape[1]):
+        y_ours[row, col] = (matrix[row, col] - E) / math.sqrt(Var + 1e-5)
+print(y_ours)
+</code></pre>
+<p>差别就在于LayerNorm在行，BatchNorm在列。</p>
+<p>Transformer 为什么使用 Layer？这个问题还没有啥定论，包括LN和BN为啥能work也众说纷纭，感兴趣的话可以参考<a href="https://arxiv.org/abs/1607.06450">原文</a>和以下论文：</p>
+<ul>
+<li>PowerNorm: Rethinking Batch Normalization in Transformers <a href="https://arxiv.org/abs/2003.07845">[1]</a></li>
+<li>Understanding and Improving Layer Normalization <a href="https://arxiv.org/abs/1911.07013">[2]</a></li>
+</ul>
+<p>了解Transformer这些基本组件后，还有值得探讨的是Mask。</p>
+<h3 id="Transformer中的Mask"><a href="#Transformer中的Mask" class="headerlink" title="Transformer中的Mask"></a>Transformer中的Mask</h3><p>此Mask非彼BERT的的那个掩码Mask。这里的Mask指Pad Mask和Attention Mask。</p>
+<p>在<strong>Encoder</strong>中，Pad Mask需要去掉$$<pad>$$的计算。什么是$$<pad>$$呢？为了并行计算提高训练速度，通常把数据打包成batch，一批批训练，例如一个batch：</p>
+<ul>
+<li>[“青花瓷”, “爱在西元前”, “星晴”]</li>
+</ul>
+<p>但是模型只能处理长度相同的句，于是用&lt;pad&gt;填充到相同长度</p>
+<ul>
+<li>[“青花瓷$$<pad><pad>$$”, “爱在西元前”, “星晴$$<pad><pad><pad>$$”]</li>
+</ul>
+<p>计算时把$$<pad>$$的位置设置成负无穷，softmax的值就趋于0，从而忽略。</p>
+<p>在<strong>Decoder</strong>中同样要Pad Mask，除此之外还需要Attention Mask来遮住后面的词。例如训练时文本是“星晴”，标签是“乘着风”，虽然知道标签全句“乘着风”，但是推理时是一个词一个词预测的，Decoder预测出“乘”时，并不知道后面是“着风”。为了在训练时适配推理，预测“着”时需要把“着风”给Mask，也就是去掉“乘”与“着”、“风”的相似度。</p>
+<p>”乘着风$$<pad><pad>$$“的Attention Mask矩阵如图：</p>
+<p>$$<br>\begin{matrix}<br>1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\<br>1 &amp; 1 &amp; 0 &amp; 0 &amp; 0\<br>1 &amp; 1 &amp; 1 &amp; 0 &amp; 0\<br>1 &amp; 1 &amp; 1 &amp; 0 &amp; 0\<br>1 &amp; 1 &amp; 1 &amp; 0 &amp; 0\<br>\end{matrix}<br>$$</p>
+<p>对应相似度矩阵0的位置会被替换成负无穷，softmax后值就趋于0，从而使得Attention矩阵第一行就只有第一个字的权重，第二行有一二两个字的权重，以此类推。</p>
+<h3 id="Transformer全览"><a href="#Transformer全览" class="headerlink" title="Transformer全览"></a>Transformer全览</h3><p>结合上述所有组件，对照着模型图，对Transformer做个全览。</p>
+<p><img src="/imgs/transformer.jpeg" alt="transformer"></p>
+<p>Encoder的流程如下：</p>
+<ol>
+<li><p>输入是<strong>“星晴”</strong>，先根据词表转化为2个向量的矩阵</p>
+</li>
+<li><p>加上位置信息</p>
+</li>
+<li><p>过Self-Attention</p>
+</li>
+<li><p>和没过Self-Attention的矩阵相加，然后LayerNorm标准化</p>
+</li>
+<li><p>过FFN，再和没过FFN的矩阵相加，然后LayerNorm标准化</p>
+</li>
+<li><p>得到跟输入向量维度一样的Encoder矩阵</p>
+</li>
+</ol>
+<p>为了告诉Decoder从哪开始到哪结束，需要添加开始符和结束符，例如$$<sos>$$（start of sentence）和$$<eos>$$（end of sentence）。Decoder训练的流程如下：</p>
+<ol>
+<li>标签是$$\text{trg} = [sos, x_1, x_2, x_3, eos]$$，输入<code>trg[:-1]</code>，如“$$<sos>$$乘着风”，根据词表转化为4个向量的矩阵</li>
+<li>加上位置信息</li>
+<li>过<strong>Attention Mask了</strong>的Self-Attention</li>
+<li>和没过Self-Attention的矩阵相加，然后LayerNorm标准化</li>
+<li><strong>得到的矩阵作为Q，Encoder矩阵作为KV，做Cross Attention</strong></li>
+<li>和没过<strong>Cross Attention</strong>的矩阵相加，然后LayerNorm标准化</li>
+<li>过FFN，再和没过FFN的矩阵相加，然后LayerNorm标准化</li>
+<li>**过一层全连接和Softmax，得到$$\text{output} = [y_0, y_1, y_2, y_3]$$**，例如得到“乘着车$$<eos>$$”</li>
+<li>多分类问题用交叉熵计算<code>trg[1:]</code>和<code>output</code>间的损失、更新参数</li>
+</ol>
+<p>Decoder推理时，这个流程变成：</p>
+<ol>
+<li>向Decoder输入$$<sos>$$，输出$$[y_0]$$</li>
+<li>合并得$$[<sos>, y_0]$$，继续向Decoder输入，得$$[y_0^{‘}, y_1]$$</li>
+<li>合并得$$[<sos>, y_0, y_1]$$，以此类推</li>
+<li>当预测到$$<eos>$$，或者达到设置的最大长度，停止</li>
+</ol>
+<p>通过本章，相信你已经对 Transformer 模型的定义和发展有了大概的了解。幸运的是，<a href="https://huggingface.co/">Hugging Face</a> 专门为使用 Transformer 模型编写了一个 <a href="https://huggingface.co/docs/transformers/index">Transformers 库</a>，并且在<a href="https://huggingface.co/models">Hugging Face Hub</a>中提供了训练好的模型以供快速使用。</p>
+<p>在后面的章节中我会手把手地带你编写并训练自己的 Transformer 模型。</p>
+]]></content>
+      <categories>
+        <category>Deep Learning</category>
+        <category>Transformers</category>
+      </categories>
+      <tags>
+        <tag>deep learning</tag>
+        <tag>transformers</tag>
+        <tag>attention</tag>
       </tags>
   </entry>
 </search>
