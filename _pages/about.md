@@ -5,7 +5,9 @@ redirect_from:
   - /about/
   - /about.html
 ---
-I am a undergraduate student at Harbin Institute of Technology and an incoming PhD student at [Shanghai Innovation Institue](https://www.sii.edu.cn/main.htm). Currently I am working under the guidance of [Prof.Songhua Liu](https://huage001.github.io/) at [School of Artificial Intelligence, Shanghai Jiao Tong University](https://soai.sjtu.edu.cn/). 
+I am an undergraduate student at [Harbin Institute of Technology (Weihai)](https://www.hitwh.edu.cn/) and an incoming PhD student at [School of Artificial Intelligence, Shanghai Jiao Tong University](https://soai.sjtu.edu.cn/) (through joint program with [Shanghai Innovation Institute](https://www.sii.edu.cn/main.htm)), advised by [Prof.Songhua Liu](https://huage001.github.io/). 
+Prior to that, I  was a remote student of [LINS LAB](https://lins-lab.github.io/), directed by [Tao Lin](https://tlin-taolin.github.io/).
+I have also done a research internship in [Wayne Xin Zhao](https://scholar.google.com/citations?user=JNhNacoAAAAJ&hl=en) 's AI BOX group(Gaoling School,Renmin University of China).
 
 My research interests include **generative models,computer vision,  and machine learning theory.** I am dedicated to building efficient generative model systems and exploring the application of generative models in computer vision.
 
